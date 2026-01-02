@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "rooms": "Odalar",
+    "gallery": "Galeri",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title1": "Nemrut Dağı'nın Eteklerinde Eşsiz Deneyim",
+    "subtitle1": "UNESCO Dünya Mirası'na sadece 2 km mesafede, konforlu konaklama",
+    "title2": "Tarihi ve Doğal Güzelliklerin Buluştuğu Yer",
+    "subtitle2": "Gün doğumu ve gün batımının büyüleyici manzaraları",
+    "viewRooms": "Odalarımızı İnceleyin",
+    "reservation": "Rezervasyon",
+    "viewGallery": "Galeriyi Görün"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Nemrut Dağı'nın büyüleyici atmosferinde hizmet veren otelimiz",
+    "heading": "Doğa ve Tarihin Buluşma Noktası",
+    "description": "Güneş Motel, 2 km mesafe ile Nemrut Dağı'na en yakın otel olma özelliğine sahiptir. Malatya sınırları içerisinde yer alan motelimiz, Nemrut Dağı'na ulaşımın en kolay ve en hızlı şekilde sağlanabildiği noktada konumlanmıştır. Böylece misafirlerimiz, dünyanın dört bir yanından gelen ziyaretçilerin hayranlıkla izlediği Nemrut'un unutulmaz gün doğumu ve gün batımını zahmetsizce deneyimleyebilir.\n\n1980'lerden bu yana aynı aile tarafından işletilen otelimiz, yalnızca bir konaklama yeri değil; samimiyetin, güvenin ve sıcak bir misafirperverliğin adresidir. Kuşaklar boyunca süregelen bu aile işletmesi kültürü sayesinde misafirlerimizi evlerinde hissettirmeyi bir gelenek haline getirdik.\n\nGüneş Motel'den yola çıkan misafirlerimiz yalnızca Nemrut Dağı'nı değil; Karakuş Tümülüsü, Cendere Köprüsü, Arsemia Ören Yeri, Kahta Kalesi ve Perre Antik Kenti gibi Kommagene medeniyetinin değerli miraslarını da keşfetme imkânı bulur.\n\nBiz, Güneş Motel olarak misafirlerimize tarih, doğa ve kültürün iç içe geçtiği bu coğrafyada unutulmaz bir deneyim yaşatmayı hedefliyoruz. Sizleri hem Anadolu'nun samimi konukseverliğini hem de Nemrut'un büyüleyici atmosferini birlikte hissetmeye davet ediyoruz."
+  },
+  "rooms": {
+    "title": "Odalarımız",
+    "subtitle": "Konforlu ve modern donanımlı odalarımız",
+    "double": "Standart 2 Kişilik Oda",
+    "doubleDesc": "Rahat ve konforlu oda",
+    "twin": "Çift Kişilik Oda",
+    "twinDesc": "Çiftler için ideal",
+    "triple": "3 Kişilik Oda",
+    "tripleDesc": "Arkadaş grupları için ideal",
+    "family": "5 Kişilik Aile Odası",
+    "familyDesc": "Geniş aileler için ideal",
+    "features": {
+      "guests": "Kişi",
+      "bed": "Çift Yatak",
+      "hotWater": "24s Sıcak Su",
+      "mountainView": "Dağ Manzarası",
+      "teaCoffee": "Çay/Kahve"
+    },
+    "perNight": "gecelik",
+    "popular": "Popüler",
+    "familyFriendly": "Aile Dostu"
+  },
+  "gallery": {
+    "title": "Galeri",
+    "subtitle": "Otelimizden ve çevresinden kareler"
+  },
+  "contact": {
+    "title": "İletişim & Rezervasyon",
+    "subtitle": "Bizimle iletişime geçin ve rezervasyon yapın",
+    "address": "Adres",
+    "addressText": "Karadut Köyü, Nemrut Dağı Yolu, Kahta/Adıyaman",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "workingHours": "Çalışma Saatleri",
+    "open247": "7/24 Açık",
+    "form": {
+      "title": "Rezervasyon Formu",
+      "checkIn": "Giriş Tarihi",
+      "checkOut": "Çıkış Tarihi",
+      "roomType": "Oda Tipi",
+      "selectRoom": "Oda Seçiniz",
+      "guests": "Kişi Sayısı",
+      "selectGuests": "Kişi Sayısı Seçiniz",
+      "fullName": "Ad Soyad",
+      "specialRequests": "Özel İstekler (Opsiyonel)",
+      "submit": "Rezervasyon Talebi Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Rezervasyon talebiniz başarıyla gönderildi! En kısa sürede size dönüş yapılacaktır.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    }
+  },
+  "footer": {
+    "description": "UNESCO Dünya Mirası Nemrut Dağı'na en yakın konaklama tesisi.",
+    "quickLinks": "Hızlı Linkler",
+    "services": "Hizmetlerimiz",
+    "service1": "Ücretsiz WiFi",
+    "service2": "24 Saat Sıcak Su",
+    "service3": "Nemrut Turu",
+    "service4": "Kahvaltı Dahil",
+    "contactInfo": "İletişim Bilgileri",
+    "copyright": "© 2024 Güneş Hotel. Tüm hakları saklıdır."
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "selectLanguage": "Dil Seçiniz"
+  }
+}

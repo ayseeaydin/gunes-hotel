@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi Siamo",
+    "rooms": "Camere",
+    "gallery": "Galleria",
+    "contact": "Contatto"
+  },
+  "hero": {
+    "title1": "Esperienza unica ai piedi del Monte Nemrut",
+    "subtitle1": "Alloggi confortevoli a soli 2 km dal Sito Patrimonio UNESCO",
+    "title2": "Dove storia e natura si incontrano",
+    "subtitle2": "Affascinanti viste di alba e tramonto",
+    "viewRooms": "Guarda le nostre camere",
+    "reservation": "Prenotazione",
+    "viewGallery": "Vedi galleria"
+  },
+  "about": {
+    "title": "Chi Siamo",
+    "subtitle": "Il nostro hotel che opera nella suggestiva atmosfera del Monte Nemrut",
+    "heading": "Il punto d'incontro tra natura e storia",
+    "description": "Güneş Motel è l'hotel più vicino al Monte Nemrut, a una distanza di 2 km..."
+  },
+  "rooms": {
+    "title": "Le Nostre Camere",
+    "subtitle": "Le nostre camere confortevoli e modernamente attrezzate",
+    "double": "Camera doppia standard",
+    "doubleDesc": "Camera confortevole e accogliente",
+    "twin": "Camera matrimoniale",
+    "twinDesc": "Ideale per le coppie",
+    "triple": "Camera tripla",
+    "tripleDesc": "Ideale per gruppi di amici",
+    "family": "Camera familiare per 5 persone",
+    "familyDesc": "Ideale per famiglie numerose",
+    "features": {
+      "guests": "persone",
+      "bed": "Letto matrimoniale",
+      "hotWater": "Acqua calda 24h",
+      "mountainView": "Vista montagna",
+      "teaCoffee": "Tè/Caffè"
+    },
+    "perNight": "a notte",
+    "popular": "Popolare",
+    "familyFriendly": "Per famiglie"
+  },
+  "gallery": {
+    "title": "Galleria",
+    "subtitle": "Foto dal nostro hotel e dintorni"
+  },
+  "contact": {
+    "title": "Contatto & Prenotazione",
+    "subtitle": "Contattaci e prenota",
+    "address": "Indirizzo",
+    "addressText": "Villaggio Karadut, Strada Monte Nemrut, Kahta/Adıyaman",
+    "phone": "Telefono",
+    "email": "Email",
+    "workingHours": "Orari di lavoro",
+    "open247": "Aperto 24/7",
+    "form": {
+      "title": "Modulo di Prenotazione",
+      "checkIn": "Data di arrivo",
+      "checkOut": "Data di partenza",
+      "roomType": "Tipo di camera",
+      "selectRoom": "Seleziona camera",
+      "guests": "Numero di ospiti",
+      "selectGuests": "Seleziona numero di ospiti",
+      "fullName": "Nome completo",
+      "specialRequests": "Richieste speciali (Opzionale)",
+      "submit": "Invia richiesta di prenotazione",
+      "sending": "Invio...",
+      "success": "La tua richiesta di prenotazione è stata inviata con successo! Ti contatteremo al più presto.",
+      "error": "Si è verificato un errore. Riprova."
+    }
+  },
+  "footer": {
+    "description": "La struttura ricettiva più vicina al Monte Nemrut, Patrimonio UNESCO.",
+    "quickLinks": "Link veloci",
+    "services": "I nostri servizi",
+    "service1": "WiFi gratuito",
+    "service2": "Acqua calda 24 ore",
+    "service3": "Tour Nemrut",
+    "service4": "Colazione inclusa",
+    "contactInfo": "Informazioni di contatto",
+    "copyright": "© 2024 Güneş Hotel. Tutti i diritti riservati."
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "selectLanguage": "Scegli Lingua"
+  }
+}

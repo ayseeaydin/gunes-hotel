@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "rooms": "Rooms",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title1": "Unique Experience at the Foot of Mount Nemrut",
+    "subtitle1": "Comfortable accommodation just 2 km from the UNESCO World Heritage Site",
+    "title2": "Where History and Nature Meet",
+    "subtitle2": "Enchanting sunrise and sunset views",
+    "viewRooms": "View Our Rooms",
+    "reservation": "Reservation",
+    "viewGallery": "View Gallery"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Our hotel serving in the captivating atmosphere of Mount Nemrut",
+    "heading": "Where Nature and History Meet",
+    "description": "Güneş Motel is the closest hotel to Mount Nemrut, at a distance of 2 km. Located within the borders of Malatya, our motel is positioned at the point from which access to Mount Nemrut is the easiest and fastest. In this way, our guests can effortlessly experience Nemrut's unforgettable sunrise and sunset, admired by visitors from all over the world.\n\nSince the 1980s, our hotel has been run by the same family; it is not just a place to stay, but an address of sincerity, trust, and warm hospitality. Thanks to this family-run culture passed down through generations, we have made it a tradition to make our guests feel at home.\n\nFrom Güneş Motel, our guests can discover not only Mount Nemrut but also the valuable heritage of the Kingdom of Commagene, such as the Karakuş Tumulus, the Cendere Bridge, the Arsemia Ruins, Kahta Castle, and the ancient city of Perre.\n\nAs Güneş Motel, we aim to offer our guests an unforgettable experience in this land where history, nature, and culture intertwine. We invite you to feel both the sincere hospitality of Anatolia and the enchanting atmosphere of Nemrut together."
+  },
+  "rooms": {
+    "title": "Our Rooms",
+    "subtitle": "Our comfortable, modernly equipped rooms",
+    "double": "Standard Double Room",
+    "doubleDesc": "A comfortable and cozy room",
+    "twin": "Double Room",
+    "twinDesc": "Ideal for couples",
+    "triple": "Triple Room",
+    "tripleDesc": "Ideal for groups of friends",
+    "family": "5-Person Family Room",
+    "familyDesc": "Ideal for large families",
+    "features": {
+      "guests": "Guests",
+      "bed": "Double Bed",
+      "hotWater": "24h Hot Water",
+      "mountainView": "Mountain View",
+      "teaCoffee": "Tea/Coffee"
+    },
+    "perNight": "per night",
+    "popular": "Popular",
+    "familyFriendly": "Family Friendly"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Photos from our hotel and surroundings"
+  },
+  "contact": {
+    "title": "Contact & Reservation",
+    "subtitle": "Get in touch with us and make a reservation",
+    "address": "Address",
+    "addressText": "Karadut Village, Mount Nemrut Road, Kahta/Adıyaman",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "open247": "Open 24/7",
+    "form": {
+      "title": "Reservation Form",
+      "checkIn": "Check-in Date",
+      "checkOut": "Check-out Date",
+      "roomType": "Room Type",
+      "selectRoom": "Select Room",
+      "guests": "Number of Guests",
+      "selectGuests": "Select Number of Guests",
+      "fullName": "Full Name",
+      "specialRequests": "Special Requests (Optional)",
+      "submit": "Send Reservation Request",
+      "sending": "Sending...",
+      "success": "Your reservation request has been sent successfully! We will get back to you as soon as possible.",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "description": "The closest accommodation facility to UNESCO World Heritage Mount Nemrut.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "service1": "Free WiFi",
+    "service2": "24 Hour Hot Water",
+    "service3": "Nemrut Tour",
+    "service4": "Breakfast Included",
+    "contactInfo": "Contact Information",
+    "copyright": "© 2024 Güneş Hotel. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "selectLanguage": "Choose Language"
+  }
+}
