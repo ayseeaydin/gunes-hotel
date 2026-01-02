@@ -1,0 +1,160 @@
+@import '../../styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: $transition;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar {
+    padding: 1rem 0;
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0.75rem 0;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+
+      @media (max-width: $breakpoint-md) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+
+      .logo-main {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $primary;
+        letter-spacing: 1px;
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 1.25rem;
+        }
+      }
+
+      .logo-sub {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $secondary;
+        letter-spacing: 2px;
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: 2px solid $primary;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: $transition;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+
+    &:hover {
+      background: rgba($primary, 0.1);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c18c30' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+
+  .nav-link {
+    color: $text-dark;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 8px;
+    transition: $transition;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+      background: rgba($primary, 0.1);
+    }
+
+    &.active {
+      color: $primary;
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: $primary;
+        border-radius: 2px;
+
+        @media (max-width: $breakpoint-lg) {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      padding: 0.75rem 1rem;
+      margin: 0.25rem 0;
+    }
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 30px;
+    background: $gray-300;
+    margin: 0 1rem;
+  }
+
+  .navbar-collapse {
+    @media (max-width: $breakpoint-lg) {
+      background: white;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+    }
+  }
+}
+
+// Smooth scroll padding for fixed header
+html {
+  scroll-padding-top: 100px;
+}

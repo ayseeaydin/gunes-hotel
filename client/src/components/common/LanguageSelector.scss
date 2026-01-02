@@ -1,0 +1,125 @@
+@import '../../styles/variables';
+
+.language-selector {
+  position: relative;
+
+  .current-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: $transition;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    &:hover,
+    &:focus {
+      background: $primary-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 10px rgba($primary, 0.3);
+      outline: none;
+    }
+
+    .flag {
+      font-size: 1.2rem;
+    }
+
+    .code {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    i {
+      font-size: 0.75rem;
+      transition: $transition;
+
+      &.rotate {
+        transform: rotate(180deg);
+      }
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      width: 100%;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: $border-radius-sm;
+    box-shadow: $shadow;
+    padding: 0.5rem;
+    min-width: 180px;
+    z-index: 1000;
+    animation: fadeInDown 0.3s ease;
+
+    @media (max-width: $breakpoint-lg) {
+      position: static;
+      box-shadow: none;
+      background: $gray-100;
+      margin-top: 0.5rem;
+      border-radius: $border-radius-sm;
+    }
+
+    .lang-option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: transparent;
+      border: none;
+      border-radius: $border-radius-sm;
+      cursor: pointer;
+      transition: $transition;
+      text-align: left;
+
+      &:hover,
+      &:focus {
+        background: rgba($primary, 0.1);
+        outline: none;
+      }
+
+      &.active {
+        background: rgba($primary, 0.15);
+        font-weight: 600;
+      }
+
+      .flag {
+        font-size: 1.5rem;
+      }
+
+      .name {
+        flex: 1;
+        color: $text-dark;
+        font-size: 0.95rem;
+      }
+
+      i {
+        color: $primary;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

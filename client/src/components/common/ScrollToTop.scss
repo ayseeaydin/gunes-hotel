@@ -1,0 +1,58 @@
+@import '../../styles/variables';
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: $shadow;
+  transition: $transition;
+  z-index: 999;
+  animation: fadeInUp 0.3s ease;
+
+  &:hover {
+    background: $primary-dark;
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
