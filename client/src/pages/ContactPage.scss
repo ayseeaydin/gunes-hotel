@@ -1,0 +1,195 @@
+@import '../styles/variables';
+
+.contact-page {
+  .page-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('/img/gallery-1.JPG') center/cover no-repeat;
+    padding: 150px 0 100px;
+    margin-top: 80px;
+    color: white;
+    text-align: center;
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .lead {
+        font-size: 1.3rem;
+        opacity: 0.95;
+      }
+    }
+  }
+
+  .contact-section {
+    .contact-info {
+      .info-card {
+        background: white;
+        padding: 2rem;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        margin-bottom: 1.5rem;
+        transition: $transition;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $shadow-lg;
+        }
+
+        .info-icon {
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1rem;
+
+          i {
+            font-size: 1.5rem;
+            color: white;
+          }
+        }
+
+        h4 {
+          color: $secondary;
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          font-size: 1.1rem;
+        }
+
+        p {
+          color: $gray-700;
+          margin: 0;
+          line-height: 1.6;
+
+          a {
+            color: $primary;
+            font-weight: 600;
+            transition: $transition;
+
+            &:hover {
+              color: $primary-dark;
+            }
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        a {
+          width: 50px;
+          height: 50px;
+          background: white;
+          border: 2px solid $gray-300;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $gray-700;
+          font-size: 1.2rem;
+          transition: $transition;
+
+          &:hover {
+            background: $primary;
+            border-color: $primary;
+            color: white;
+            transform: translateY(-3px);
+          }
+        }
+      }
+    }
+
+    .reservation-form {
+      background: white;
+      padding: 3rem;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+
+      @media (max-width: $breakpoint-md) {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-title {
+        color: $secondary;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid $primary;
+      }
+
+      .form-label {
+        color: $secondary;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-control,
+      .form-select {
+        padding: 0.875rem 1rem;
+        border: 2px solid $gray-300;
+        border-radius: $border-radius-sm;
+        transition: $transition;
+
+        &:focus {
+          border-color: $primary;
+          box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+        }
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 1rem;
+        background: $primary;
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: $transition;
+
+        &:hover:not(:disabled) {
+          background: $primary-dark;
+          transform: translateY(-2px);
+          box-shadow: $shadow;
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .map-section {
+    margin-top: 5rem;
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      filter: grayscale(20%);
+      transition: $transition;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+  }
+}

@@ -1,0 +1,287 @@
+@import '../../styles/variables';
+
+.hero {
+  position: relative;
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  min-height: 600px;
+
+  @media (max-width: $breakpoint-md) {
+    height: calc(100vh - 70px);
+    min-height: 500px;
+  }
+
+  .hero-slider {
+    height: 100%;
+
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+
+    .slide {
+      position: relative;
+      height: calc(100vh - 80px);
+      min-height: 600px;
+
+      @media (max-width: $breakpoint-md) {
+        height: calc(100vh - 70px);
+        min-height: 500px;
+      }
+
+      .slide-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: kenburns 20s ease infinite;
+      }
+
+      .slide-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.3) 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
+
+      .slide-content {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        z-index: 2;
+
+        .content-wrapper {
+          max-width: 900px;
+          padding: 2rem;
+
+          h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 2.5rem;
+            }
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 2rem;
+            }
+          }
+
+          p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.2s backwards;
+
+            @media (max-width: $breakpoint-md) {
+              font-size: 1.1rem;
+            }
+          }
+
+          .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s backwards;
+
+            .btn {
+              padding: 1rem 2.5rem;
+              font-size: 1.1rem;
+              font-weight: 600;
+              border-radius: 50px;
+              transition: $transition;
+
+              @media (max-width: $breakpoint-md) {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+              }
+
+              &.btn-primary {
+                background: $primary;
+                border: 2px solid $primary;
+                color: white;
+
+                &:hover {
+                  background: $primary-dark;
+                  border-color: $primary-dark;
+                  transform: translateY(-3px);
+                  box-shadow: 0 10px 25px rgba($primary, 0.4);
+                }
+              }
+
+              &.btn-outline {
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+
+                &:hover {
+                  background: white;
+                  color: $primary;
+                  transform: translateY(-3px);
+                  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Slick Arrows
+    .slick-prev,
+    .slick-next {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      border-radius: 50%;
+      z-index: 10;
+      transition: $transition;
+
+      &:hover {
+        background: $primary;
+        border-color: $primary;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      i {
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        width: 45px;
+        height: 45px;
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .slick-prev {
+      left: 30px;
+
+      @media (max-width: $breakpoint-md) {
+        left: 15px;
+      }
+    }
+
+    .slick-next {
+      right: 30px;
+
+      @media (max-width: $breakpoint-md) {
+        right: 15px;
+      }
+    }
+
+    // Slick Dots
+    .slick-dots {
+      bottom: 40px;
+
+      li {
+        margin: 0 5px;
+
+        button {
+          &::before {
+            font-size: 12px;
+            color: white;
+            opacity: 0.5;
+            transition: $transition;
+          }
+        }
+
+        &.slick-active button::before {
+          opacity: 1;
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  // Scroll Indicator
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 2px solid white;
+      border-radius: 50%;
+      color: white;
+      animation: bounce 2s infinite;
+      transition: $transition;
+
+      &:hover {
+        background: $primary;
+        border-color: $primary;
+      }
+
+      i {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

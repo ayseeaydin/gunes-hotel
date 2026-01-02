@@ -1,0 +1,277 @@
+@import '../styles/variables';
+
+.gallery-page {
+  .page-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('/img/gallery-4.JPG') center/cover no-repeat;
+    padding: 150px 0 100px;
+    margin-top: 80px;
+    color: white;
+    text-align: center;
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .lead {
+        font-size: 1.3rem;
+        opacity: 0.95;
+      }
+    }
+  }
+
+  .gallery-section {
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+
+      .filter-btn {
+        padding: 0.875rem 2rem;
+        background: white;
+        border: 2px solid $gray-300;
+        border-radius: 50px;
+        color: $text-dark;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover,
+        &:focus {
+          border-color: $primary;
+          color: $primary;
+          transform: translateY(-2px);
+          box-shadow: $shadow-sm;
+          outline: none;
+        }
+
+        &.active {
+          background: $primary;
+          border-color: $primary;
+          color: white;
+        }
+
+        i {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .gallery-grid {
+      .gallery-item {
+        margin-bottom: 2rem;
+      }
+
+      .gallery-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: $border-radius;
+        cursor: pointer;
+        height: 300px;
+        box-shadow: $shadow;
+        transition: $transition;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $shadow-lg;
+
+          img {
+            transform: scale(1.1);
+          }
+
+          .gallery-overlay {
+            opacity: 1;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: $transition-slow;
+        }
+
+        .gallery-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: $transition;
+          color: white;
+
+          i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: $primary;
+          }
+
+          p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 0 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Gallery Modal Styles
+.gallery-modal {
+  .modal-content {
+    background: rgba(0, 0, 0, 0.95);
+    border: none;
+    border-radius: 0;
+  }
+
+  .modal-body {
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: $transition;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: $primary;
+        border-color: $primary;
+        transform: rotate(90deg);
+      }
+    }
+
+    .modal-prev,
+    .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: $transition;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: $primary;
+        border-color: $primary;
+      }
+    }
+
+    .modal-prev {
+      left: 20px;
+    }
+
+    .modal-next {
+      right: 20px;
+    }
+
+    .modal-image {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: $border-radius-sm;
+    }
+
+    .modal-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 90%;
+
+      p {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .image-counter {
+        color: $primary;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      .modal-prev,
+      .modal-next {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+
+      .modal-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .modal-caption {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
