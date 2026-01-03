@@ -11,15 +11,18 @@
     "subtitle1": "Alloggi confortevoli a soli 2 km dal Sito Patrimonio UNESCO",
     "title2": "Dove storia e natura si incontrano",
     "subtitle2": "Affascinanti viste di alba e tramonto",
+    "title3": "Monte Nemrut",
+    "subtitle3": "Patrimonio UNESCO",
     "viewRooms": "Guarda le nostre camere",
     "reservation": "Prenotazione",
-    "viewGallery": "Vedi galleria"
+    "viewGallery": "Vedi galleria",
+    "scrollDown": "Scorri Verso il Basso"
   },
   "about": {
     "title": "Chi Siamo",
     "subtitle": "Il nostro hotel che opera nella suggestiva atmosfera del Monte Nemrut",
     "heading": "Il punto d'incontro tra natura e storia",
-    "description": "Güneş Motel è l'hotel più vicino al Monte Nemrut, a una distanza di 2 km..."
+    "description": "Güneş Motel è l'hotel più vicino al Monte Nemrut, a una distanza di 2 km. Situato entro i confini di Malatya, il nostro motel è posizionato nel punto da cui l'accesso al Monte Nemrut è il più facile e veloce. In questo modo, i nostri ospiti possono vivere senza sforzo l'indimenticabile alba e tramonto di Nemrut, ammirati da visitatori di tutto il mondo.\n\nDagli anni '80, il nostro hotel è gestito dalla stessa famiglia; non è solo un luogo dove soggiornare, ma un indirizzo di sincerità, fiducia e calorosa ospitalità. Grazie a questa cultura di gestione familiare tramandata attraverso le generazioni, abbiamo reso una tradizione far sentire i nostri ospiti a casa.\n\nDal Güneş Motel, i nostri ospiti possono scoprire non solo il Monte Nemrut ma anche il prezioso patrimonio del Regno di Commagene, come il Tumulo di Karakuş, il Ponte di Cendere, le Rovine di Arsemia, il Castello di Kahta e l'antica città di Perre.\n\nCome Güneş Motel, miriamo a offrire ai nostri ospiti un'esperienza indimenticabile in questa terra dove storia, natura e cultura si intrecciano. Vi invitiamo a sentire insieme sia la sincera ospitalità dell'Anatolia che l'atmosfera incantevole di Nemrut."
   },
   "rooms": {
     "title": "Le Nostre Camere",
@@ -32,16 +35,19 @@
     "tripleDesc": "Ideale per gruppi di amici",
     "family": "Camera familiare per 5 persone",
     "familyDesc": "Ideale per famiglie numerose",
+    "viewDetails": "Vedi Dettagli",
+    "startingFrom": "A Partire Da",
+    "perNight": "a notte",
+    "viewAll": "Vedi Tutte le Camere",
+    "popular": "Popolare",
+    "familyFriendly": "Per famiglie",
     "features": {
       "guests": "persone",
       "bed": "Letto matrimoniale",
       "hotWater": "Acqua calda 24h",
       "mountainView": "Vista montagna",
       "teaCoffee": "Tè/Caffè"
-    },
-    "perNight": "a notte",
-    "popular": "Popolare",
-    "familyFriendly": "Per famiglie"
+    }
   },
   "gallery": {
     "title": "Galleria",

@@ -11,9 +11,12 @@
     "subtitle1": "Comfortable accommodation just 2 km from the UNESCO World Heritage Site",
     "title2": "Where History and Nature Meet",
     "subtitle2": "Enchanting sunrise and sunset views",
+    "title3": "Mount Nemrut",
+    "subtitle3": "UNESCO World Heritage Site",
     "viewRooms": "View Our Rooms",
     "reservation": "Reservation",
-    "viewGallery": "View Gallery"
+    "viewGallery": "View Gallery",
+    "scrollDown": "Scroll Down"
   },
   "about": {
     "title": "About Us",
@@ -32,16 +35,19 @@
     "tripleDesc": "Ideal for groups of friends",
     "family": "5-Person Family Room",
     "familyDesc": "Ideal for large families",
+    "viewDetails": "View Details",
+    "startingFrom": "Starting From",
+    "perNight": "per night",
+    "viewAll": "View All Rooms",
+    "popular": "Popular",
+    "familyFriendly": "Family Friendly",
     "features": {
       "guests": "Guests",
       "bed": "Double Bed",
       "hotWater": "24h Hot Water",
       "mountainView": "Mountain View",
       "teaCoffee": "Tea/Coffee"
-    },
-    "perNight": "per night",
-    "popular": "Popular",
-    "familyFriendly": "Family Friendly"
+    }
   },
   "gallery": {
     "title": "Gallery",

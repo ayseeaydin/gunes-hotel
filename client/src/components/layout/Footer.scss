@@ -6,14 +6,41 @@
   padding: 4rem 0 0;
   margin-top: 5rem;
 
+  @media (max-width: $breakpoint-md) {
+    padding: 3rem 0 0;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2.5rem 0 0;
+    margin-top: 2rem;
+  }
+
   .footer-content {
     padding-bottom: 3rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: $breakpoint-md) {
+      padding-bottom: 2rem;
+    }
   }
 
   .footer-section {
+    // Mobilde her section arasına boşluk
+    @media (max-width: $breakpoint-lg) {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     .footer-logo {
       margin-bottom: 1.5rem;
+
+      @media (max-width: $breakpoint-sm) {
+        margin-bottom: 1rem;
+      }
 
       .logo-text {
         display: flex;
@@ -25,6 +52,15 @@
           font-weight: 800;
           color: $primary;
           letter-spacing: 2px;
+
+          @media (max-width: $breakpoint-md) {
+            font-size: 1.75rem;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
+          }
         }
 
         .logo-sub {
@@ -32,6 +68,16 @@
           font-weight: 600;
           color: $text-light;
           letter-spacing: 3px;
+
+          @media (max-width: $breakpoint-md) {
+            font-size: 1.1rem;
+            letter-spacing: 2.5px;
+          }
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 1rem;
+            letter-spacing: 2px;
+          }
         }
       }
     }
@@ -40,11 +86,22 @@
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.8;
       margin-bottom: 1.5rem;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
     }
 
     .social-links {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 0.75rem;
+      }
 
       a {
         width: 40px;
@@ -57,13 +114,26 @@
         color: $text-light;
         transition: $transition;
 
+        @media (max-width: $breakpoint-sm) {
+          width: 45px;
+          height: 45px;
+        }
+
         &:hover {
           background: $primary;
           transform: translateY(-3px);
         }
 
+        &:active {
+          transform: translateY(-1px);
+        }
+
         i {
           font-size: 1.1rem;
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 1.2rem;
+          }
         }
       }
     }
@@ -76,6 +146,16 @@
       position: relative;
       padding-bottom: 0.5rem;
 
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.15rem;
+        margin-bottom: 1.25rem;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
       &::after {
         content: '';
         position: absolute;
@@ -84,6 +164,10 @@
         width: 50px;
         height: 2px;
         background: $primary;
+
+        @media (max-width: $breakpoint-sm) {
+          width: 40px;
+        }
       }
     }
 
@@ -95,6 +179,10 @@
       li {
         margin-bottom: 0.75rem;
 
+        @media (max-width: $breakpoint-sm) {
+          margin-bottom: 0.6rem;
+        }
+
         a,
         span {
           color: rgba(255, 255, 255, 0.8);
@@ -102,6 +190,11 @@
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
+          font-size: 0.95rem;
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 0.9rem;
+          }
 
           &:hover {
             color: $primary;
@@ -112,6 +205,7 @@
         i {
           color: $primary;
           width: 20px;
+          font-size: 0.9rem;
         }
       }
     }
@@ -126,17 +220,34 @@
         gap: 1rem;
         margin-bottom: 1rem;
         color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+
+        @media (max-width: $breakpoint-sm) {
+          font-size: 0.9rem;
+          gap: 0.75rem;
+          margin-bottom: 0.85rem;
+        }
 
         i {
           color: $primary;
           font-size: 1.1rem;
           margin-top: 0.25rem;
           min-width: 20px;
+
+          @media (max-width: $breakpoint-sm) {
+            font-size: 1rem;
+            min-width: 18px;
+          }
+        }
+
+        span {
+          line-height: 1.6;
         }
 
         a {
           color: rgba(255, 255, 255, 0.8);
           transition: $transition;
+          word-break: break-word;
 
           &:hover {
             color: $primary;
@@ -157,23 +268,39 @@
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
       text-align: center;
+      padding: 1.5rem 0;
     }
 
     .copyright {
       color: rgba(255, 255, 255, 0.6);
       margin: 0;
       font-size: 0.9rem;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 0.85rem;
+      }
     }
 
     .footer-bottom-links {
       display: flex;
       gap: 1rem;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      @media (max-width: $breakpoint-sm) {
+        gap: 0.75rem;
+      }
 
       a {
         color: rgba(255, 255, 255, 0.6);
         font-size: 0.9rem;
         transition: $transition;
+        white-space: nowrap;
+
+        @media (max-width: $breakpoint-sm) {
+          font-size: 0.85rem;
+        }
 
         &:hover {
           color: $primary;
@@ -182,6 +309,10 @@
 
       .separator {
         color: rgba(255, 255, 255, 0.3);
+
+        @media (max-width: $breakpoint-xs) {
+          display: none;
+        }
       }
     }
   }

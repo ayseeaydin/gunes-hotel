@@ -18,36 +18,36 @@ const Hero = () => {
     fade: true,
     pauseOnHover: false,
     arrows: true,
-    prevArrow: <button className="slick-prev"><i className="fas fa-chevron-left"></i></button>,
-    nextArrow: <button className="slick-next"><i className="fas fa-chevron-right"></i></button>
+    prevArrow: <button type="button" className="slick-prev" aria-label="Previous"><i className="fas fa-chevron-left"></i></button>,
+    nextArrow: <button type="button" className="slick-next" aria-label="Next"><i className="fas fa-chevron-right"></i></button>
   }
 
   const slides = [
     {
       image: '/img/slide-1.jpg',
-      title: t('hero.title1'),
-      subtitle: t('hero.subtitle1'),
+      titleKey: 'hero.title1',
+      subtitleKey: 'hero.subtitle1',
       buttons: [
-        { text: t('hero.viewRooms'), link: '/rooms', primary: true },
-        { text: t('hero.reservation'), link: '/contact', primary: false }
+        { textKey: 'hero.viewRooms', link: '/rooms', primary: true },
+        { textKey: 'hero.reservation', link: '/contact', primary: false }
       ]
     },
     {
       image: '/img/slide-2.jpg',
-      title: t('hero.title2'),
-      subtitle: t('hero.subtitle2'),
+      titleKey: 'hero.title2',
+      subtitleKey: 'hero.subtitle2',
       buttons: [
-        { text: t('hero.viewGallery'), link: '/gallery', primary: true },
-        { text: t('hero.reservation'), link: '/contact', primary: false }
+        { textKey: 'hero.viewGallery', link: '/gallery', primary: true },
+        { textKey: 'hero.reservation', link: '/contact', primary: false }
       ]
     },
     {
       image: '/img/gallery-4.JPG',
-      title: 'Nemrut Dağı',
-      subtitle: 'UNESCO Dünya Mirası',
+      titleKey: 'hero.title3',
+      subtitleKey: 'hero.subtitle3',
       buttons: [
-        { text: t('nav.about'), link: '/about', primary: true },
-        { text: t('hero.reservation'), link: '/contact', primary: false }
+        { textKey: 'nav.about', link: '/about', primary: true },
+        { textKey: 'hero.reservation', link: '/contact', primary: false }
       ]
     }
   ]
@@ -66,8 +66,8 @@ const Hero = () => {
             <div className="slide-content">
               <div className="container">
                 <div className="content-wrapper" data-aos="fade-up">
-                  <h1>{slide.title}</h1>
-                  <p>{slide.subtitle}</p>
+                  <h1>{t(slide.titleKey)}</h1>
+                  <p>{t(slide.subtitleKey)}</p>
                   <div className="hero-buttons">
                     {slide.buttons.map((button, btnIndex) => (
                       <Link 
@@ -75,7 +75,7 @@ const Hero = () => {
                         to={button.link} 
                         className={`btn ${button.primary ? 'btn-primary' : 'btn-outline'}`}
                       >
-                        {button.text}
+                        {t(button.textKey)}
                       </Link>
                     ))}
                   </div>
@@ -88,7 +88,7 @@ const Hero = () => {
 
       {/* Scroll Down Indicator */}
       <div className="scroll-indicator">
-        <a href="#about" aria-label="Aşağı kaydır">
+        <a href="#about" aria-label={t('hero.scrollDown')}>
           <i className="fas fa-chevron-down"></i>
         </a>
       </div>

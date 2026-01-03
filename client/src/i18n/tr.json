@@ -11,9 +11,12 @@
     "subtitle1": "UNESCO Dünya Mirası'na sadece 2 km mesafede, konforlu konaklama",
     "title2": "Tarihi ve Doğal Güzelliklerin Buluştuğu Yer",
     "subtitle2": "Gün doğumu ve gün batımının büyüleyici manzaraları",
+    "title3": "Nemrut Dağı",
+    "subtitle3": "UNESCO Dünya Mirası",
     "viewRooms": "Odalarımızı İnceleyin",
     "reservation": "Rezervasyon",
-    "viewGallery": "Galeriyi Görün"
+    "viewGallery": "Galeriyi Görün",
+    "scrollDown": "Aşağı Kaydır"
   },
   "about": {
     "title": "Hakkımızda",
@@ -32,16 +35,19 @@
     "tripleDesc": "Arkadaş grupları için ideal",
     "family": "5 Kişilik Aile Odası",
     "familyDesc": "Geniş aileler için ideal",
+    "viewDetails": "Detayları Gör",
+    "startingFrom": "Başlangıç",
+    "perNight": "gecelik",
+    "viewAll": "Tüm Odaları Görüntüle",
+    "popular": "Popüler",
+    "familyFriendly": "Aile Dostu",
     "features": {
       "guests": "Kişi",
       "bed": "Çift Yatak",
       "hotWater": "24s Sıcak Su",
       "mountainView": "Dağ Manzarası",
       "teaCoffee": "Çay/Kahve"
-    },
-    "perNight": "gecelik",
-    "popular": "Popüler",
-    "familyFriendly": "Aile Dostu"
+    }
   },
   "gallery": {
     "title": "Galeri",

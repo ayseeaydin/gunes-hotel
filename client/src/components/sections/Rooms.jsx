@@ -104,7 +104,7 @@ const Rooms = () => {
                   <img src={room.image} alt={room.name} />
                   <div className="room-overlay">
                     <Link to="/rooms" className="btn btn-light">
-                      Detayları Gör
+                      {t('rooms.viewDetails')}
                     </Link>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Rooms = () => {
 
                   <div className="room-footer">
                     <div className="room-price">
-                      <span className="price-label">Başlangıç</span>
+                      <span className="price-label">{t('rooms.startingFrom')}</span>
                       <span className="price-amount">₺{room.price}</span>
                       <span className="price-period">/ {t('rooms.perNight')}</span>
                     </div>
@@ -140,7 +140,7 @@ const Rooms = () => {
 
         <div className="text-center mt-4" data-aos="fade-up">
           <Link to="/rooms" className="btn btn-outline btn-lg">
-            Tüm Odaları Görüntüle
+            {t('rooms.viewAll')}
           </Link>
         </div>
       </Container>
