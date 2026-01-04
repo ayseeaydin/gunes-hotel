@@ -27,7 +27,9 @@ const About = () => {
   ]
 
   const handleImageError = (e) => {
-    console.error('Image failed to load:', e.target.src)
+    if (import.meta.env.DEV) {
+      console.error('About section image failed to load:', e.target.src)
+    }
     setImageError(true)
     // Fallback image
     e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f0f0f0" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18"%3EGörsel Yüklenemedi%3C/text%3E%3C/svg%3E'
@@ -52,7 +54,6 @@ const About = () => {
                 className="img-fluid about-image"
                 loading="lazy"
                 onError={handleImageError}
-                onLoad={() => console.log('About image loaded successfully')}
               />
               {imageError && (
                 <div className="image-error-overlay">

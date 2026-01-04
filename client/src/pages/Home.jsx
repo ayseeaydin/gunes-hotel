@@ -7,13 +7,6 @@ import Rooms from '@components/sections/Rooms'
 import Gallery from '@components/sections/Gallery'
 import Contact from '@components/sections/Contact'
 
-// Debug için - production'da kaldırılacak
-const ImageDebugger = React.lazy(() => 
-  import.meta.env.DEV 
-    ? import('@components/common/ImageDebugger')
-    : Promise.resolve({ default: () => null })
-)
-
 const Home = () => {
   const { t } = useTranslation()
 
@@ -40,13 +33,13 @@ const Home = () => {
     <>
       <Helmet>
         <title>Güneş Hotel - Nemrut Dağı | Ana Sayfa</title>
-        <meta 
-          name="description" 
-          content="UNESCO Dünya Mirası Nemrut Dağı'na en yakın otel. Konforlu konaklama, muhteşem manzara ve sıcak misafirperverlik." 
+        <meta
+          name="description"
+          content="UNESCO Dünya Mirası Nemrut Dağı'na en yakın otel. Konforlu konaklama, muhteşem manzara ve sıcak misafirperverlik."
         />
-        <meta 
-          name="keywords" 
-          content="Nemrut Dağı, otel, konaklama, Kahta, Adıyaman, gün doğumu, gün batımı, UNESCO" 
+        <meta
+          name="keywords"
+          content="Nemrut Dağı, otel, konaklama, Kahta, Adıyaman, gün doğumu, gün batımı, UNESCO"
         />
         <link rel="canonical" href="https://guneshotel.com/" />
       </Helmet>
@@ -56,13 +49,6 @@ const Home = () => {
       <Rooms />
       <Gallery />
       <Contact />
-
-      {/* Development'ta Image Debugger göster */}
-      {import.meta.env.DEV && (
-        <React.Suspense fallback={null}>
-          <ImageDebugger images={debugImages} />
-        </React.Suspense>
-      )}
     </>
   )
 }

@@ -22,7 +22,6 @@ const Gallery = () => {
   ]
 
   const handleImageError = (index, e) => {
-    console.error(`Gallery image ${index} failed to load:`, e.target.src)
     setImageErrors(prev => ({ ...prev, [index]: true }))
     e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f0f0f0" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="16"%3EGaleri Görseli%3C/text%3E%3C/svg%3E'
   }
@@ -79,7 +78,6 @@ const Gallery = () => {
                   className="img-fluid"
                   loading="lazy"
                   onError={(e) => handleImageError(index, e)}
-                  onLoad={() => console.log(`Gallery image ${index} loaded successfully`)}
                 />
                 {imageErrors[index] && (
                   <div className="image-error-badge">
@@ -136,7 +134,6 @@ const Gallery = () => {
             alt={galleryImages[currentImage]?.alt}
             className="modal-image"
             onError={(e) => {
-              console.error('Modal image failed to load')
               e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23333" width="800" height="600"/%3E%3Ctext fill="%23fff" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="24"%3EGörsel Yüklenemedi%3C/text%3E%3C/svg%3E'
             }}
           />
