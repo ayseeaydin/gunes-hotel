@@ -3,35 +3,125 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      // Fast Refresh optimizasyonu
+      fastRefresh: true,
+      // Babel optimizasyonları
+      babel: {
+        plugins: [
+          // Remove console.log in production
+          process.env.NODE_ENV === 'production' && 'transform-remove-console'
+        ].filter(Boolean)
+      }
+    }),
     
     // Gzip compression
     viteCompression({
       verbose: true,
       disable: false,
-      threshold: 10240,
+      threshold: 10240, // 10kb üzeri dosyalar sıkıştırılacak
       algorithm: 'gzip',
-      ext: '.gz'
+      ext: '.gz',
+      deleteOriginFile: false
     }),
     
-    // Brotli compression
+    // Brotli compression - Daha iyi sıkıştırma
     viteCompression({
       verbose: true,
       disable: false,
       threshold: 10240,
       algorithm: 'brotliCompress',
-      ext: '.br'
+      ext: '.br',
+      deleteOriginFile: false
     }),
     
-    // Bundle analyzer
+    // PWA Support
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      manifest: {
+        name: 'Güneş Hotel - Nemrut Dağı',
+        short_name: 'Güneş Hotel',
+        description: 'UNESCO Dünya Mirası Nemrut Dağı\'na en yakın otel',
+        theme_color: '#c18c30',
+        background_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
+      },
+      workbox: {
+        // Runtime caching strategies
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/cdnjs\.cloudflare\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'cdn-cache',
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              }
+            }
+          }
+        ]
+      }
+    }),
+    
+    // Bundle analyzer - production build sonrası görselleştirme
     visualizer({
       filename: './dist/stats.html',
       open: false,
       gzipSize: true,
-      brotliSize: true
+      brotliSize: true,
+      template: 'treemap' // sunburst, treemap, network
     })
   ],
   
@@ -49,82 +139,134 @@ export default defineConfig({
   
   server: {
     port: 3000,
+    host: true,
+    open: true,
+    cors: true,
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
-        changeOrigin: true
+        changeOrigin: true,
+        secure: false
       }
     }
   },
   
+  preview: {
+    port: 4173,
+    host: true,
+    open: true
+  },
+  
   build: {
     outDir: 'build',
-    sourcemap: false,
-    chunkSizeWarningLimit: 1000,
+    sourcemap: false, // Production'da sourcemap kapalı
     cssCodeSplit: true,
+    chunkSizeWarningLimit: 1000,
     
+    // Minification
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: true, // console.log'ları kaldır
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info']
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        passes: 2 // İki geçişli optimizasyon
+      },
+      format: {
+        comments: false // Yorumları kaldır
       }
     },
     
+    // Rollup options
     rollupOptions: {
       output: {
+        // Manuel chunk splitting - daha iyi code splitting
         manualChunks: (id) => {
+          // React core
           if (id.includes('node_modules/react') || 
-              id.includes('node_modules/react-dom')) {
+              id.includes('node_modules/react-dom') ||
+              id.includes('node_modules/scheduler')) {
             return 'react-vendor'
           }
           
-          if (id.includes('node_modules/react-router-dom')) {
+          // React Router
+          if (id.includes('node_modules/react-router-dom') ||
+              id.includes('node_modules/react-router') ||
+              id.includes('node_modules/@remix-run')) {
             return 'router'
           }
           
+          // Bootstrap & React Bootstrap
           if (id.includes('node_modules/react-bootstrap') || 
-              id.includes('node_modules/bootstrap')) {
+              id.includes('node_modules/bootstrap') ||
+              id.includes('node_modules/@restart')) {
             return 'bootstrap'
           }
           
+          // Slider
           if (id.includes('node_modules/react-slick') || 
               id.includes('node_modules/slick-carousel')) {
             return 'slider'
           }
           
+          // i18n
           if (id.includes('node_modules/react-i18next') || 
               id.includes('node_modules/i18next')) {
             return 'i18n'
           }
           
+          // AOS
           if (id.includes('node_modules/aos')) {
             return 'aos'
           }
           
+          // Axios
+          if (id.includes('node_modules/axios')) {
+            return 'axios'
+          }
+          
+          // Diğer node_modules
           if (id.includes('node_modules')) {
             return 'vendor'
           }
         },
         
+        // Asset isimlendirme
         assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split('.').pop()
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+          const extType = assetInfo.name.split('.').pop()
+          
+          // Görseller
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(extType)) {
             return `assets/images/[name]-[hash][extname]`
           }
+          
+          // Fontlar
           if (/woff|woff2|eot|ttf|otf/i.test(extType)) {
             return `assets/fonts/[name]-[hash][extname]`
           }
+          
+          // CSS
+          if (extType === 'css') {
+            return `assets/css/[name]-[hash][extname]`
+          }
+          
           return `assets/[name]-[hash][extname]`
         },
         
+        // JavaScript chunk isimlendirme
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js'
       }
-    }
+    },
+    
+    // Reporting
+    reportCompressedSize: true,
+    
+    // CSS options
+    cssMinify: true
   },
   
+  // Optimizasyon
   optimizeDeps: {
     include: [
       'react',
@@ -132,7 +274,16 @@ export default defineConfig({
       'react-router-dom',
       'react-bootstrap',
       'react-i18next',
-      'i18next'
-    ]
+      'i18next',
+      'axios'
+    ],
+    exclude: ['@vite/client', '@vite/env']
+  },
+  
+  // Esbuild optimizasyonları
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' },
+    legalComments: 'none',
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : []
   }
 })

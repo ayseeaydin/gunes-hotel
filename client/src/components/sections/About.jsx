@@ -7,11 +7,29 @@ import './About.scss'
 const About = () => {
   const { t } = useTranslation()
 
+  const features = [
+    {
+      icon: 'fa-home',
+      title: 'Aile İşletmesi',
+      description: '1980\'lerden beri'
+    },
+    {
+      icon: 'fa-heart',
+      title: 'Samimi Ortam',
+      description: 'Sıcak misafirperverlik'
+    },
+    {
+      icon: 'fa-star',
+      title: 'Eşsiz Konum',
+      description: 'Nemrut\'a en yakın'
+    }
+  ]
+
   return (
-    <section id="about" className="section about-section">
+    <section id="about" className="section about-section" aria-labelledby="about-heading">
       <Container>
         <div className="section-title" data-aos="fade-up">
-          <h2>{t('about.title')}</h2>
+          <h2 id="about-heading">{t('about.title')}</h2>
           <p>{t('about.subtitle')}</p>
         </div>
 
@@ -22,6 +40,7 @@ const About = () => {
                 src="/img/motel.jpg" 
                 alt="Güneş Hotel" 
                 className="img-fluid about-image"
+                loading="lazy"
               />
               <div className="about-badge">
                 <div className="badge-content">
@@ -44,35 +63,17 @@ const About = () => {
               </div>
 
               <div className="about-features">
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <i className="fas fa-home"></i>
+                {features.map((feature, idx) => (
+                  <div key={idx} className="feature-item">
+                    <div className="feature-icon">
+                      <i className={`fas ${feature.icon}`}></i>
+                    </div>
+                    <div className="feature-text">
+                      <h5>{feature.title}</h5>
+                      <p>{feature.description}</p>
+                    </div>
                   </div>
-                  <div className="feature-text">
-                    <h5>Aile İşletmesi</h5>
-                    <p>1980'lerden beri</p>
-                  </div>
-                </div>
-
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <i className="fas fa-heart"></i>
-                  </div>
-                  <div className="feature-text">
-                    <h5>Samimi Ortam</h5>
-                    <p>Sıcak misafirperverlik</p>
-                  </div>
-                </div>
-
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <i className="fas fa-star"></i>
-                  </div>
-                  <div className="feature-text">
-                    <h5>Eşsiz Konum</h5>
-                    <p>Nemrut'a en yakın</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <Link to="/about" className="btn btn-primary">

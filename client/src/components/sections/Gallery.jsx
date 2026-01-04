@@ -66,6 +66,8 @@ const Gallery = () => {
                 <img 
                   src={image.src} 
                   alt={image.alt}
+                  className="img-fluid"
+                  loading="lazy"
                 />
                 <div className="gallery-overlay">
                   <i className="fas fa-search-plus"></i>

@@ -1,35 +1,41 @@
-import React, { useEffect, lazy, Suspense } from 'react'
+import React, { useEffect, lazy, Suspense, memo } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import AOS from 'aos'
 import Layout from '@components/layout/Layout'
 
 // Lazy Loading - Sayfalar sadece gerektiğinde yüklenecek
-const Home = lazy(() => import('@pages/Home'))
-const AboutPage = lazy(() => import('@pages/AboutPage'))
-const RoomsPage = lazy(() => import('@pages/RoomsPage'))
-const GalleryPage = lazy(() => import('@pages/GalleryPage'))
-const ContactPage = lazy(() => import('@pages/ContactPage'))
-const NotFound = lazy(() => import('@pages/NotFound'))
+const Home = lazy(() => import(/* webpackChunkName: "home" */ '@pages/Home'))
+const AboutPage = lazy(() => import(/* webpackChunkName: "about" */ '@pages/AboutPage'))
+const RoomsPage = lazy(() => import(/* webpackChunkName: "rooms" */ '@pages/RoomsPage'))
+const GalleryPage = lazy(() => import(/* webpackChunkName: "gallery" */ '@pages/GalleryPage'))
+const ContactPage = lazy(() => import(/* webpackChunkName: "contact" */ '@pages/ContactPage'))
+const NotFound = lazy(() => import(/* webpackChunkName: "notfound" */ '@pages/NotFound'))
 
-// Loading Component - Sayfa yüklenirken gösterilecek
-const PageLoader = () => (
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '60vh',
-    flexDirection: 'column',
-    gap: '1rem'
-  }}>
+// Loading Component - Memoized for performance
+const PageLoader = memo(() => (
+  <div 
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '60vh',
+      flexDirection: 'column',
+      gap: '1rem'
+    }}
+    role="status"
+    aria-live="polite"
+    aria-label="Sayfa yükleniyor"
+  >
     <div 
       style={{
         width: '50px',
         height: '50px',
         border: '4px solid #f3f3f3',
-        borderTop: '4px solid #d4af37',
+        borderTop: '4px solid #c18c30',
         borderRadius: '50%',
         animation: 'spin 1s linear infinite'
       }}
+      aria-hidden="true"
     />
     <p style={{ color: '#666', fontSize: '14px' }}>Yükleniyor...</p>
     <style>{`
@@ -39,13 +45,15 @@ const PageLoader = () => (
       }
     `}</style>
   </div>
-)
+))
+
+PageLoader.displayName = 'PageLoader'
 
 // Error Boundary Component - Hata durumunda gösterilecek
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { hasError: false, error: null }
+    this.state = { hasError: false, error: null, errorInfo: null }
   }
 
   static getDerivedStateFromError(error) {
@@ -53,7 +61,19 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo)
+    // Log error to console in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error caught by boundary:', error, errorInfo)
+    }
+    
+    this.setState({ errorInfo })
+    
+    // You can also log the error to an error reporting service here
+    // logErrorToService(error, errorInfo)
+  }
+
+  handleReload = () => {
+    window.location.reload()
   }
 
   render() {
@@ -68,20 +88,47 @@ class ErrorBoundary extends React.Component {
           gap: '1rem',
           padding: '2rem',
           textAlign: 'center'
-        }}>
-          <h2 style={{ color: '#d4af37' }}>Bir şeyler ters gitti 😔</h2>
+        }}
+        role="alert"
+        aria-live="assertive"
+        >
+          <h2 style={{ color: '#c18c30' }}>Bir şeyler ters gitti 😔</h2>
           <p style={{ color: '#666' }}>Sayfa yüklenirken bir hata oluştu.</p>
+          {process.env.NODE_ENV === 'development' && this.state.error && (
+            <details style={{ 
+              marginTop: '1rem', 
+              textAlign: 'left',
+              maxWidth: '600px',
+              width: '100%'
+            }}>
+              <summary style={{ cursor: 'pointer', marginBottom: '0.5rem' }}>
+                Hata Detayları
+              </summary>
+              <pre style={{ 
+                background: '#f5f5f5', 
+                padding: '1rem',
+                borderRadius: '4px',
+                overflow: 'auto',
+                fontSize: '12px'
+              }}>
+                {this.state.error.toString()}
+                {this.state.errorInfo && this.state.errorInfo.componentStack}
+              </pre>
+            </details>
+          )}
           <button
-            onClick={() => window.location.reload()}
+            onClick={this.handleReload}
             style={{
               padding: '10px 20px',
-              backgroundColor: '#d4af37',
+              backgroundColor: '#c18c30',
               color: 'white',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
-              fontSize: '16px'
+              fontSize: '16px',
+              fontWeight: '600'
             }}
+            aria-label="Sayfayı yeniden yükle"
           >
             Sayfayı Yenile
           </button>
@@ -103,7 +150,7 @@ function App() {
       easing: 'ease-in-out',
       once: true,
       offset: 100,
-      disable: 'mobile' // Mobilde animasyonları kapat (performans için)
+      disable: window.innerWidth < 768 // Mobilde animasyonları kapat (performans için)
     })
 
     // Cleanup
@@ -113,13 +160,32 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // Scroll to top on route change
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // Scroll to top on route change - use native scrollTo for better performance
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      window.scrollTo(0, 0)
+    }
     
     // AOS refresh - Yeni sayfa için animasyonları güncelle
-    setTimeout(() => {
+    // Use requestAnimationFrame for better performance
+    const timeoutId = window.requestAnimationFrame(() => {
       AOS.refresh()
-    }, 100)
+    })
+
+    return () => {
+      window.cancelAnimationFrame(timeoutId)
+    }
+  }, [location.pathname])
+
+  // Update document title and meta description based on route
+  useEffect(() => {
+    // This will be handled by Helmet in each page component
+    // but we ensure the default title is set
+    const defaultTitle = 'Güneş Hotel - Nemrut Dağı'
+    if (!document.title || document.title === defaultTitle) {
+      document.title = defaultTitle
+    }
   }, [location.pathname])
 
   return (

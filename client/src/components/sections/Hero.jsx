@@ -18,8 +18,9 @@ const Hero = () => {
     fade: true,
     pauseOnHover: false,
     arrows: true,
-    prevArrow: <button type="button" className="slick-prev" aria-label="Previous"><i className="fas fa-chevron-left"></i></button>,
-    nextArrow: <button type="button" className="slick-next" aria-label="Next"><i className="fas fa-chevron-right"></i></button>
+    prevArrow: <button type="button" className="slick-prev" aria-label="Önceki Slayt"><i className="fas fa-chevron-left"></i></button>,
+    nextArrow: <button type="button" className="slick-next" aria-label="Sonraki Slayt"><i className="fas fa-chevron-right"></i></button>,
+    lazyLoad: 'progressive'
   }
 
   const slides = [
@@ -53,7 +54,7 @@ const Hero = () => {
   ]
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" role="banner">
       <Slider {...sliderSettings} className="hero-slider">
         {slides.map((slide, index) => (
           <div key={index} className="slide">
@@ -74,6 +75,7 @@ const Hero = () => {
                         key={btnIndex}
                         to={button.link} 
                         className={`btn ${button.primary ? 'btn-primary' : 'btn-outline'}`}
+                        aria-label={t(button.textKey)}
                       >
                         {t(button.textKey)}
                       </Link>
@@ -87,7 +89,7 @@ const Hero = () => {
       </Slider>
 
       {/* Scroll Down Indicator */}
-      <div className="scroll-indicator">
+      <div className="scroll-indicator" aria-hidden="true">
         <a href="#about" aria-label={t('hero.scrollDown')}>
           <i className="fas fa-chevron-down"></i>
         </a>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
@@ -6,10 +6,44 @@ import './Footer.scss'
 
 const Footer = () => {
   const { t } = useTranslation()
-  const currentYear = new Date().getFullYear()
+  const currentYear = useMemo(() => new Date().getFullYear(), [])
+
+  const socialLinks = useMemo(() => [
+    { 
+      href: 'https://facebook.com/guneshotel', 
+      icon: 'fa-facebook-f', 
+      label: 'Facebook sayfamızı ziyaret edin',
+      name: 'Facebook'
+    },
+    { 
+      href: 'https://instagram.com/guneshotel', 
+      icon: 'fa-instagram', 
+      label: 'Instagram hesabımızı takip edin',
+      name: 'Instagram'
+    },
+    { 
+      href: 'https://twitter.com/guneshotel', 
+      icon: 'fa-twitter', 
+      label: 'Twitter hesabımızı takip edin',
+      name: 'Twitter'
+    },
+    { 
+      href: 'https://tripadvisor.com/guneshotel', 
+      icon: 'fa-tripadvisor', 
+      label: 'TripAdvisor yorumlarımızı okuyun',
+      name: 'TripAdvisor'
+    }
+  ], [])
+
+  const services = useMemo(() => [
+    { icon: 'fa-wifi', text: t('footer.service1') },
+    { icon: 'fa-tint', text: t('footer.service2') },
+    { icon: 'fa-mountain', text: t('footer.service3') },
+    { icon: 'fa-coffee', text: t('footer.service4') }
+  ], [t])
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
       <Container>
         <Row className="footer-content">
           {/* About Section */}
@@ -23,114 +57,98 @@ const Footer = () => {
             <p className="footer-description">
               {t('footer.description')}
             </p>
-            <div className="social-links">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a 
-                href="https://tripadvisor.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="TripAdvisor"
-              >
-                <i className="fab fa-tripadvisor"></i>
-              </a>
-            </div>
+            <nav aria-label="Sosyal medya linkleri">
+              <div className="social-links">
+                {socialLinks.map((link, index) => (
+                  <a 
+                    key={index}
+                    href={link.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    title={link.name}
+                  >
+                    <i className={`fab ${link.icon}`} aria-hidden="true"></i>
+                    <span className="sr-only">{link.name}</span>
+                  </a>
+                ))}
+              </div>
+            </nav>
           </Col>
 
           {/* Quick Links */}
           <Col lg={2} md={6} className="footer-section mb-4 mb-lg-0">
-            <h5 className="footer-title">{t('footer.quickLinks')}</h5>
-            <ul className="footer-links">
-              <li><Link to="/">{t('nav.home')}</Link></li>
-              <li><Link to="/about">{t('nav.about')}</Link></li>
-              <li><Link to="/rooms">{t('nav.rooms')}</Link></li>
-              <li><Link to="/gallery">{t('nav.gallery')}</Link></li>
-              <li><Link to="/contact">{t('nav.contact')}</Link></li>
-            </ul>
+            <h2 className="footer-title">{t('footer.quickLinks')}</h2>
+            <nav aria-label="Hızlı linkler">
+              <ul className="footer-links">
+                <li><Link to="/" aria-label="Ana sayfaya git">{t('nav.home')}</Link></li>
+                <li><Link to="/about" aria-label="Hakkımızda sayfasına git">{t('nav.about')}</Link></li>
+                <li><Link to="/rooms" aria-label="Odalar sayfasına git">{t('nav.rooms')}</Link></li>
+                <li><Link to="/gallery" aria-label="Galeri sayfasına git">{t('nav.gallery')}</Link></li>
+                <li><Link to="/contact" aria-label="İletişim sayfasına git">{t('nav.contact')}</Link></li>
+              </ul>
+            </nav>
           </Col>
 
           {/* Services */}
           <Col lg={3} md={6} className="footer-section mb-4 mb-lg-0">
-            <h5 className="footer-title">{t('footer.services')}</h5>
-            <ul className="footer-links">
-              <li>
-                <i className="fas fa-wifi"></i>
-                {t('footer.service1')}
-              </li>
-              <li>
-                <i className="fas fa-tint"></i>
-                {t('footer.service2')}
-              </li>
-              <li>
-                <i className="fas fa-mountain"></i>
-                {t('footer.service3')}
-              </li>
-              <li>
-                <i className="fas fa-coffee"></i>
-                {t('footer.service4')}
-              </li>
+            <h2 className="footer-title">{t('footer.services')}</h2>
+            <ul className="footer-links" role="list">
+              {services.map((service, index) => (
+                <li key={index} role="listitem">
+                  <i className={`fas ${service.icon}`} aria-hidden="true"></i>
+                  <span>{service.text}</span>
+                </li>
+              ))}
             </ul>
           </Col>
 
           {/* Contact Info */}
           <Col lg={3} md={6} className="footer-section">
-            <h5 className="footer-title">{t('footer.contactInfo')}</h5>
-            <ul className="footer-contact">
-              <li>
-                <i className="fas fa-map-marker-alt"></i>
-                <span>Karadut Köyü, Nemrut Dağı Yolu<br />Kahta/Adıyaman</span>
-              </li>
-              <li>
-                <i className="fas fa-phone"></i>
-                <a href="tel:+905555555555">+90 555 555 55 55</a>
-              </li>
-              <li>
-                <i className="fas fa-envelope"></i>
-                <a href="mailto:info@guneshotel.com">info@guneshotel.com</a>
-              </li>
-            </ul>
+            <h2 className="footer-title">{t('footer.contactInfo')}</h2>
+            <address className="footer-contact">
+              <div className="contact-item">
+                <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span>
+                  Karadut Köyü, Nemrut Dağı Yolu<br />
+                  Kahta/Adıyaman
+                </span>
+              </div>
+              <div className="contact-item">
+                <i className="fas fa-phone" aria-hidden="true"></i>
+                <a href="tel:+905555555555" aria-label="Telefon numarası: +90 555 555 55 55">
+                  +90 555 555 55 55
+                </a>
+              </div>
+              <div className="contact-item">
+                <i className="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:info@guneshotel.com" aria-label="E-posta: info@guneshotel.com">
+                  info@guneshotel.com
+                </a>
+              </div>
+            </address>
           </Col>
         </Row>
 
         <div className="footer-bottom">
           <p className="copyright">
-            {t('footer.copyright').replace('2024', currentYear)}
+            <small>
+              {t('footer.copyright').replace('2024', currentYear)}
+            </small>
           </p>
-          <div className="footer-bottom-links">
-            <Link to="/privacy">Gizlilik Politikası</Link>
-            <span className="separator">|</span>
-            <Link to="/terms">Kullanım Koşulları</Link>
-          </div>
+          <nav aria-label="Yasal linkler">
+            <div className="footer-bottom-links">
+              <Link to="/privacy" aria-label="Gizlilik politikası sayfasına git">
+                Gizlilik Politikası
+              </Link>
+              <span className="separator" aria-hidden="true">|</span>
+              <Link to="/terms" aria-label="Kullanım koşulları sayfasına git">
+                Kullanım Koşulları
+              </Link>
+            </div>
+          </nav>
         </div>
       </Container>
-
-      {/* Font Awesome CDN */}
-      <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-      />
     </footer>
   )
 }
