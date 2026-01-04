@@ -60,7 +60,7 @@
       transform: translateY(-10px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 
-      .room-image img {
+      .room-image img:not(.error) {
         transform: scale(1.1);
       }
 
@@ -96,6 +96,7 @@
       position: relative;
       height: 250px;
       overflow: hidden;
+      background: $gray-200;
 
       @media (max-width: 768px) {
         height: 220px;
@@ -106,6 +107,33 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
+        display: block;
+
+        &.error {
+          opacity: 0.5;
+        }
+      }
+
+      .image-error-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 2;
+
+        i {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+          color: #fca5a5;
+        }
       }
 
       .room-overlay {
@@ -120,6 +148,7 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
+        z-index: 3;
 
         .btn-light {
           background: white;

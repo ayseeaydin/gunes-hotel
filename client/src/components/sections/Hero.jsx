@@ -4,6 +4,29 @@ import { useTranslation } from 'react-i18next'
 import Slider from 'react-slick'
 import './Hero.scss'
 
+// Custom Arrow Components - DOM prop warnings'i önlemek için
+const PrevArrow = ({ onClick }) => (
+  <button 
+    type="button" 
+    className="slick-prev" 
+    aria-label="Önceki Slayt"
+    onClick={onClick}
+  >
+    <i className="fas fa-chevron-left"></i>
+  </button>
+)
+
+const NextArrow = ({ onClick }) => (
+  <button 
+    type="button" 
+    className="slick-next" 
+    aria-label="Sonraki Slayt"
+    onClick={onClick}
+  >
+    <i className="fas fa-chevron-right"></i>
+  </button>
+)
+
 const Hero = () => {
   const { t } = useTranslation()
 
@@ -18,8 +41,8 @@ const Hero = () => {
     fade: true,
     pauseOnHover: false,
     arrows: true,
-    prevArrow: <button type="button" className="slick-prev" aria-label="Önceki Slayt"><i className="fas fa-chevron-left"></i></button>,
-    nextArrow: <button type="button" className="slick-next" aria-label="Sonraki Slayt"><i className="fas fa-chevron-right"></i></button>,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     lazyLoad: 'progressive'
   }
 

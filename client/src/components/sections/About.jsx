@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
@@ -6,6 +6,7 @@ import './About.scss'
 
 const About = () => {
   const { t } = useTranslation()
+  const [imageError, setImageError] = useState(false)
 
   const features = [
     {
@@ -25,6 +26,15 @@ const About = () => {
     }
   ]
 
+  const handleImageError = (e) => {
+    console.error('Image failed to load:', e.target.src)
+    setImageError(true)
+    // Fallback image
+    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f0f0f0" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18"%3EGörsel Yüklenemedi%3C/text%3E%3C/svg%3E'
+  }
+
+  const imageUrl = '/img/motel.jpg'
+
   return (
     <section id="about" className="section about-section" aria-labelledby="about-heading">
       <Container>
@@ -37,11 +47,18 @@ const About = () => {
           <Col lg={6} className="mb-4 mb-lg-0" data-aos="fade-right">
             <div className="about-image-wrapper">
               <img 
-                src="/img/motel.jpg" 
-                alt="Güneş Hotel" 
+                src={imageUrl}
+                alt="Güneş Hotel - Nemrut Dağı'na en yakın otel" 
                 className="img-fluid about-image"
                 loading="lazy"
+                onError={handleImageError}
+                onLoad={() => console.log('About image loaded successfully')}
               />
+              {imageError && (
+                <div className="image-error-overlay">
+                  <p>Görsel yüklenemedi</p>
+                </div>
+              )}
               <div className="about-badge">
                 <div className="badge-content">
                   <i className="fas fa-mountain"></i>

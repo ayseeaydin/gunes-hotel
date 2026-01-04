@@ -7,8 +7,34 @@ import Rooms from '@components/sections/Rooms'
 import Gallery from '@components/sections/Gallery'
 import Contact from '@components/sections/Contact'
 
+// Debug için - production'da kaldırılacak
+const ImageDebugger = React.lazy(() => 
+  import.meta.env.DEV 
+    ? import('@components/common/ImageDebugger')
+    : Promise.resolve({ default: () => null })
+)
+
 const Home = () => {
   const { t } = useTranslation()
+
+  // Debug için kontrol edilecek görseller
+  const debugImages = import.meta.env.DEV ? [
+    { src: '/img/motel.jpg', component: 'About' },
+    { src: '/img/double-room-1.jpg', component: 'Rooms' },
+    { src: '/img/twin-room-1.JPG', component: 'Rooms' },
+    { src: '/img/triple-room.JPG', component: 'Rooms' },
+    { src: '/img/gallery-27.jpeg', component: 'Rooms' },
+    { src: '/img/gallery-1.JPG', component: 'Gallery' },
+    { src: '/img/gallery-2.JPG', component: 'Gallery' },
+    { src: '/img/gallery-3.JPG', component: 'Gallery' },
+    { src: '/img/gallery-4.JPG', component: 'Gallery' },
+    { src: '/img/gallery-5.JPG', component: 'Gallery' },
+    { src: '/img/gallery-6.jpeg', component: 'Gallery' },
+    { src: '/img/gallery-7.jpeg', component: 'Gallery' },
+    { src: '/img/gallery-8.JPG', component: 'Gallery' },
+    { src: '/img/slide-1.jpg', component: 'Hero' },
+    { src: '/img/slide-2.jpg', component: 'Hero' }
+  ] : []
 
   return (
     <>
@@ -30,6 +56,13 @@ const Home = () => {
       <Rooms />
       <Gallery />
       <Contact />
+
+      {/* Development'ta Image Debugger göster */}
+      {import.meta.env.DEV && (
+        <React.Suspense fallback={null}>
+          <ImageDebugger images={debugImages} />
+        </React.Suspense>
+      )}
     </>
   )
 }

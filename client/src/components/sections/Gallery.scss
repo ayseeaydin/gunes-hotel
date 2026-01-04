@@ -16,8 +16,14 @@
       height: 250px;
       box-shadow: $shadow;
       transition: $transition;
+      background: $gray-200;
 
-      &:hover {
+      &.error {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      &:not(.error):hover {
         transform: translateY(-5px);
         box-shadow: $shadow-lg;
 
@@ -35,6 +41,27 @@
         height: 100%;
         object-fit: cover;
         transition: $transition-slow;
+        display: block;
+      }
+
+      .image-error-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 0, 0, 0.8);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+
+        i {
+          font-size: 1.2rem;
+        }
       }
 
       .gallery-overlay {
@@ -49,6 +76,7 @@
         justify-content: center;
         opacity: 0;
         transition: $transition;
+        z-index: 2;
 
         i {
           font-size: 3rem;

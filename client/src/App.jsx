@@ -62,14 +62,11 @@ class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, errorInfo) {
     // Log error to console in development
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.error('Error caught by boundary:', error, errorInfo)
     }
     
     this.setState({ errorInfo })
-    
-    // You can also log the error to an error reporting service here
-    // logErrorToService(error, errorInfo)
   }
 
   handleReload = () => {
@@ -94,7 +91,7 @@ class ErrorBoundary extends React.Component {
         >
           <h2 style={{ color: '#c18c30' }}>Bir şeyler ters gitti 😔</h2>
           <p style={{ color: '#666' }}>Sayfa yüklenirken bir hata oluştu.</p>
-          {process.env.NODE_ENV === 'development' && this.state.error && (
+          {import.meta.env.DEV && this.state.error && (
             <details style={{ 
               marginTop: '1rem', 
               textAlign: 'left',

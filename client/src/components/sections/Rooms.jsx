@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
@@ -6,6 +6,7 @@ import './Rooms.scss'
 
 const Rooms = () => {
   const { t } = useTranslation()
+  const [imageErrors, setImageErrors] = useState({})
 
   const rooms = [
     {
@@ -71,6 +72,12 @@ const Rooms = () => {
     }
   ]
 
+  const handleImageError = (roomId, e) => {
+    console.error(`Room ${roomId} image failed to load:`, e.target.src)
+    setImageErrors(prev => ({ ...prev, [roomId]: true }))
+    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%23f0f0f0" width="600" height="400"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18"%3EOda Görseli%3C/text%3E%3C/svg%3E'
+  }
+
   return (
     <section id="rooms" className="section rooms-section" aria-labelledby="rooms-heading">
       <Container>
@@ -102,11 +109,18 @@ const Rooms = () => {
 
                 <div className="room-image">
                   <img 
-                    src={room.image} 
+                    src={room.image}
                     alt={`${room.name} - ${room.description}`}
                     className="img-fluid"
                     loading="lazy"
+                    onError={(e) => handleImageError(room.id, e)}
+                    onLoad={() => console.log(`Room ${room.id} image loaded successfully`)}
                   />
+                  {imageErrors[room.id] && (
+                    <div className="image-error-overlay">
+                      <p>Oda görseli yüklenemedi</p>
+                    </div>
+                  )}
                   <div className="room-overlay">
                     <Link 
                       to="/rooms" 

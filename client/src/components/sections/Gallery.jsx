@@ -8,6 +8,7 @@ const Gallery = () => {
   const { t } = useTranslation()
   const [showModal, setShowModal] = useState(false)
   const [currentImage, setCurrentImage] = useState(0)
+  const [imageErrors, setImageErrors] = useState({})
 
   const galleryImages = [
     { src: '/img/gallery-1.JPG', alt: 'Otel Dış Görünüm' },
@@ -20,9 +21,17 @@ const Gallery = () => {
     { src: '/img/gallery-8.JPG', alt: 'Gün Batımı' }
   ]
 
+  const handleImageError = (index, e) => {
+    console.error(`Gallery image ${index} failed to load:`, e.target.src)
+    setImageErrors(prev => ({ ...prev, [index]: true }))
+    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f0f0f0" width="400" height="300"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="16"%3EGaleri Görseli%3C/text%3E%3C/svg%3E'
+  }
+
   const openModal = (index) => {
-    setCurrentImage(index)
-    setShowModal(true)
+    if (!imageErrors[index]) {
+      setCurrentImage(index)
+      setShowModal(true)
+    }
   }
 
   const closeModal = () => {
@@ -57,18 +66,26 @@ const Gallery = () => {
               data-aos-delay={index * 50}
             >
               <div 
-                className="gallery-card"
+                className={`gallery-card ${imageErrors[index] ? 'error' : ''}`}
                 onClick={() => openModal(index)}
                 role="button"
                 tabIndex={0}
                 onKeyPress={(e) => e.key === 'Enter' && openModal(index)}
+                aria-label={`${image.alt} görselini büyüt`}
               >
                 <img 
-                  src={image.src} 
+                  src={image.src}
                   alt={image.alt}
                   className="img-fluid"
                   loading="lazy"
+                  onError={(e) => handleImageError(index, e)}
+                  onLoad={() => console.log(`Gallery image ${index} loaded successfully`)}
                 />
+                {imageErrors[index] && (
+                  <div className="image-error-badge">
+                    <i className="fas fa-exclamation-triangle"></i>
+                  </div>
+                )}
                 <div className="gallery-overlay">
                   <i className="fas fa-search-plus"></i>
                 </div>
@@ -93,19 +110,35 @@ const Gallery = () => {
         className="gallery-modal"
       >
         <Modal.Body>
-          <button className="modal-close" onClick={closeModal} aria-label="Kapat">
+          <button 
+            className="modal-close" 
+            onClick={closeModal} 
+            aria-label="Kapat"
+          >
             <i className="fas fa-times"></i>
           </button>
-          <button className="modal-prev" onClick={prevImage} aria-label="Önceki">
+          <button 
+            className="modal-prev" 
+            onClick={prevImage} 
+            aria-label="Önceki"
+          >
             <i className="fas fa-chevron-left"></i>
           </button>
-          <button className="modal-next" onClick={nextImage} aria-label="Sonraki">
+          <button 
+            className="modal-next" 
+            onClick={nextImage} 
+            aria-label="Sonraki"
+          >
             <i className="fas fa-chevron-right"></i>
           </button>
           <img 
             src={galleryImages[currentImage]?.src} 
             alt={galleryImages[currentImage]?.alt}
             className="modal-image"
+            onError={(e) => {
+              console.error('Modal image failed to load')
+              e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23333" width="800" height="600"/%3E%3Ctext fill="%23fff" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="24"%3EGörsel Yüklenemedi%3C/text%3E%3C/svg%3E'
+            }}
           />
           <div className="modal-caption">
             <p>{galleryImages[currentImage]?.alt}</p>
