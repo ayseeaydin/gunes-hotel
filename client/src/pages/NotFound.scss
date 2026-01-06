@@ -7,10 +7,13 @@
   justify-content: center;
   background: linear-gradient(135deg, $bg-cream 0%, lighten($bg-cream, 3%) 100%);
   padding: 2rem;
+  overflow: hidden;
+  width: 100%;
 
   .not-found-content {
     text-align: center;
     max-width: 600px;
+    width: 100%;
 
     .error-code {
       font-size: 10rem;

@@ -1,3 +1,4 @@
+// client/src/components/common/LazyImage.jsx - DÜZELTİLMİŞ VERSİYON
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import './LazyImage.css'
@@ -25,13 +26,11 @@ const LazyImage = ({
   const observerRef = useRef(null)
 
   useEffect(() => {
-    // Modern browsers için native lazy loading kullan
     if ('loading' in HTMLImageElement.prototype) {
       setIsInView(true)
       return
     }
 
-    // Fallback: Intersection Observer
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,18 +42,13 @@ const LazyImage = ({
           }
         })
       },
-      {
-        threshold,
-        rootMargin
-      }
+      { threshold, rootMargin }
     )
 
-    // Observer'ı başlat
     if (imgRef.current) {
       observerRef.current.observe(imgRef.current)
     }
 
-    // Cleanup
     return () => {
       if (observerRef.current && imgRef.current) {
         observerRef.current.unobserve(imgRef.current)
@@ -72,7 +66,6 @@ const LazyImage = ({
     setHasError(true)
     if (onError) onError()
     
-    // Retry mekanizması (max 3 deneme)
     if (retryCount < 3) {
       setTimeout(() => {
         setRetryCount(prev => prev + 1)
@@ -93,7 +86,6 @@ const LazyImage = ({
       className={`lazy-image-wrapper ${className}`}
       style={{ width, height }}
     >
-      {/* Placeholder - Görsel yüklenmeden önce */}
       {!isLoaded && placeholder && (
         <img
           src={placeholder}
@@ -103,14 +95,12 @@ const LazyImage = ({
         />
       )}
 
-      {/* Loading Spinner */}
       {isInView && !isLoaded && !hasError && (
         <div className="lazy-image-spinner">
           <div className="spinner"></div>
         </div>
       )}
 
-      {/* Ana Görsel */}
       {isInView && !hasError && (
         <img
           src={src}
@@ -126,7 +116,6 @@ const LazyImage = ({
         />
       )}
 
-      {/* Hata Durumu */}
       {hasError && retryCount >= 3 && (
         <div className="lazy-image-error">
           <img
@@ -165,12 +154,6 @@ LazyImage.propTypes = {
   fallbackSrc: PropTypes.string,
   loading: PropTypes.oneOf(['lazy', 'eager']),
   fetchPriority: PropTypes.oneOf(['high', 'low', 'auto'])
-}
-
-export default LazyImage
-  threshold: PropTypes.number,
-  rootMargin: PropTypes.string,
-  fallbackSrc: PropTypes.string
 }
 
 export default LazyImage
