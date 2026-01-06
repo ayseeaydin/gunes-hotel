@@ -141,37 +141,36 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    // Initialize AOS - Sadece bir kez çalışacak
+    // Initialize AOS - Performans odaklı ayarlar
+    const isMobile = window.innerWidth < 768
+    
     AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
+      duration: isMobile ? 600 : 800,
+      easing: 'ease-out',
       once: true,
-      offset: 100,
-      disable: window.innerWidth < 768 // Mobilde animasyonları kapat (performans için)
+      offset: isMobile ? 50 : 80,
+      delay: 0,
+      disable: 'mobile', // Mobilde animasyonları tamamen kapat
+      startEvent: 'load',
+      throttleDelay: 99,
+      debounceDelay: 50,
+      anchorPlacement: 'top-bottom'
     })
 
-    // Cleanup
     return () => {
       AOS.refresh()
     }
   }, [])
 
   useEffect(() => {
-    // Scroll to top on route change - use native scrollTo for better performance
-    if ('scrollBehavior' in document.documentElement.style) {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else {
-      window.scrollTo(0, 0)
-    }
+    // Scroll to top on route change - native scrollTo for better performance
+    window.scrollTo(0, 0)
     
-    // AOS refresh - Yeni sayfa için animasyonları güncelle
-    // Use requestAnimationFrame for better performance
-    const timeoutId = window.requestAnimationFrame(() => {
-      AOS.refresh()
-    })
-
-    return () => {
-      window.cancelAnimationFrame(timeoutId)
+    // AOS refresh with requestIdleCallback for better performance
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => AOS.refresh())
+    } else {
+      setTimeout(() => AOS.refresh(), 100)
     }
   }, [location.pathname])
 

@@ -77,6 +77,10 @@ const Gallery = () => {
                   alt={image.alt}
                   className="img-fluid"
                   loading="lazy"
+                  width="400"
+                  height="300"
+                  decoding="async"
+                  importance="low"
                   onError={(e) => handleImageError(index, e)}
                 />
                 {imageErrors[index] && (

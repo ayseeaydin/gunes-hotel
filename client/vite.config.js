@@ -181,19 +181,36 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Manuel chunk splitting - Simplified and safer
-        manualChunks: {
-          // React + React DOM birlikte (daha güvenli)
-          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
-          // Router
-          'router': ['react-router-dom'],
-          // Bootstrap
-          'bootstrap': ['react-bootstrap', 'bootstrap'],
-          // i18n
-          'i18n': ['react-i18next', 'i18next', 'i18next-browser-languagedetector'],
-          // Slider
-          'slider': ['react-slick', 'slick-carousel'],
-          // Others
-          'axios': ['axios']
+        manualChunks: (id) => {
+          // Node modules için chunk splitting
+          if (id.includes('node_modules')) {
+            // React core
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              return 'react-vendor';
+            }
+            // Router
+            if (id.includes('react-router')) {
+              return 'router';
+            }
+            // Bootstrap
+            if (id.includes('bootstrap') || id.includes('react-bootstrap')) {
+              return 'bootstrap';
+            }
+            // i18n
+            if (id.includes('i18next')) {
+              return 'i18n';
+            }
+            // Axios
+            if (id.includes('axios')) {
+              return 'axios';
+            }
+            // AOS
+            if (id.includes('aos')) {
+              return 'aos';
+            }
+            // Diğer node_modules için vendor chunk
+            return 'vendor';
+          }
         },
         
         // Asset isimlendirme

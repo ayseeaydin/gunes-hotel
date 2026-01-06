@@ -53,6 +53,10 @@ const About = () => {
                 alt="Güneş Hotel - Nemrut Dağı'na en yakın otel" 
                 className="img-fluid about-image"
                 loading="lazy"
+                width="800"
+                height="600"
+                decoding="async"
+                importance="low"
                 onError={handleImageError}
               />
               {imageError && (

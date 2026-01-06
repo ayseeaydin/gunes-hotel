@@ -112,6 +112,10 @@ const Rooms = () => {
                     alt={`${room.name} - ${room.description}`}
                     className="img-fluid"
                     loading="lazy"
+                    width="600"
+                    height="400"
+                    decoding="async"
+                    importance="low"
                     onError={(e) => handleImageError(room.id, e)}
                   />
                   {imageErrors[room.id] && (

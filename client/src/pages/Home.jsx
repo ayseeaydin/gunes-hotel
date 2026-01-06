@@ -11,25 +11,6 @@ import StructuredData from '@components/common/StructuredData'
 const Home = () => {
   const { t } = useTranslation()
 
-  // Debug için kontrol edilecek görseller
-  const debugImages = import.meta.env.DEV ? [
-    { src: '/img/motel.webp', component: 'About' },
-    { src: '/img/double-room-1.webp', component: 'Rooms' },
-    { src: '/img/twin-room-1.webp', component: 'Rooms' },
-    { src: '/img/triple-room.webp', component: 'Rooms' },
-    { src: '/img/gallery-27.webp', component: 'Rooms' },
-    { src: '/img/gallery-1.webp', component: 'Gallery' },
-    { src: '/img/gallery-2.webp', component: 'Gallery' },
-    { src: '/img/gallery-3.webp', component: 'Gallery' },
-    { src: '/img/gallery-4.webp', component: 'Gallery' },
-    { src: '/img/gallery-5.webp', component: 'Gallery' },
-    { src: '/img/gallery-6.webp', component: 'Gallery' },
-    { src: '/img/gallery-7.webp', component: 'Gallery' },
-    { src: '/img/gallery-8.webp', component: 'Gallery' },
-    { src: '/img/slide-1.webp', component: 'Hero' },
-    { src: '/img/slide-2.webp', component: 'Hero' }
-  ] : []
-
   return (
     <>
       <Helmet>
@@ -43,6 +24,8 @@ const Home = () => {
           content="Nemrut Dağı, otel, konaklama, Kahta, Adıyaman, gün doğumu, gün batımı, UNESCO"
         />
         <link rel="canonical" href="https://guneshotel.com/" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
       </Helmet>
       <StructuredData type="hotel" page="home" />
 
