@@ -3,6 +3,12 @@
 .rooms-section {
   background: #f8f9fa;
   padding: 5rem 0;
+  overflow: hidden;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
 
   .section-title {
     text-align: center;
@@ -26,8 +32,14 @@
   .row {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
+    width: 100%;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
 
     @media (min-width: 992px) {
       flex-wrap: nowrap;
@@ -38,6 +50,10 @@
       flex: 1;
       min-width: 280px;
       max-width: 100%;
+
+      @media (max-width: 768px) {
+        min-width: 100%;
+      }
 
       @media (min-width: 992px) {
         max-width: calc(25% - 1.125rem);

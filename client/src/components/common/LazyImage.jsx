@@ -15,7 +15,7 @@ const LazyImage = ({
   rootMargin = '200px',
   fallbackSrc = '/images/placeholder.jpg',
   loading = 'lazy',
-  fetchPriority = 'auto'
+  fetchpriority = 'auto'
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
@@ -119,7 +119,7 @@ const LazyImage = ({
           onLoad={handleLoad}
           onError={handleError}
           loading={loading}
-          fetchPriority={fetchPriority}
+          fetchpriority={fetchpriority}
           width={width}
           height={height}
           decoding="async"
@@ -164,13 +164,7 @@ LazyImage.propTypes = {
   rootMargin: PropTypes.string,
   fallbackSrc: PropTypes.string,
   loading: PropTypes.oneOf(['lazy', 'eager']),
-  fetchPriority: PropTypes.oneOf(['high', 'low', 'auto'])
-}
-
-export default LazyImage
-  threshold: PropTypes.number,
-  rootMargin: PropTypes.string,
-  fallbackSrc: PropTypes.string
+  fetchpriority: PropTypes.oneOf(['high', 'low', 'auto'])
 }
 
 export default LazyImage

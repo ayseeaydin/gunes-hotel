@@ -2,6 +2,8 @@
 
 .about-section {
   background: $bg-cream;
+  overflow: hidden;
+  width: 100%;
 
   .about-image-wrapper {
     position: relative;
