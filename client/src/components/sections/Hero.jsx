@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Slider from 'react-slick'
@@ -33,6 +33,7 @@ const NextArrow = ({ onClick }) => (
 
 const Hero = () => {
   const { t } = useTranslation()
+  const [activeSlide, setActiveSlide] = useState(0)
 
   const sliderSettings = {
     dots: true,
@@ -47,7 +48,8 @@ const Hero = () => {
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    lazyLoad: 'progressive'
+    lazyLoad: 'progressive',
+    afterChange: (index) => setActiveSlide(index)
   }
 
   const slides = [
@@ -85,12 +87,18 @@ const Hero = () => {
       <Slider {...sliderSettings} className="hero-slider">
         {slides.map((slide, index) => (
           <div key={index} className="slide">
-            <div 
-              className="slide-bg" 
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="slide-overlay"></div>
-            </div>
+            {/* LCP Optimization: İlk slide'ı eager yükle */}
+            <img 
+              src={slide.image}
+              alt={t(slide.titleKey)}
+              className="slide-bg-img"
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              decoding={index === 0 ? 'auto' : 'async'}
+              width="1920"
+              height="1080"
+            />
+            <div className="slide-overlay"></div>
             <div className="slide-content">
               <div className="container">
                 <div className="content-wrapper" data-aos="fade-up">
@@ -103,6 +111,7 @@ const Hero = () => {
                         to={button.link} 
                         className={`btn ${button.primary ? 'btn-primary' : 'btn-outline'}`}
                         aria-label={t(button.textKey)}
+                        tabIndex={index === activeSlide ? 0 : -1}
                       >
                         {t(button.textKey)}
                       </Link>

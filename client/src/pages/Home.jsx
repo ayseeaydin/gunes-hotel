@@ -6,6 +6,7 @@ import About from '@components/sections/About'
 import Rooms from '@components/sections/Rooms'
 import Gallery from '@components/sections/Gallery'
 import Contact from '@components/sections/Contact'
+import StructuredData from '@components/common/StructuredData'
 
 const Home = () => {
   const { t } = useTranslation()
@@ -43,6 +44,7 @@ const Home = () => {
         />
         <link rel="canonical" href="https://guneshotel.com/" />
       </Helmet>
+      <StructuredData type="hotel" page="home" />
 
       <Hero />
       <About />

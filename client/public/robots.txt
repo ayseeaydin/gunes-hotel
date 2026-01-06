@@ -1,0 +1,25 @@
+# robots.txt for guneshotel.com
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow images and assets
+Allow: /img/
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+# Sitemap location
+Sitemap: https://guneshotel.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

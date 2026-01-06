@@ -56,12 +56,13 @@ const Header = () => {
             aria-label="Güneş Hotel ana sayfa"
           >
             <img 
-              src="/img/logo.png" 
+              src="/img/logo.webp" 
               alt="" 
               className="logo-img"
               width="50"
               height="50"
               loading="eager"
+              fetchPriority="high"
               onError={(e) => {
                 e.target.style.display = 'none'
               }}

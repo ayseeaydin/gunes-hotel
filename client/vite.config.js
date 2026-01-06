@@ -180,55 +180,20 @@ export default defineConfig({
     // Rollup options
     rollupOptions: {
       output: {
-        // Manuel chunk splitting - daha iyi code splitting
-        manualChunks: (id) => {
-          // React core
-          if (id.includes('node_modules/react') || 
-              id.includes('node_modules/react-dom') ||
-              id.includes('node_modules/scheduler')) {
-            return 'react-vendor'
-          }
-          
-          // React Router
-          if (id.includes('node_modules/react-router-dom') ||
-              id.includes('node_modules/react-router') ||
-              id.includes('node_modules/@remix-run')) {
-            return 'router'
-          }
-          
-          // Bootstrap & React Bootstrap
-          if (id.includes('node_modules/react-bootstrap') || 
-              id.includes('node_modules/bootstrap') ||
-              id.includes('node_modules/@restart')) {
-            return 'bootstrap'
-          }
-          
-          // Slider
-          if (id.includes('node_modules/react-slick') || 
-              id.includes('node_modules/slick-carousel')) {
-            return 'slider'
-          }
-          
+        // Manuel chunk splitting - Simplified and safer
+        manualChunks: {
+          // React + React DOM birlikte (daha güvenli)
+          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
+          // Router
+          'router': ['react-router-dom'],
+          // Bootstrap
+          'bootstrap': ['react-bootstrap', 'bootstrap'],
           // i18n
-          if (id.includes('node_modules/react-i18next') || 
-              id.includes('node_modules/i18next')) {
-            return 'i18n'
-          }
-          
-          // AOS
-          if (id.includes('node_modules/aos')) {
-            return 'aos'
-          }
-          
-          // Axios
-          if (id.includes('node_modules/axios')) {
-            return 'axios'
-          }
-          
-          // Diğer node_modules
-          if (id.includes('node_modules')) {
-            return 'vendor'
-          }
+          'i18n': ['react-i18next', 'i18next', 'i18next-browser-languagedetector'],
+          // Slider
+          'slider': ['react-slick', 'slick-carousel'],
+          // Others
+          'axios': ['axios']
         },
         
         // Asset isimlendirme

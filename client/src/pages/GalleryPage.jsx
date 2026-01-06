@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import StructuredData from '@components/common/StructuredData'
 import './GalleryPage.scss'
 
 const GalleryPage = () => {
@@ -93,6 +94,7 @@ const GalleryPage = () => {
         />
         <link rel="canonical" href="https://guneshotel.com/gallery" />
       </Helmet>
+      <StructuredData type="hotel" page="gallery" />
 
       <div className="gallery-page">
         {/* Page Header */}

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import StructuredData from '@components/common/StructuredData'
 import './RoomsPage.scss'
 
 const RoomsPage = () => {
@@ -70,6 +71,7 @@ const RoomsPage = () => {
         />
         <link rel="canonical" href="https://guneshotel.com/rooms" />
       </Helmet>
+      <StructuredData type="hotel" page="rooms" />
 
       <div className="rooms-page">
         {/* Page Header */}

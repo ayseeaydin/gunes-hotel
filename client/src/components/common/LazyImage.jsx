@@ -13,7 +13,9 @@ const LazyImage = ({
   onError,
   threshold = 0.1,
   rootMargin = '200px',
-  fallbackSrc = '/images/placeholder.jpg'
+  fallbackSrc = '/images/placeholder.jpg',
+  loading = 'lazy',
+  fetchPriority = 'auto'
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
@@ -23,13 +25,18 @@ const LazyImage = ({
   const observerRef = useRef(null)
 
   useEffect(() => {
-    // Intersection Observer oluştur
+    // Modern browsers için native lazy loading kullan
+    if ('loading' in HTMLImageElement.prototype) {
+      setIsInView(true)
+      return
+    }
+
+    // Fallback: Intersection Observer
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsInView(true)
-            // Görsel yüklenmeye başladıktan sonra observer'ı durdur
             if (observerRef.current && imgRef.current) {
               observerRef.current.unobserve(imgRef.current)
             }
@@ -107,13 +114,15 @@ const LazyImage = ({
       {isInView && !hasError && (
         <img
           src={src}
-          alt={alt}
+          alt={alt || ''}
           className={`lazy-image ${isLoaded ? 'lazy-image-loaded' : ''}`}
           onLoad={handleLoad}
           onError={handleError}
-          loading="lazy"
+          loading={loading}
+          fetchPriority={fetchPriority}
           width={width}
           height={height}
+          decoding="async"
         />
       )}
 
@@ -122,12 +131,17 @@ const LazyImage = ({
         <div className="lazy-image-error">
           <img
             src={fallbackSrc}
-            alt={alt}
+            alt={alt || 'Fallback image'}
             className="lazy-image-fallback"
+            loading="lazy"
           />
           <div className="lazy-image-error-overlay">
             <p>Görsel yüklenemedi</p>
-            <button onClick={handleRetry} className="retry-button">
+            <button 
+              onClick={handleRetry} 
+              className="retry-button"
+              aria-label="Görseli tekrar yükle"
+            >
               Tekrar Dene
             </button>
           </div>
@@ -146,6 +160,14 @@ LazyImage.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onLoad: PropTypes.func,
   onError: PropTypes.func,
+  threshold: PropTypes.number,
+  rootMargin: PropTypes.string,
+  fallbackSrc: PropTypes.string,
+  loading: PropTypes.oneOf(['lazy', 'eager']),
+  fetchPriority: PropTypes.oneOf(['high', 'low', 'auto'])
+}
+
+export default LazyImage
   threshold: PropTypes.number,
   rootMargin: PropTypes.string,
   fallbackSrc: PropTypes.string

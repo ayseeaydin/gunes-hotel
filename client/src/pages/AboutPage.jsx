@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import StructuredData from '@components/common/StructuredData'
 import './AboutPage.scss'
 
 const AboutPage = () => {
@@ -17,6 +18,7 @@ const AboutPage = () => {
         />
         <link rel="canonical" href="https://guneshotel.com/about" />
       </Helmet>
+      <StructuredData type="hotel" page="about" />
 
       <div className="about-page">
         {/* Page Header */}

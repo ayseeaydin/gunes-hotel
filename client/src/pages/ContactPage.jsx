@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
+import StructuredData from '@components/common/StructuredData'
 import './ContactPage.scss'
 
 const ContactPage = () => {
@@ -73,6 +74,7 @@ const ContactPage = () => {
         />
         <link rel="canonical" href="https://guneshotel.com/contact" />
       </Helmet>
+      <StructuredData type="hotel" page="contact" />
 
       <div className="contact-page">
         {/* Page Header */}
