@@ -13,7 +13,7 @@ const Rooms = () => {
       id: 1,
       name: t('rooms.double'),
       description: t('rooms.doubleDesc'),
-      image: '/img/double-room-1.jpg',
+      image: '/img/double-room-1.webp',
       guests: 2,
       price: '1.500',
       features: [
@@ -28,7 +28,7 @@ const Rooms = () => {
       id: 2,
       name: t('rooms.twin'),
       description: t('rooms.twinDesc'),
-      image: '/img/twin-room-1.JPG',
+      image: '/img/twin-room-1.webp',
       guests: 2,
       price: '1.500',
       features: [
@@ -43,7 +43,7 @@ const Rooms = () => {
       id: 3,
       name: t('rooms.triple'),
       description: t('rooms.tripleDesc'),
-      image: '/img/triple-room.JPG',
+      image: '/img/triple-room.webp',
       guests: 3,
       price: '2.000',
       features: [
@@ -58,7 +58,7 @@ const Rooms = () => {
       id: 4,
       name: t('rooms.family'),
       description: t('rooms.familyDesc'),
-      image: '/img/gallery-27.jpeg',
+      image: '/img/gallery-27.webp',
       guests: 5,
       price: '3.000',
       features: [

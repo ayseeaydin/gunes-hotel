@@ -243,88 +243,127 @@
     }
   }
 
-  // Slider Navigation Arrows
-  .slick-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  // Slider Navigation Arrows - Modern ve şık tasarım
+  .slick-prev,
+  .slick-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 100 !important;
+    width: 56px !important;
+    height: 56px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 50% !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     display: flex !important;
-    align-items: center;
-    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
+    backdrop-filter: blur(10px);
+    outline: none !important;
+    opacity: 1 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     @media (max-width: $breakpoint-md) {
-      width: 50px;
-      height: 50px;
-      font-size: 1.25rem;
+      width: 48px !important;
+      height: 48px !important;
     }
 
     @media (max-width: $breakpoint-sm) {
-      width: 45px;
-      height: 45px;
-      font-size: 1.1rem;
+      width: 44px !important;
+      height: 44px !important;
     }
 
     @media (max-width: $breakpoint-xs) {
-      width: 40px;
-      height: 40px;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.3);
+      width: 40px !important;
+      height: 40px !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+
+      @media (max-width: $breakpoint-md) {
+        width: 20px;
+        height: 20px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 18px;
+        height: 18px;
+      }
     }
 
     &:hover {
-      background: white;
-      color: $primary;
-      transform: translateY(-50%) scale(1.1);
+      background: white !important;
+      border-color: white !important;
+      color: $primary !important;
+      transform: translateY(-50%) scale(1.08) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+
+      svg {
+        transform: scale(1.1);
+      }
 
       @media (max-width: $breakpoint-sm) {
-        transform: translateY(-50%) scale(1.05);
+        transform: translateY(-50%) scale(1.05) !important;
       }
     }
 
-    &.slick-prev {
-      left: 2rem;
-
-      @media (max-width: $breakpoint-md) {
-        left: 1.5rem;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        left: 1rem;
-      }
-
-      @media (max-width: $breakpoint-xs) {
-        left: 0.5rem;
-      }
-    }
-
-    &.slick-next {
-      right: 2rem;
-
-      @media (max-width: $breakpoint-md) {
-        right: 1.5rem;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        right: 1rem;
-      }
-
-      @media (max-width: $breakpoint-xs) {
-        right: 0.5rem;
-      }
+    &:active {
+      transform: translateY(-50%) scale(0.98) !important;
     }
 
     &::before {
-      display: none;
+      display: none !important;
+      content: none !important;
+    }
+  }
+
+  .slick-prev {
+    left: 2rem !important;
+
+    @media (max-width: $breakpoint-md) {
+      left: 1.5rem !important;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      left: 1rem !important;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      left: 0.5rem !important;
+    }
+  }
+
+  .slick-next {
+    right: 2rem !important;
+
+    @media (max-width: $breakpoint-md) {
+      right: 1.5rem !important;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      right: 1rem !important;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      right: 0.5rem !important;
+    }
+  }
+
+  .slick-disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3) !important;
+      color: white !important;
+      transform: translateY(-50%) scale(1) !important;
     }
   }
 

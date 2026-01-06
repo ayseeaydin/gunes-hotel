@@ -4,26 +4,30 @@ import { useTranslation } from 'react-i18next'
 import Slider from 'react-slick'
 import './Hero.scss'
 
-// Custom Arrow Components - DOM prop warnings'i önlemek için
+// Custom Arrow Components - Modern ve şık oklar
 const PrevArrow = ({ onClick }) => (
   <button 
     type="button" 
-    className="slick-prev" 
+    className="slick-prev slick-arrow" 
     aria-label="Önceki Slayt"
     onClick={onClick}
   >
-    <i className="fas fa-chevron-left"></i>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
   </button>
 )
 
 const NextArrow = ({ onClick }) => (
   <button 
     type="button" 
-    className="slick-next" 
+    className="slick-next slick-arrow" 
     aria-label="Sonraki Slayt"
     onClick={onClick}
   >
-    <i className="fas fa-chevron-right"></i>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
   </button>
 )
 
@@ -48,7 +52,7 @@ const Hero = () => {
 
   const slides = [
     {
-      image: '/img/slide-1.jpg',
+      image: '/img/slide-1.webp',
       titleKey: 'hero.title1',
       subtitleKey: 'hero.subtitle1',
       buttons: [
@@ -57,7 +61,7 @@ const Hero = () => {
       ]
     },
     {
-      image: '/img/slide-2.jpg',
+      image: '/img/slide-2.webp',
       titleKey: 'hero.title2',
       subtitleKey: 'hero.subtitle2',
       buttons: [
@@ -66,7 +70,7 @@ const Hero = () => {
       ]
     },
     {
-      image: '/img/gallery-4.JPG',
+      image: '/img/gallery-4.webp',
       titleKey: 'hero.title3',
       subtitleKey: 'hero.subtitle3',
       buttons: [

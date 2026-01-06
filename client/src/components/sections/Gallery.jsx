@@ -11,14 +11,14 @@ const Gallery = () => {
   const [imageErrors, setImageErrors] = useState({})
 
   const galleryImages = [
-    { src: '/img/gallery-1.JPG', alt: 'Otel Dış Görünüm' },
-    { src: '/img/gallery-2.JPG', alt: 'Resepsiyon Alanı' },
-    { src: '/img/gallery-3.JPG', alt: 'Restoran' },
-    { src: '/img/gallery-4.JPG', alt: 'Nemrut Dağı Manzarası' },
-    { src: '/img/gallery-5.JPG', alt: 'Gün Doğumu' },
-    { src: '/img/gallery-6.jpeg', alt: 'Çevre Manzarası' },
-    { src: '/img/gallery-7.jpeg', alt: 'Oda İç Görünüm' },
-    { src: '/img/gallery-8.JPG', alt: 'Gün Batımı' }
+    { src: '/img/gallery-1.webp', alt: 'Otel Dış Görünüm' },
+    { src: '/img/gallery-2.webp', alt: 'Resepsiyon Alanı' },
+    { src: '/img/gallery-3.webp', alt: 'Restoran' },
+    { src: '/img/gallery-4.webp', alt: 'Nemrut Dağı Manzarası' },
+    { src: '/img/gallery-5.webp', alt: 'Gün Doğumu' },
+    { src: '/img/gallery-6.webp', alt: 'Çevre Manzarası' },
+    { src: '/img/gallery-7.webp', alt: 'Oda İç Görünüm' },
+    { src: '/img/gallery-8.webp', alt: 'Gün Batımı' }
   ]
 
   const handleImageError = (index, e) => {

@@ -37,7 +37,7 @@ const AboutPage = () => {
               <Col lg={6} data-aos="fade-right">
                 <div className="about-image">
                   <img 
-                    src="/img/motel.jpg" 
+                    src="/img/motel.webp" 
                     alt="Güneş Hotel" 
                     className="img-fluid rounded shadow"
                   />
@@ -109,7 +109,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-10.JPG" alt="Nemrut Dağı" className="img-fluid" />
+                    <img src="/img/gallery-10.webp" alt="Nemrut Dağı" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Nemrut Dağı</h4>
@@ -124,7 +124,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-4.JPG" alt="Karakuş Tümülüsü" className="img-fluid" />
+                    <img src="/img/gallery-4.webp" alt="Karakuş Tümülüsü" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Karakuş Tümülüsü</h4>
@@ -139,7 +139,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="200">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-5.JPG" alt="Cendere Köprüsü" className="img-fluid" />
+                    <img src="/img/gallery-5.webp" alt="Cendere Köprüsü" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Cendere Köprüsü</h4>
@@ -154,7 +154,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="300">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-24.jpeg" alt="Arsemia" className="img-fluid" />
+                    <img src="/img/gallery-24.webp" alt="Arsemia" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Arsemia Ören Yeri</h4>
@@ -169,7 +169,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="400">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-25.jpeg" alt="Kahta Kalesi" className="img-fluid" />
+                    <img src="/img/gallery-25.webp" alt="Kahta Kalesi" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Kahta Kalesi</h4>
@@ -184,7 +184,7 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="500">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-26.jpeg" alt="Perre" className="img-fluid" />
+                    <img src="/img/gallery-26.webp" alt="Perre" className="img-fluid" />
                   </div>
                   <div className="place-content">
                     <h4>Perre Antik Kenti</h4>

@@ -12,21 +12,21 @@ const Home = () => {
 
   // Debug için kontrol edilecek görseller
   const debugImages = import.meta.env.DEV ? [
-    { src: '/img/motel.jpg', component: 'About' },
-    { src: '/img/double-room-1.jpg', component: 'Rooms' },
-    { src: '/img/twin-room-1.JPG', component: 'Rooms' },
-    { src: '/img/triple-room.JPG', component: 'Rooms' },
-    { src: '/img/gallery-27.jpeg', component: 'Rooms' },
-    { src: '/img/gallery-1.JPG', component: 'Gallery' },
-    { src: '/img/gallery-2.JPG', component: 'Gallery' },
-    { src: '/img/gallery-3.JPG', component: 'Gallery' },
-    { src: '/img/gallery-4.JPG', component: 'Gallery' },
-    { src: '/img/gallery-5.JPG', component: 'Gallery' },
-    { src: '/img/gallery-6.jpeg', component: 'Gallery' },
-    { src: '/img/gallery-7.jpeg', component: 'Gallery' },
-    { src: '/img/gallery-8.JPG', component: 'Gallery' },
-    { src: '/img/slide-1.jpg', component: 'Hero' },
-    { src: '/img/slide-2.jpg', component: 'Hero' }
+    { src: '/img/motel.webp', component: 'About' },
+    { src: '/img/double-room-1.webp', component: 'Rooms' },
+    { src: '/img/twin-room-1.webp', component: 'Rooms' },
+    { src: '/img/triple-room.webp', component: 'Rooms' },
+    { src: '/img/gallery-27.webp', component: 'Rooms' },
+    { src: '/img/gallery-1.webp', component: 'Gallery' },
+    { src: '/img/gallery-2.webp', component: 'Gallery' },
+    { src: '/img/gallery-3.webp', component: 'Gallery' },
+    { src: '/img/gallery-4.webp', component: 'Gallery' },
+    { src: '/img/gallery-5.webp', component: 'Gallery' },
+    { src: '/img/gallery-6.webp', component: 'Gallery' },
+    { src: '/img/gallery-7.webp', component: 'Gallery' },
+    { src: '/img/gallery-8.webp', component: 'Gallery' },
+    { src: '/img/slide-1.webp', component: 'Hero' },
+    { src: '/img/slide-2.webp', component: 'Hero' }
   ] : []
 
   return (
