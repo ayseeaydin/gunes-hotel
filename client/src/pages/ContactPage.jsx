@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import axios from 'axios'
+import { reservationAPI } from '@services/api'
 import StructuredData from '@components/common/StructuredData'
 import './ContactPage.scss'
 
@@ -34,7 +34,7 @@ const ContactPage = () => {
     setAlert({ show: false, type: '', message: '' })
 
     try {
-      const response = await axios.post('/api/reservations', formData)
+      const response = await reservationAPI.create(formData)
       
       setAlert({
         show: true,
