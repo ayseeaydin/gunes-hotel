@@ -23,7 +23,7 @@ const Home = () => {
           name="keywords"
           content="Nemrut Dağı, otel, konaklama, Kahta, Adıyaman, gün doğumu, gün batımı, UNESCO"
         />
-        <link rel="canonical" href="https://guneshotel.com/" />
+        <link rel="canonical" href="https://www.nemrutgunesmotel.com/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
       </Helmet>

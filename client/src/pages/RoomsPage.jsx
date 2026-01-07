@@ -69,7 +69,7 @@ const RoomsPage = () => {
           name="description" 
           content="Konforlu ve modern donanımlı odalarımızı keşfedin. Dağ manzaralı, sıcak sulu odalar." 
         />
-        <link rel="canonical" href="https://guneshotel.com/rooms" />
+        <link rel="canonical" href="https://www.nemrutgunesmotel.com/rooms" />
       </Helmet>
       <StructuredData type="hotel" page="rooms" />
 

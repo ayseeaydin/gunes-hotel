@@ -92,7 +92,7 @@ const GalleryPage = () => {
           name="description" 
           content="Güneş Hotel ve Nemrut Dağı'ndan fotoğraflar. Odalarımız, manzaralarımız ve otelimizden kareler." 
         />
-        <link rel="canonical" href="https://guneshotel.com/gallery" />
+        <link rel="canonical" href="https://www.nemrutgunesmotel.com/gallery" />
       </Helmet>
       <StructuredData type="hotel" page="gallery" />
 

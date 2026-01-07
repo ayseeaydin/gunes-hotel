@@ -16,7 +16,7 @@ const AboutPage = () => {
           name="description" 
           content="Güneş Hotel hakkında bilgi edinin. 1980'lerden beri aile işletmesi olarak hizmet veriyoruz." 
         />
-        <link rel="canonical" href="https://guneshotel.com/about" />
+        <link rel="canonical" href="https://www.nemrutgunesmotel.com/about" />
       </Helmet>
       <StructuredData type="hotel" page="about" />
 
@@ -49,7 +49,7 @@ const AboutPage = () => {
                 <div className="about-text">
                   <h2 className="mb-4">{t('about.heading')}</h2>
                   <div className="text-content">
-                    {t('about.description').split('\n\n').map((paragraph, index) => (
+                    {t('about.detailedDescription').split('\n\n').map((paragraph, index) => (
                       <p key={index}>{paragraph}</p>
                     ))}
                   </div>

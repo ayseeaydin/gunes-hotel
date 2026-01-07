@@ -72,7 +72,7 @@ const ContactPage = () => {
           name="description" 
           content="Güneş Hotel ile iletişime geçin ve rezervasyon yapın. Telefon, email ve adres bilgilerimiz." 
         />
-        <link rel="canonical" href="https://guneshotel.com/contact" />
+        <link rel="canonical" href="https://www.nemrutgunesmotel.com/contact" />
       </Helmet>
       <StructuredData type="hotel" page="contact" />
 
@@ -109,7 +109,8 @@ const ContactPage = () => {
                     </div>
                     <h4>{t('contact.phone')}</h4>
                     <p>
-                      <a href="tel:+905555555555">+90 555 555 55 55</a>
+                      <a href="tel:+905438767271">+90 543 876 7271</a><br/>
+                      <a href="tel:+905362870639">+90 536 287 0639</a>
                     </p>
                   </div>
 
@@ -133,17 +134,8 @@ const ContactPage = () => {
 
                   {/* Social Links */}
                   <div className="social-links">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/mount_nemrut_tour?igsh=MTBsZDJmN3Zva24xZA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                       <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://wa.me/905555555555" target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-whatsapp"></i>
                     </a>
                   </div>
                 </div>
@@ -200,7 +192,7 @@ const ContactPage = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            placeholder="+90 555 555 55 55"
+                            placeholder="+90 543 876 7271"
                           />
                         </Form.Group>
                       </Col>
@@ -306,7 +298,7 @@ const ContactPage = () => {
         {/* Map Section */}
         <section className="map-section">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d38.7414!3d37.9808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDU4JzUxLjAiTiAzOMKwNDQnMjkuMCJF!5e0!3m2!1str!2str!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23107.224466176427!2d38.74809860815096!3d37.991781659336155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4075fee789c631c5%3A0xc60c5c6d8b427183!2zR8O8bmXFnyBNb3RlbA!5e0!3m2!1str!2str!4v1767785234481!5m2!1str!2str"
             width="100%"
             height="450"
             style={{ border: 0 }}
