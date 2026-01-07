@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+
+  @media (max-width: $breakpoint-md) {
+    bottom: 20px;
+    left: 20px;
+    width: 55px;
+    height: 55px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    bottom: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  i {
+    font-size: 2rem;
+    color: white;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1.75rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+  }
+
+  &:active {
+    transform: scale(1.05) translateY(-3px);
+  }
+
+  // Pulse animation
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7), 
+                  0 0 0 10px rgba(37, 211, 102, 0.1),
+                  0 0 0 20px rgba(37, 211, 102, 0.05);
+    }
+    100% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+  }
+}
