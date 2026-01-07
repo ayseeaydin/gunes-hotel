@@ -22,6 +22,10 @@ i18n
     },
     interpolation: {
       escapeValue: false
+    },
+    debug: false,
+    react: {
+      useSuspense: false
     }
   })
 
