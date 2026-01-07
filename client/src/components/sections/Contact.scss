@@ -7,12 +7,16 @@
 
   .contact-info-card {
     background: $bg-cream;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2rem;
     border-radius: $border-radius;
     text-align: center;
     height: 100%;
     transition: $transition;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
     &:hover {
       transform: translateY(-10px);
@@ -27,13 +31,14 @@
     .info-icon {
       width: 80px;
       height: 80px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
       background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: $transition;
+      flex-shrink: 0;
 
       i {
         font-size: 2rem;
@@ -44,36 +49,48 @@
     h4 {
       color: $secondary;
       font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.35rem;
+      text-align: center;
+      width: 100%;
     }
 
     p {
       color: $gray-700;
       margin: 0;
-      line-height: 1.8;
+      line-height: 1.9;
+      text-align: center;
+      width: 100%;
+      font-size: 1rem;
 
       a {
         color: $primary;
         font-weight: 600;
         transition: $transition;
+        display: inline-block;
+        margin: 0.25rem 0;
 
         &:hover {
           color: $primary-dark;
           text-decoration: underline;
         }
       }
+
+      br {
+        line-height: 2.2;
+      }
     }
   }
 
   .quick-contact-form {
     background: $bg-cream;
-    padding: 3rem;
+    padding: 3.5rem;
     border-radius: $border-radius;
     box-shadow: $shadow;
+    text-align: center;
 
     @media (max-width: $breakpoint-md) {
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
     }
 
     h3 {
@@ -81,6 +98,12 @@
       font-weight: 700;
       margin-bottom: 1rem;
       font-size: 2rem;
+      text-align: center;
+    }
+
+    .text-muted {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .form-control,
@@ -90,6 +113,7 @@
       border-radius: $border-radius-sm;
       transition: $transition;
       background: white;
+      text-align: left;
 
       &:focus {
         border-color: $primary;
@@ -110,6 +134,8 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
 
       .btn-submit {
         background: $primary;
@@ -121,6 +147,7 @@
         transition: $transition;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
 
         &:hover:not(:disabled) {
           background: $primary-dark;
@@ -144,6 +171,7 @@
         transition: $transition;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
 
         &:hover {
           background: $primary;

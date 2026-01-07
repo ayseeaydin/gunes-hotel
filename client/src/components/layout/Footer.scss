@@ -3,34 +3,34 @@
 .footer {
   background: linear-gradient(135deg, $secondary 0%, darken($secondary, 5%) 100%);
   color: $text-light;
-  padding: 4rem 0 0;
+  padding: 5rem 0 0;
   margin-top: 5rem;
   overflow: hidden;
   width: 100%;
 
   @media (max-width: $breakpoint-md) {
-    padding: 3rem 0 0;
+    padding: 3.5rem 0 0;
     margin-top: 3rem;
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 2.5rem 0 0;
+    padding: 3rem 0 0;
     margin-top: 2rem;
   }
 
   .footer-content {
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     @media (max-width: $breakpoint-md) {
-      padding-bottom: 2rem;
+      padding-bottom: 2.5rem;
     }
   }
 
   .footer-section {
     // Mobilde her section arasına boşluk
     @media (max-width: $breakpoint-lg) {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
 
       &:last-child {
         margin-bottom: 0;
@@ -38,10 +38,10 @@
     }
 
     .footer-logo {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
 
       @media (max-width: $breakpoint-sm) {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       .logo-text {
@@ -85,14 +85,15 @@
     }
 
     .footer-description {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.8;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.975rem;
 
       @media (max-width: $breakpoint-sm) {
         font-size: 0.95rem;
         line-height: 1.7;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -106,47 +107,50 @@
       }
 
       a {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         border-radius: 50%;
         color: $text-light;
         transition: $transition;
+        border: 2px solid transparent;
 
         @media (max-width: $breakpoint-sm) {
-          width: 45px;
-          height: 45px;
+          width: 50px;
+          height: 50px;
         }
 
         &:hover {
           background: $primary;
-          transform: translateY(-3px);
+          transform: translateY(-3px) scale(1.05);
+          border-color: $primary;
+          box-shadow: 0 5px 15px rgba($primary, 0.3);
         }
 
         &:active {
-          transform: translateY(-1px);
+          transform: translateY(-1px) scale(1.02);
         }
 
         i {
-          font-size: 1.1rem;
+          font-size: 1.3rem;
 
           @media (max-width: $breakpoint-sm) {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
           }
         }
       }
     }
 
     .footer-title {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: $primary;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       position: relative;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
 
       @media (max-width: $breakpoint-md) {
         font-size: 1.15rem;

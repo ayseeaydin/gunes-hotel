@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import ScrollToTop from '@components/common/ScrollToTop'
+import WhatsAppButton from '@components/common/WhatsAppButton'
 
 const Layout = ({ children }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
       </main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
     </>
   )
 }

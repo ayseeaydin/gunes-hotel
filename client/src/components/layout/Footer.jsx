@@ -10,28 +10,10 @@ const Footer = () => {
 
   const socialLinks = useMemo(() => [
     { 
-      href: 'https://facebook.com/guneshotel', 
-      icon: 'fa-facebook-f', 
-      label: 'Facebook sayfamızı ziyaret edin',
-      name: 'Facebook'
-    },
-    { 
-      href: 'https://instagram.com/guneshotel', 
+      href: 'https://www.instagram.com/mount_nemrut_tour?igsh=MTBsZDJmN3Zva24xZA==', 
       icon: 'fa-instagram', 
       label: 'Instagram hesabımızı takip edin',
       name: 'Instagram'
-    },
-    { 
-      href: 'https://twitter.com/guneshotel', 
-      icon: 'fa-twitter', 
-      label: 'Twitter hesabımızı takip edin',
-      name: 'Twitter'
-    },
-    { 
-      href: 'https://tripadvisor.com/guneshotel', 
-      icon: 'fa-tripadvisor', 
-      label: 'TripAdvisor yorumlarımızı okuyun',
-      name: 'TripAdvisor'
     }
   ], [])
 
@@ -47,7 +29,7 @@ const Footer = () => {
       <Container>
         <Row className="footer-content">
           {/* About Section */}
-          <Col lg={4} md={6} className="footer-section mb-4 mb-lg-0">
+          <Col lg={3} md={6} className="footer-section mb-4 mb-lg-0">
             <div className="footer-logo">
               <div className="logo-text">
                 <span className="logo-main">GÜNEŞ</span>
@@ -77,7 +59,7 @@ const Footer = () => {
           </Col>
 
           {/* Quick Links */}
-          <Col lg={2} md={6} className="footer-section mb-4 mb-lg-0">
+          <Col lg={3} md={6} className="footer-section mb-4 mb-lg-0">
             <h2 className="footer-title">{t('footer.quickLinks')}</h2>
             <nav aria-label="Hızlı linkler">
               <ul className="footer-links">
@@ -104,21 +86,26 @@ const Footer = () => {
           </Col>
 
           {/* Contact Info */}
-          <Col lg={3} md={6} className="footer-section">
+          <Col lg={3} md={6} className="footer-section mb-4 mb-lg-0">
             <h2 className="footer-title">{t('footer.contactInfo')}</h2>
             <address className="footer-contact">
               <div className="contact-item">
                 <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
                 <span>
-                  Karadut Köyü, Nemrut Dağı Yolu<br />
-                  Kahta/Adıyaman
+                  Büyüköz, Nemrut Dağı Yolu<br />
+                  44850 Pütürge/Malatya
                 </span>
               </div>
               <div className="contact-item">
                 <i className="fas fa-phone" aria-hidden="true"></i>
-                <a href="tel:+905555555555" aria-label="Telefon numarası: +90 555 555 55 55">
-                  +90 555 555 55 55
-                </a>
+                <div>
+                  <a href="tel:+905438767271" aria-label="Telefon numarası: +90 543 876 7271">
+                    +90 543 876 7271
+                  </a><br/>
+                  <a href="tel:+905362870639" aria-label="Telefon numarası: +90 536 287 0639">
+                    +90 536 287 0639
+                  </a>
+                </div>
               </div>
               <div className="contact-item">
                 <i className="fas fa-envelope" aria-hidden="true"></i>

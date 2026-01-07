@@ -58,7 +58,7 @@ const Rooms = () => {
       id: 4,
       name: t('rooms.family'),
       description: t('rooms.familyDesc'),
-      image: '/img/gallery-27.webp',
+      image: '/img/family-room.webp',
       guests: 5,
       price: '3.000',
       features: [

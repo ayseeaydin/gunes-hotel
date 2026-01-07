@@ -144,7 +144,7 @@ const Header = () => {
               
               <div className="nav-divider d-none d-lg-block" aria-hidden="true"></div>
               
-              <Nav.Item as="li" role="none">
+              <Nav.Item as="li" role="none" className="d-flex align-items-center">
                 <LanguageSelector />
               </Nav.Item>
             </Nav>
