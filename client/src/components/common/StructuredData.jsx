@@ -8,16 +8,16 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
     "name": "Güneş Hotel",
     "description": "UNESCO Dünya Mirası Nemrut Dağı'na sadece 2 km mesafede konforlu konaklama. 1980'lerden beri aile işletmesi.",
     "image": [
-      "https://guneshotel.com/img/motel.webp",
-      "https://guneshotel.com/img/slide-1.webp",
-      "https://guneshotel.com/img/slide-2.webp"
+      "https://www.nemrutgunesmotel.com/img/motel.webp",
+      "https://www.nemrutgunesmotel.com/img/slide-1.webp",
+      "https://www.nemrutgunesmotel.com/img/slide-2.webp"
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Nemrut Dağı Yolu",
-      "addressLocality": "Kahta",
-      "addressRegion": "Adıyaman",
-      "postalCode": "02400",
+      "streetAddress": "Büyüköz, Nemrut Dağı Yolu",
+      "addressLocality": "Pütürge",
+      "addressRegion": "Malatya",
+      "postalCode": "44850",
       "addressCountry": "TR"
     },
     "geo": {
@@ -25,8 +25,8 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
       "latitude": "37.9853",
       "longitude": "38.7429"
     },
-    "url": "https://guneshotel.com",
-    "telephone": "+90-555-123-4567",
+    "url": "https://www.nemrutgunesmotel.com",
+    "telephone": "+90-543-876-7271",
     "priceRange": "₺₺",
     "starRating": {
       "@type": "Rating",
@@ -66,7 +66,7 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
         "@type": "ListItem",
         "position": 1,
         "name": "Ana Sayfa",
-        "item": "https://guneshotel.com"
+        "item": "https://www.nemrutgunesmotel.com"
       }
     ]
   }
@@ -76,28 +76,28 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
       "@type": "ListItem",
       "position": 2,
       "name": "Odalarımız",
-      "item": "https://guneshotel.com/rooms"
+      "item": "https://www.nemrutgunesmotel.com/rooms"
     })
   } else if (page === 'gallery') {
     breadcrumbData.itemListElement.push({
       "@type": "ListItem",
       "position": 2,
       "name": "Galeri",
-      "item": "https://guneshotel.com/gallery"
+      "item": "https://www.nemrutgunesmotel.com/gallery"
     })
   } else if (page === 'about') {
     breadcrumbData.itemListElement.push({
       "@type": "ListItem",
       "position": 2,
       "name": "Hakkımızda",
-      "item": "https://guneshotel.com/about"
+      "item": "https://www.nemrutgunesmotel.com/about"
     })
   } else if (page === 'contact') {
     breadcrumbData.itemListElement.push({
       "@type": "ListItem",
       "position": 2,
       "name": "İletişim",
-      "item": "https://guneshotel.com/contact"
+      "item": "https://www.nemrutgunesmotel.com/contact"
     })
   }
 
@@ -105,8 +105,8 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Güneş Hotel",
-    "url": "https://guneshotel.com",
-    "logo": "https://guneshotel.com/img/logo.webp",
+    "url": "https://www.nemrutgunesmotel.com",
+    "logo": "https://www.nemrutgunesmotel.com/img/logo.webp",
     "sameAs": [
       "https://www.facebook.com/guneshotel",
       "https://www.instagram.com/guneshotel"

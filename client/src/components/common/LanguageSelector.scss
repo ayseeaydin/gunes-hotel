@@ -2,6 +2,8 @@
 
 .language-selector {
   position: relative;
+  display: flex;
+  align-items: center;
 
   .current-lang {
     display: flex;
@@ -16,6 +18,7 @@
     transition: $transition;
     font-weight: 600;
     font-size: 0.9rem;
+    line-height: 1;
 
     &:hover,
     &:focus {
@@ -27,16 +30,21 @@
 
     .flag {
       font-size: 1.2rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
 
     .code {
       font-weight: 700;
       letter-spacing: 0.5px;
+      line-height: 1;
     }
 
     i {
       font-size: 0.75rem;
       transition: $transition;
+      line-height: 1;
 
       &.rotate {
         transform: rotate(180deg);
@@ -60,7 +68,7 @@
     box-shadow: $shadow;
     padding: 0.5rem;
     min-width: 180px;
-    z-index: 1000;
+    z-index: 9999;
     animation: fadeInDown 0.3s ease;
 
     @media (max-width: $breakpoint-lg) {

@@ -26,10 +26,14 @@ const LanguageSelector = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('selectedLanguage', lang)
-    setIsOpen(false)
+  const changeLanguage = async (lang) => {
+    try {
+      await i18n.changeLanguage(lang)
+      localStorage.setItem('selectedLanguage', lang)
+      setIsOpen(false)
+    } catch (error) {
+      console.error('Dil değiştirme hatası:', error)
+    }
   }
 
   return (
