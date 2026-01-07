@@ -29,7 +29,7 @@ const Contact = () => {
     setAlert({ show: false, type: '', message: '' })
 
     try {
-      const response = await axios.post('/api/contact', formData)
+      await axios.post('/api/contact', formData)
       
       setAlert({
         show: true,

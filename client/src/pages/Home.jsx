@@ -1,6 +1,5 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useTranslation } from 'react-i18next'
 import Hero from '@components/sections/Hero'
 import About from '@components/sections/About'
 import Rooms from '@components/sections/Rooms'
@@ -9,7 +8,7 @@ import Contact from '@components/sections/Contact'
 import StructuredData from '@components/common/StructuredData'
 
 const Home = () => {
-  const { t } = useTranslation()
+  
 
   return (
     <>

@@ -34,7 +34,7 @@ const ContactPage = () => {
     setAlert({ show: false, type: '', message: '' })
 
     try {
-      const response = await reservationAPI.create(formData)
+        await reservationAPI.create(formData)
       
       setAlert({
         show: true,
