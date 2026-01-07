@@ -134,7 +134,24 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@i18n': path.resolve(__dirname, './src/i18n')
-    }
+    },
+    // React'in tek instance olarak kullanılmasını garanti et
+    dedupe: ['react', 'react-dom', 'react-router-dom', 'react-bootstrap']
+  },
+
+  // Dependency optimization
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'react-bootstrap',
+      'react-helmet-async',
+      'react-i18next',
+      'i18next',
+      'i18next-browser-languagedetector'
+    ],
+    force: true
   },
   
   server: {
@@ -180,38 +197,8 @@ export default defineConfig({
     // Rollup options
     rollupOptions: {
       output: {
-        // Manuel chunk splitting - Simplified and safer
-        manualChunks: (id) => {
-          // Node modules için chunk splitting
-          if (id.includes('node_modules')) {
-            // React core
-            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
-              return 'react-vendor';
-            }
-            // Router
-            if (id.includes('react-router')) {
-              return 'router';
-            }
-            // Bootstrap
-            if (id.includes('bootstrap') || id.includes('react-bootstrap')) {
-              return 'bootstrap';
-            }
-            // i18n
-            if (id.includes('i18next')) {
-              return 'i18n';
-            }
-            // Axios
-            if (id.includes('axios')) {
-              return 'axios';
-            }
-            // AOS
-            if (id.includes('aos')) {
-              return 'aos';
-            }
-            // Diğer node_modules için vendor chunk
-            return 'vendor';
-          }
-        },
+        // Otomatik chunk splitting - Vite'a bırak
+        manualChunks: undefined,
         
         // Asset isimlendirme
         assetFileNames: (assetInfo) => {
@@ -246,20 +233,6 @@ export default defineConfig({
     
     // CSS options
     cssMinify: true
-  },
-  
-  // Optimizasyon
-  optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-      'react-bootstrap',
-      'react-i18next',
-      'i18next',
-      'axios'
-    ],
-    exclude: ['@vite/client', '@vite/env']
   },
   
   // Esbuild optimizasyonları

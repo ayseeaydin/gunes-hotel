@@ -4,57 +4,57 @@
   
   <!-- Ana Sayfa -->
   <url>
-    <loc>https://guneshotel.com/</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://www.nemrutgunesmotel.com/</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://guneshotel.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://guneshotel.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://guneshotel.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nemrutgunesmotel.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nemrutgunesmotel.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nemrutgunesmotel.com/it/"/>
   </url>
   
   <!-- Odalar Sayfası -->
   <url>
-    <loc>https://guneshotel.com/rooms</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://www.nemrutgunesmotel.com/rooms</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://guneshotel.com/rooms"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://guneshotel.com/en/rooms"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://guneshotel.com/it/rooms"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nemrutgunesmotel.com/rooms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nemrutgunesmotel.com/en/rooms"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nemrutgunesmotel.com/it/rooms"/>
   </url>
   
   <!-- Galeri Sayfası -->
   <url>
-    <loc>https://guneshotel.com/gallery</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://www.nemrutgunesmotel.com/gallery</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://guneshotel.com/gallery"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://guneshotel.com/en/gallery"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://guneshotel.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nemrutgunesmotel.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nemrutgunesmotel.com/en/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nemrutgunesmotel.com/it/gallery"/>
   </url>
   
   <!-- Hakkımızda Sayfası -->
   <url>
-    <loc>https://guneshotel.com/about</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://www.nemrutgunesmotel.com/about</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://guneshotel.com/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://guneshotel.com/en/about"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://guneshotel.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nemrutgunesmotel.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nemrutgunesmotel.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nemrutgunesmotel.com/it/about"/>
   </url>
   
   <!-- İletişim Sayfası -->
   <url>
-    <loc>https://guneshotel.com/contact</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://www.nemrutgunesmotel.com/contact</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://guneshotel.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://guneshotel.com/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://guneshotel.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nemrutgunesmotel.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nemrutgunesmotel.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nemrutgunesmotel.com/it/contact"/>
   </url>
 
 </urlset>

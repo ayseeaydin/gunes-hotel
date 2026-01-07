@@ -4,6 +4,7 @@
   "description": "Güneş Hotel - Frontend Application",
   "private": true,
   "type": "module",
+  "homepage": "https://www.nemrutgunesmotel.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

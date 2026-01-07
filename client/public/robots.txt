@@ -1,4 +1,4 @@
-# robots.txt for guneshotel.com
+# robots.txt for nemrutgunesmotel.com
 
 User-agent: *
 Allow: /
@@ -19,7 +19,7 @@ Allow: /*.jpg$
 Allow: /*.svg$
 
 # Sitemap location
-Sitemap: https://guneshotel.com/sitemap.xml
+Sitemap: https://www.nemrutgunesmotel.com/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1
