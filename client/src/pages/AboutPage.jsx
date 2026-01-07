@@ -197,6 +197,66 @@ const AboutPage = () => {
                   </div>
                 </div>
               </Col>
+              
+                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="600">
+                  <div className="place-card">
+                    <div className="place-image">
+                      <img src="/img/gallery-27.webp" alt="Somuncu Baba Külliyesi" className="img-fluid" />
+                    </div>
+                    <div className="place-content">
+                      <h4>Somuncu Baba Külliyesi (Darende)</h4>
+                      <p>Somuncu Baba'ya ait külliye; camisi, türbesi ve huzurlu çevresiyle manevi bir ziyaret noktasıdır.</p>
+                      <span className="distance">
+                        <i className="fas fa-map-marker-alt"></i> 80 km
+                      </span>
+                    </div>
+                  </div>
+                </Col>
+
+                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="700">
+                  <div className="place-card">
+                    <div className="place-image">
+                      <img src="/img/gallery-28.webp" alt="Günpınar Şelalesi" className="img-fluid" />
+                    </div>
+                    <div className="place-content">
+                      <h4>Günpınar (Gürpınar) Şelalesi</h4>
+                      <p>Turkuaz rengi suları ve doğal yapısıyla fotoğraf ve doğa yürüyüşleri için ideal şelale.</p>
+                      <span className="distance">
+                        <i className="fas fa-map-marker-alt"></i> 85 km
+                      </span>
+                    </div>
+                  </div>
+                </Col>
+
+                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="800">
+                  <div className="place-card">
+                    <div className="place-image">
+                      <img src="/img/gallery-29.webp" alt="Tohma Kanyonu" className="img-fluid" />
+                    </div>
+                    <div className="place-content">
+                      <h4>Tohma Kanyonu</h4>
+                      <p>Dik kayalıkları ve yürüyüş rotalarıyla doğaseverlerin ilgisini çeken kanyon.</p>
+                      <span className="distance">
+                        <i className="fas fa-map-marker-alt"></i> 85 km
+                      </span>
+                    </div>
+                  </div>
+                </Col>
+
+                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="900">
+                  <div className="place-card">
+                    <div className="place-image">
+                      <img src="/img/gallery-30.webp" alt="Levent Vadisi" className="img-fluid" />
+                    </div>
+                    <div className="place-content">
+                      <h4>Levent Vadisi</h4>
+                      <p>Kanyon manzaraları, yürüyüş rotaları ve gün batımı seyir teraslarıyla ünlü doğal alan.</p>
+                      <span className="distance">
+                        <i className="fas fa-map-marker-alt"></i> 95 km
+                      </span>
+                    </div>
+                  </div>
+                </Col>
             </Row>
           </Container>
         </section>
