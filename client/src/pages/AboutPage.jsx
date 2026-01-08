@@ -25,7 +25,7 @@ const AboutPage = () => {
         <section className="page-header">
           <div className="page-header-overlay"></div>
           <Container>
-            <div className="page-header-content" data-aos="fade-up">
+            <div className="page-header-content">
               <h1>{t('nav.about')}</h1>
               <p className="lead">{t('about.subtitle')}</p>
             </div>
@@ -36,7 +36,7 @@ const AboutPage = () => {
         <section className="section about-content">
           <Container>
             <Row className="align-items-center mb-5">
-              <Col lg={6} data-aos="fade-right">
+              <Col lg={6}>
                 <div className="about-image">
                   <img 
                     src="/img/motel.webp" 
@@ -45,7 +45,7 @@ const AboutPage = () => {
                   />
                 </div>
               </Col>
-              <Col lg={6} data-aos="fade-left">
+              <Col lg={6}>
                 <div className="about-text">
                   <h2 className="mb-4">{t('about.heading')}</h2>
                   <div className="text-content">
@@ -59,7 +59,7 @@ const AboutPage = () => {
 
             {/* Features */}
             <Row className="mt-5">
-              <Col md={6} lg={3} className="mb-4" data-aos="fade-up" data-aos-delay="100">
+              <Col md={6} lg={3} className="mb-4" data-aos-delay="100">
                 <div className="feature-card text-center">
                   <div className="feature-icon">
                     <i className="fas fa-mountain"></i>
@@ -68,7 +68,7 @@ const AboutPage = () => {
                   <p>Nemrut Dağı'na en yakın otel</p>
                 </div>
               </Col>
-              <Col md={6} lg={3} className="mb-4" data-aos="fade-up" data-aos-delay="200">
+              <Col md={6} lg={3} className="mb-4" data-aos-delay="200">
                 <div className="feature-card text-center">
                   <div className="feature-icon">
                     <i className="fas fa-home"></i>
@@ -77,7 +77,7 @@ const AboutPage = () => {
                   <p>1980'lerden beri hizmetinizdeyiz</p>
                 </div>
               </Col>
-              <Col md={6} lg={3} className="mb-4" data-aos="fade-up" data-aos-delay="300">
+              <Col md={6} lg={3} className="mb-4" data-aos-delay="300">
                 <div className="feature-card text-center">
                   <div className="feature-icon">
                     <i className="fas fa-heart"></i>
@@ -86,7 +86,7 @@ const AboutPage = () => {
                   <p>Kendinizi evinizde hissedin</p>
                 </div>
               </Col>
-              <Col md={6} lg={3} className="mb-4" data-aos="fade-up" data-aos-delay="400">
+              <Col md={6} lg={3} className="mb-4" data-aos-delay="400">
                 <div className="feature-card text-center">
                   <div className="feature-icon">
                     <i className="fas fa-landmark"></i>
@@ -99,7 +99,7 @@ const AboutPage = () => {
 
             {/* Historical Places */}
             <Row className="mt-5">
-              <Col lg={12} data-aos="fade-up">
+              <Col lg={12}>
                 <div className="section-title text-center mb-5">
                   <h2>Çevredeki Tarihi Yerler</h2>
                   <p>Otelimizden kolayca ulaşabileceğiniz tarihi mekanlar</p>
@@ -108,7 +108,7 @@ const AboutPage = () => {
             </Row>
 
             <Row>
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up">
+              <Col md={6} lg={4} className="mb-4">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-10.webp" alt="Nemrut Dağı" className="img-fluid" />
@@ -123,7 +123,7 @@ const AboutPage = () => {
                 </div>
               </Col>
 
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="100">
+              <Col md={6} lg={4} className="mb-4" data-aos-delay="100">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-4.webp" alt="Karakuş Tümülüsü" className="img-fluid" />
@@ -138,7 +138,7 @@ const AboutPage = () => {
                 </div>
               </Col>
 
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="200">
+              <Col md={6} lg={4} className="mb-4" data-aos-delay="200">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-5.webp" alt="Cendere Köprüsü" className="img-fluid" />
@@ -153,7 +153,7 @@ const AboutPage = () => {
                 </div>
               </Col>
 
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="300">
+              <Col md={6} lg={4} className="mb-4" data-aos-delay="300">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-24.webp" alt="Arsemia" className="img-fluid" />
@@ -168,7 +168,7 @@ const AboutPage = () => {
                 </div>
               </Col>
 
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="400">
+              <Col md={6} lg={4} className="mb-4" data-aos-delay="400">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-25.webp" alt="Kahta Kalesi" className="img-fluid" />
@@ -183,7 +183,7 @@ const AboutPage = () => {
                 </div>
               </Col>
 
-              <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="500">
+              <Col md={6} lg={4} className="mb-4" data-aos-delay="500">
                 <div className="place-card">
                   <div className="place-image">
                     <img src="/img/gallery-26.webp" alt="Perre" className="img-fluid" />
@@ -198,7 +198,7 @@ const AboutPage = () => {
                 </div>
               </Col>
               
-                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="600">
+                <Col md={6} lg={4} className="mb-4" data-aos-delay="600">
                   <div className="place-card">
                     <div className="place-image">
                       <img src="/img/gallery-27.webp" alt="Somuncu Baba Külliyesi" className="img-fluid" />
@@ -213,7 +213,7 @@ const AboutPage = () => {
                   </div>
                 </Col>
 
-                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="700">
+                <Col md={6} lg={4} className="mb-4" data-aos-delay="700">
                   <div className="place-card">
                     <div className="place-image">
                       <img src="/img/gallery-28.webp" alt="Günpınar Şelalesi" className="img-fluid" />
@@ -228,7 +228,7 @@ const AboutPage = () => {
                   </div>
                 </Col>
 
-                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="800">
+                <Col md={6} lg={4} className="mb-4" data-aos-delay="800">
                   <div className="place-card">
                     <div className="place-image">
                       <img src="/img/gallery-29.webp" alt="Tohma Kanyonu" className="img-fluid" />
@@ -243,7 +243,7 @@ const AboutPage = () => {
                   </div>
                 </Col>
 
-                <Col md={6} lg={4} className="mb-4" data-aos="fade-up" data-aos-delay="900">
+                <Col md={6} lg={4} className="mb-4" data-aos-delay="900">
                   <div className="place-card">
                     <div className="place-image">
                       <img src="/img/gallery-30.webp" alt="Levent Vadisi" className="img-fluid" />

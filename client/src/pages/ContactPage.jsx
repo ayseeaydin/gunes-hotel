@@ -81,7 +81,7 @@ const ContactPage = () => {
         <section className="page-header">
           <div className="page-header-overlay"></div>
           <Container>
-            <div className="page-header-content" data-aos="fade-up">
+            <div className="page-header-content">
               <h1>{t('contact.title')}</h1>
               <p className="lead">{t('contact.subtitle')}</p>
             </div>
@@ -94,7 +94,7 @@ const ContactPage = () => {
             <Row>
               {/* Contact Info */}
               <Col lg={4} className="mb-4 mb-lg-0">
-                <div className="contact-info" data-aos="fade-right">
+                <div className="contact-info">
                   <div className="info-card">
                     <div className="info-icon">
                       <i className="fas fa-map-marker-alt"></i>
@@ -143,7 +143,7 @@ const ContactPage = () => {
 
               {/* Reservation Form */}
               <Col lg={8}>
-                <div className="reservation-form" data-aos="fade-left">
+                <div className="reservation-form">
                   <h3 className="form-title">{t('contact.form.title')}</h3>
 
                   {alert.show && (

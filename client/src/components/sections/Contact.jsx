@@ -57,14 +57,14 @@ const Contact = () => {
   return (
     <section id="contact" className="section contact-section">
       <Container>
-        <div className="section-title" data-aos="fade-up">
+        <div className="section-title">
           <h2>{t('contact.title')}</h2>
           <p>{t('contact.subtitle')}</p>
         </div>
 
         <Row>
           {/* Contact Info Cards */}
-          <Col lg={4} className="mb-4" data-aos="fade-right">
+          <Col lg={4} className="mb-4">
             <div className="contact-info-card">
               <div className="info-icon">
                 <i className="fas fa-map-marker-alt"></i>
@@ -74,7 +74,7 @@ const Contact = () => {
             </div>
           </Col>
 
-          <Col lg={4} className="mb-4" data-aos="fade-up">
+          <Col lg={4} className="mb-4">
             <div className="contact-info-card">
               <div className="info-icon">
                 <i className="fas fa-phone"></i>
@@ -87,7 +87,7 @@ const Contact = () => {
             </div>
           </Col>
 
-          <Col lg={4} className="mb-4" data-aos="fade-left">
+          <Col lg={4} className="mb-4">
             <div className="contact-info-card">
               <div className="info-icon">
                 <i className="fas fa-envelope"></i>
@@ -102,7 +102,7 @@ const Contact = () => {
 
         {/* Quick Contact Form */}
         <Row className="mt-5">
-          <Col lg={8} className="mx-auto" data-aos="fade-up">
+          <Col lg={8} className="mx-auto">
             <div className="quick-contact-form">
               <h3>Hızlı İletişim</h3>
               <p className="text-muted mb-4">

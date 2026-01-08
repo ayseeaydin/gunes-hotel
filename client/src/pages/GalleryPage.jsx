@@ -101,7 +101,7 @@ const GalleryPage = () => {
         <section className="page-header">
           <div className="page-header-overlay"></div>
           <Container>
-            <div className="page-header-content" data-aos="fade-up">
+            <div className="page-header-content">
               <h1>{t('gallery.title')}</h1>
               <p className="lead">{t('gallery.subtitle')}</p>
             </div>
@@ -111,7 +111,7 @@ const GalleryPage = () => {
         {/* Gallery Filters */}
         <section className="section gallery-section">
           <Container>
-            <div className="gallery-filters" data-aos="fade-up">
+            <div className="gallery-filters">
               <button 
                 className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
                 onClick={() => setFilter('all')}
@@ -146,8 +146,6 @@ const GalleryPage = () => {
                   lg={4} 
                   md={6} 
                   className="gallery-item"
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 50}
                 >
                   <div 
                     className="gallery-card"

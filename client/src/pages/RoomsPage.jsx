@@ -78,7 +78,7 @@ const RoomsPage = () => {
         <section className="page-header">
           <div className="page-header-overlay"></div>
           <Container>
-            <div className="page-header-content" data-aos="fade-up">
+            <div className="page-header-content">
               <h1>{t('rooms.title')}</h1>
               <p className="lead">{t('rooms.subtitle')}</p>
             </div>
@@ -92,8 +92,6 @@ const RoomsPage = () => {
               <div 
                 key={room.id} 
                 className="room-item"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
               >
                 <Row className="align-items-center">
                   <Col lg={5}>
@@ -163,7 +161,7 @@ const RoomsPage = () => {
         {/* CTA Section */}
         <section className="cta-section">
           <Container>
-            <div className="cta-content text-center" data-aos="zoom-in">
+            <div className="cta-content text-center">
               <h2>Rezervasyon Yapmak İster misiniz?</h2>
               <p>Nemrut Dağı'nın büyüleyici atmosferinde unutulmaz bir konaklama deneyimi için bize ulaşın.</p>
               <Link to="/contact" className="btn btn-light btn-lg">

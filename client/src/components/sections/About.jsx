@@ -40,13 +40,13 @@ const About = () => {
   return (
     <section id="about" className="section about-section" aria-labelledby="about-heading">
       <Container>
-        <div className="section-title" data-aos="fade-up">
+        <div className="section-title">
           <h2 id="about-heading">{t('about.title')}</h2>
           <p>{t('about.subtitle')}</p>
         </div>
 
         <Row className="align-items-center">
-          <Col lg={6} className="mb-4 mb-lg-0" data-aos="fade-right">
+          <Col lg={6} className="mb-4 mb-lg-0">
             <div className="about-image-wrapper">
               <img 
                 src={imageUrl}
@@ -75,7 +75,7 @@ const About = () => {
             </div>
           </Col>
 
-          <Col lg={6} data-aos="fade-left">
+          <Col lg={6}>
             <div className="about-content">
               <h3>{t('about.heading')}</h3>
               <div className="about-text">

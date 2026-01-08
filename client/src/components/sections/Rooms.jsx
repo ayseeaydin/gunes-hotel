@@ -80,7 +80,7 @@ const Rooms = () => {
   return (
     <section id="rooms" className="section rooms-section" aria-labelledby="rooms-heading">
       <Container>
-        <div className="section-title" data-aos="fade-up">
+        <div className="section-title">
           <h2 id="rooms-heading">{t('rooms.title')}</h2>
           <p>{t('rooms.subtitle')}</p>
         </div>
@@ -91,8 +91,6 @@ const Rooms = () => {
               key={room.id} 
               lg={6} 
               className="mb-4"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
             >
               <article className="room-card" itemScope itemType="https://schema.org/HotelRoom">
                 {room.popular && (
@@ -168,7 +166,7 @@ const Rooms = () => {
           ))}
         </Row>
 
-        <div className="text-center mt-4" data-aos="fade-up">
+        <div className="text-center mt-4">
           <Link 
             to="/rooms" 
             className="btn btn-outline btn-lg"

@@ -48,7 +48,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="section gallery-section">
       <Container>
-        <div className="section-title" data-aos="fade-up">
+        <div className="section-title">
           <h2>{t('gallery.title')}</h2>
           <p>{t('gallery.subtitle')}</p>
         </div>
@@ -61,8 +61,6 @@ const Gallery = () => {
               md={4} 
               sm={6} 
               className="gallery-item"
-              data-aos="zoom-in"
-              data-aos-delay={index * 50}
             >
               <div 
                 className={`gallery-card ${imageErrors[index] ? 'error' : ''}`}
@@ -96,7 +94,7 @@ const Gallery = () => {
           ))}
         </Row>
 
-        <div className="text-center mt-4" data-aos="fade-up">
+        <div className="text-center mt-4">
           <Link to="/gallery" className="btn btn-primary btn-lg">
             Tüm Galeriyi Görüntüle
           </Link>
