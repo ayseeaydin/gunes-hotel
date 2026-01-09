@@ -1,25 +1,15 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { getRoomsData } from '@data/rooms'
+import { useRooms } from '@hooks'
 import StructuredData from '@components/common/StructuredData'
 import './RoomsPage.scss'
 
 const RoomsPage = () => {
   const { t } = useTranslation()
-
-  const rooms = useMemo(() => {
-    return getRoomsData(t).map(room => ({
-      ...room,
-      name: t(room.nameKey),
-      description: t(room.descKey),
-      features: room.features.map(feature => 
-        feature.text || t(feature.textKey)
-      )
-    }))
-  }, [t])
+  const rooms = useRooms()
 
   return (
     <>
@@ -95,7 +85,7 @@ const RoomsPage = () => {
                           {room.features.map((feature, idx) => (
                             <li key={idx}>
                               <i className="fas fa-check-circle"></i>
-                              {feature}
+                              {feature.text}
                             </li>
                           ))}
                         </ul>

@@ -1,32 +1,14 @@
-import React, { useState, useMemo } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import { getRoomsData } from '@data/rooms'
+import { useRooms, useImageError } from '@hooks'
 import './Rooms.scss'
 
 const Rooms = () => {
   const { t } = useTranslation()
-  const [imageErrors, setImageErrors] = useState({})
-
-  const rooms = useMemo(() => {
-    return getRoomsData(t).map(room => ({
-      ...room,
-      name: t(room.nameKey),
-      description: t(room.descKey),
-      features: room.features.map(feature => ({
-        icon: feature.icon,
-        text: feature.count 
-          ? `${feature.count} ${t(feature.textKey)}`
-          : feature.text || t(feature.textKey)
-      }))
-    }))
-  }, [t])
-
-  const handleImageError = (roomId, e) => {
-    setImageErrors(prev => ({ ...prev, [roomId]: true }))
-    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%23f0f0f0" width="600" height="400"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18"%3EOda Görseli%3C/text%3E%3C/svg%3E'
-  }
+  const rooms = useRooms()
+  const { imageErrors, handleImageError } = useImageError('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%23f0f0f0" width="600" height="400"/%3E%3Ctext fill="%23999" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18"%3EOda Görseli%3C/text%3E%3C/svg%3E')
 
   return (
     <section id="rooms" className="section rooms-section" aria-labelledby="rooms-heading">
