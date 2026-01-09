@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
@@ -44,6 +44,20 @@ const Gallery = () => {
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
   }
+
+  // Keyboard navigation for modal
+  useEffect(() => {
+    if (!showModal) return
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeModal()
+      if (e.key === 'ArrowRight') nextImage()
+      if (e.key === 'ArrowLeft') prevImage()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [showModal, currentImage])
 
   return (
     <section id="gallery" className="section gallery-section">

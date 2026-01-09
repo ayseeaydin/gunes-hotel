@@ -1,7 +1,8 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
+@use 'sass:color';
 
 .footer {
-  background: linear-gradient(135deg, $secondary 0%, darken($secondary, 5%) 100%);
+  background: linear-gradient(135deg, $secondary 0%, color.adjust($secondary, $lightness: -5%) 100%);
   color: $text-light;
   padding: 5rem 0 0;
   margin-top: 5rem;
