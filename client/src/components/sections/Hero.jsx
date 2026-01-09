@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useImagePreload } from '@hooks'
 import './Hero.scss'
 
 const Hero = () => {
   const { t } = useTranslation()
   const [activeSlide, setActiveSlide] = useState(0)
 
-  const slides = [
+  const slides = useMemo(() => [
     {
       image: '/img/slide-1.webp',
       titleKey: 'hero.title1',
@@ -44,37 +45,42 @@ const Hero = () => {
         { textKey: 'hero.reservation', link: '/contact', primary: false }
       ]
     }
-  ]
+  ], [])
 
-  // Auto-play - Mobilde daha yavaş
+  // Preload all slider images for smooth transitions
+  const imageSrcs = useMemo(() => slides.map(s => s.image), [slides])
+  const { preloadImage } = useImagePreload(imageSrcs, { 
+    preloadAll: typeof window !== 'undefined' && window.innerWidth >= 768,
+    priority: true 
+  })
+
+  // Auto-play with performance optimization
   useEffect(() => {
     const isMobile = window.innerWidth < 768
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length)
-    }, isMobile ? 8000 : 5000) // Mobilde 8 saniye, desktop 5 saniye
+    }, isMobile ? 8000 : 5000)
     return () => clearInterval(interval)
   }, [slides.length])
 
-  // Preload next slide image - Sadece desktop'ta
+  // Preload next slide for smooth transition
   useEffect(() => {
-    if (window.innerWidth >= 768) {
-      const nextIndex = (activeSlide + 1) % slides.length
-      const nextImage = new Image()
-      nextImage.src = slides[nextIndex].image
-    }
-  }, [activeSlide, slides])
+    const nextIndex = (activeSlide + 1) % slides.length
+    const nextImage = slides[nextIndex].image
+    preloadImage(nextImage)
+  }, [activeSlide, slides, preloadImage])
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     setActiveSlide(index)
-  }
+  }, [])
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setActiveSlide((prev) => (prev + 1) % slides.length)
-  }
+  }, [slides.length])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+  }, [slides.length])
 
   return (
     <section id="home" className="hero" role="banner">
