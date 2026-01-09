@@ -116,25 +116,25 @@ const GalleryPage = () => {
                 className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
                 onClick={() => setFilter('all')}
               >
-                <i className="fas fa-th"></i> Tümü
+                <i className="fas fa-th"></i> {t('gallery.filter.all')}
               </button>
               <button 
                 className={`filter-btn ${filter === 'hotel' ? 'active' : ''}`}
                 onClick={() => setFilter('hotel')}
               >
-                <i className="fas fa-hotel"></i> Otel
+                <i className="fas fa-hotel"></i> {t('gallery.filter.hotel')}
               </button>
               <button 
                 className={`filter-btn ${filter === 'rooms' ? 'active' : ''}`}
                 onClick={() => setFilter('rooms')}
               >
-                <i className="fas fa-bed"></i> Odalar
+                <i className="fas fa-bed"></i> {t('gallery.filter.rooms')}
               </button>
               <button 
                 className={`filter-btn ${filter === 'view' ? 'active' : ''}`}
                 onClick={() => setFilter('view')}
               >
-                <i className="fas fa-mountain"></i> Manzara
+                <i className="fas fa-mountain"></i> {t('gallery.filter.view')}
               </button>
             </div>
 

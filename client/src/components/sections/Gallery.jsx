@@ -96,7 +96,7 @@ const Gallery = () => {
 
         <div className="text-center mt-4">
           <Link to="/gallery" className="btn btn-primary btn-lg">
-            Tüm Galeriyi Görüntüle
+            {t('gallery.viewAll')}
           </Link>
         </div>
       </Container>
@@ -113,21 +113,21 @@ const Gallery = () => {
           <button 
             className="modal-close" 
             onClick={closeModal} 
-            aria-label="Kapat"
+            aria-label={t('gallery.close')}
           >
             <i className="fas fa-times"></i>
           </button>
           <button 
             className="modal-prev" 
             onClick={prevImage} 
-            aria-label="Önceki"
+            aria-label={t('gallery.previous')}
           >
             <i className="fas fa-chevron-left"></i>
           </button>
           <button 
             className="modal-next" 
             onClick={nextImage} 
-            aria-label="Sonraki"
+            aria-label={t('gallery.next')}
           >
             <i className="fas fa-chevron-right"></i>
           </button>

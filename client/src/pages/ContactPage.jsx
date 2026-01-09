@@ -163,7 +163,7 @@ const ContactPage = () => {
                             value={formData.fullName}
                             onChange={handleChange}
                             required
-                            placeholder="Ad Soyad"
+                            placeholder={t('contact.form.fullNamePlaceholder')}
                           />
                         </Form.Group>
                       </Col>
@@ -176,7 +176,7 @@ const ContactPage = () => {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            placeholder="ornek@email.com"
+                            placeholder={t('contact.form.emailPlaceholder')}
                           />
                         </Form.Group>
                       </Col>
@@ -192,7 +192,7 @@ const ContactPage = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            placeholder="+90 543 876 7271"
+                            placeholder={t('contact.form.phonePlaceholder')}
                           />
                         </Form.Group>
                       </Col>
@@ -206,12 +206,12 @@ const ContactPage = () => {
                             required
                           >
                             <option value="">{t('contact.form.selectGuests')}</option>
-                            <option value="1">1 Kişi</option>
-                            <option value="2">2 Kişi</option>
-                            <option value="3">3 Kişi</option>
-                            <option value="4">4 Kişi</option>
-                            <option value="5">5 Kişi</option>
-                            <option value="6+">6+ Kişi</option>
+                            <option value="1">{t('contact.form.guestOptions.1')}</option>
+                            <option value="2">{t('contact.form.guestOptions.2')}</option>
+                            <option value="3">{t('contact.form.guestOptions.3')}</option>
+                            <option value="4">{t('contact.form.guestOptions.4')}</option>
+                            <option value="5">{t('contact.form.guestOptions.5')}</option>
+                            <option value="6+">{t('contact.form.guestOptions.6plus')}</option>
                           </Form.Select>
                         </Form.Group>
                       </Col>

@@ -90,7 +90,7 @@ const RoomsPage = () => {
                       </div>
 
                       <div className="room-features">
-                        <h5>Özellikler:</h5>
+                        <h5>{t('rooms.featuresLabel')}</h5>
                         <ul>
                           {room.features.map((feature, idx) => (
                             <li key={idx}>
@@ -122,10 +122,10 @@ const RoomsPage = () => {
         <section className="cta-section">
           <Container>
             <div className="cta-content text-center">
-              <h2>Rezervasyon Yapmak İster misiniz?</h2>
-              <p>Nemrut Dağı'nın büyüleyici atmosferinde unutulmaz bir konaklama deneyimi için bize ulaşın.</p>
+              <h2>{t('rooms.cta.title')}</h2>
+              <p>{t('rooms.cta.description')}</p>
               <Link to="/contact" className="btn btn-light btn-lg">
-                İletişime Geçin
+                {t('rooms.cta.button')}
               </Link>
             </div>
           </Container>

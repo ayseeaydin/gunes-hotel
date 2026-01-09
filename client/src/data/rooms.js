@@ -69,7 +69,7 @@ export const getRoomsData = (t) => [
       { icon: 'fa-tint', textKey: 'rooms.features.hotWater' },
       { icon: 'fa-mountain', textKey: 'rooms.features.mountainView' },
       { icon: 'fa-coffee', textKey: 'rooms.features.teaCoffee' },
-      { icon: 'fa-home', text: 'Geniş Alan' }
+      { icon: 'fa-home', textKey: 'rooms.features.spacious' }
     ],
     popular: false,
     familyFriendly: true

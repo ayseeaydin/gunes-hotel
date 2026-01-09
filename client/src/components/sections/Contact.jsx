@@ -34,7 +34,7 @@ const Contact = () => {
       setAlert({
         show: true,
         type: 'success',
-        message: 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapılacaktır.'
+        message: t('contact.quickContact.success')
       })
 
       setFormData({
@@ -47,7 +47,7 @@ const Contact = () => {
       setAlert({
         show: true,
         type: 'danger',
-        message: 'Bir hata oluştu. Lütfen tekrar deneyin.'
+        message: t('contact.quickContact.error')
       })
     } finally {
       setLoading(false)
@@ -104,9 +104,9 @@ const Contact = () => {
         <Row className="mt-5">
           <Col lg={8} className="mx-auto">
             <div className="quick-contact-form">
-              <h3>Hızlı İletişim</h3>
+              <h3>{t('contact.quickContact.title')}</h3>
               <p className="text-muted mb-4">
-                Sorularınız için bize mesaj gönderin veya detaylı rezervasyon için sayfamızı ziyaret edin.
+                {t('contact.quickContact.description')}
               </p>
 
               {alert.show && (
@@ -124,7 +124,7 @@ const Contact = () => {
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleChange}
-                        placeholder="Ad Soyad *"
+                        placeholder={t('contact.quickContact.fullNamePlaceholder')}
                         required
                       />
                     </Form.Group>
@@ -136,7 +136,7 @@ const Contact = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="E-posta *"
+                        placeholder={t('contact.quickContact.emailPlaceholder')}
                         required
                       />
                     </Form.Group>
@@ -149,7 +149,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Telefon *"
+                    placeholder={t('contact.quickContact.phonePlaceholder')}
                     required
                   />
                 </Form.Group>
@@ -161,7 +161,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Mesajınız *"
+                    placeholder={t('contact.quickContact.messagePlaceholder')}
                     required
                   />
                 </Form.Group>
@@ -175,19 +175,19 @@ const Contact = () => {
                     {loading ? (
                       <>
                         <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                        Gönderiliyor...
+                        {t('contact.quickContact.sending')}
                       </>
                     ) : (
                       <>
                         <i className="fas fa-paper-plane me-2"></i>
-                        Mesaj Gönder
+                        {t('contact.quickContact.send')}
                       </>
                     )}
                   </Button>
 
                   <Link to="/contact" className="btn btn-outline ms-3">
                     <i className="fas fa-calendar-alt me-2"></i>
-                    Rezervasyon Yap
+                    {t('contact.quickContact.makeReservation')}
                   </Link>
                 </div>
               </Form>

@@ -32,9 +32,73 @@
       "warmAtmosphere": "Atmosfera Calorosa",
       "warmAtmosphereDesc": "Ospitalità cordiale",
       "uniqueLocation": "Posizione Unica",
-      "uniqueLocationDesc": "Più vicino a Nemrut"
+      "uniqueLocationDesc": "Più vicino a Nemrut",
+      "distance": "Distanza 2 km",
+      "distanceDesc": "Hotel più vicino al Monte Nemrut",
+      "familyBiz": "Azienda Familiare",
+      "familyBizDesc": "Al vostro servizio dagli anni '80",
+      "cozyAtmosphere": "Atmosfera Accogliente",
+      "cozyAtmosphereDesc": "Sentiti a casa",
+      "historicalPlaces": "Luoghi Storici",
+      "historicalPlacesDesc": "Scopri l'eredità di Commagene"
     },
-    "learnMore": "Scopri di più"
+    "learnMore": "Scopri di più",
+    "nearbyPlaces": "Siti Storici Vicini",
+    "nearbyPlacesDesc": "Luoghi storici facilmente raggiungibili dal nostro hotel",
+    "places": {
+      "nemrut": {
+        "name": "Monte Nemrut",
+        "desc": "Magnifico tumulo e statue giganti nella lista del Patrimonio Mondiale dell'UNESCO.",
+        "distance": "2 km"
+      },
+      "karakus": {
+        "name": "Tumulo di Karakuş",
+        "desc": "Monumento funerario storico del Regno di Commagene.",
+        "distance": "15 km"
+      },
+      "cendere": {
+        "name": "Ponte di Cendere",
+        "desc": "Antico ponte dell'epoca romana ancora in uso oggi.",
+        "distance": "20 km"
+      },
+      "arsemia": {
+        "name": "Sito Antico di Arsemia",
+        "desc": "Rovine della capitale estiva del Regno di Commagene.",
+        "distance": "25 km"
+      },
+      "kahta": {
+        "name": "Castello di Kahta",
+        "desc": "Castello storico del periodo mamelucco.",
+        "distance": "30 km"
+      },
+      "perre": {
+        "name": "Città Antica di Perre",
+        "desc": "Città antica famosa per le sue tombe rupestri e rovine storiche.",
+        "distance": "50 km"
+      },
+      "somuncuBaba": {
+        "name": "Complesso di Somuncu Baba (Darende)",
+        "desc": "Complesso dedicato a Somuncu Baba; con la sua moschea, tomba e ambiente tranquillo, è un punto di visita spirituale.",
+        "distance": "80 km"
+      },
+      "gunpinar": {
+        "name": "Cascata di Günpınar (Gürpınar)",
+        "desc": "Cascata ideale per fotografie e passeggiate nella natura con le sue acque turchesi e struttura naturale.",
+        "distance": "85 km"
+      },
+      "tohma": {
+        "name": "Canyon di Tohma",
+        "desc": "Canyon che attrae gli amanti della natura con le sue ripide scogliere e sentieri escursionistici.",
+        "distance": "85 km"
+      },
+      "levent": {
+        "name": "Valle di Levent",
+        "desc": "Area naturale famosa per le sue viste sul canyon, sentieri escursionistici e terrazze per ammirare il tramonto.",
+        "distance": "95 km"
+      }
+    },
+    "badgeDistance": "2 km",
+    "badgeText": "Distanza da Nemrut"
   },
   "rooms": {
     "title": "Le Nostre Camere",
@@ -58,12 +122,29 @@
       "bed": "Letto matrimoniale",
       "hotWater": "Acqua calda 24h",
       "mountainView": "Vista montagna",
-      "teaCoffee": "Tè/Caffè"
+      "teaCoffee": "Tè/Caffè",
+      "spacious": "Camera Spaziosa"
+    },
+    "featuresLabel": "Caratteristiche:",
+    "cta": {
+      "title": "Vuoi Fare una Prenotazione?",
+      "description": "Contattaci per un'esperienza di soggiorno indimenticabile nella suggestiva atmosfera del Monte Nemrut.",
+      "button": "Contattaci"
     }
   },
   "gallery": {
     "title": "Galleria",
-    "subtitle": "Foto dal nostro hotel e dintorni"
+    "subtitle": "Foto dal nostro hotel e dintorni",
+    "viewAll": "Visualizza Galleria Completa",
+    "filter": {
+      "all": "Tutti",
+      "hotel": "Hotel",
+      "rooms": "Camere",
+      "view": "Viste"
+    },
+    "close": "Chiudi",
+    "previous": "Precedente",
+    "next": "Successivo"
   },
   "contact": {
     "title": "Contatto & Prenotazione",
@@ -74,6 +155,19 @@
     "email": "Email",
     "workingHours": "Orari di lavoro",
     "open247": "Aperto 24/7",
+    "quickContact": {
+      "title": "Contatto Rapido",
+      "description": "Inviaci un messaggio per le tue domande o visita la nostra pagina per una prenotazione dettagliata.",
+      "fullNamePlaceholder": "Nome completo *",
+      "emailPlaceholder": "Email *",
+      "phonePlaceholder": "Telefono *",
+      "messagePlaceholder": "Il tuo messaggio *",
+      "sending": "Invio...",
+      "send": "Invia Messaggio",
+      "makeReservation": "Prenota",
+      "success": "Il tuo messaggio è stato inviato con successo! Ti contatteremo al più presto.",
+      "error": "Si è verificato un errore. Riprova."
+    },
     "form": {
       "title": "Modulo di Prenotazione",
       "checkIn": "Data di arrivo",
@@ -83,11 +177,22 @@
       "guests": "Numero di ospiti",
       "selectGuests": "Seleziona numero di ospiti",
       "fullName": "Nome completo",
+      "fullNamePlaceholder": "Nome completo",
+      "emailPlaceholder": "esempio@email.com",
+      "phonePlaceholder": "+39 555 123 4567",
       "specialRequests": "Richieste speciali (Opzionale)",
       "submit": "Invia richiesta di prenotazione",
       "sending": "Invio...",
       "success": "La tua richiesta di prenotazione è stata inviata con successo! Ti contatteremo al più presto.",
-      "error": "Si è verificato un errore. Riprova."
+      "error": "Si è verificato un errore. Riprova.",
+      "guestOptions": {
+        "1": "1 Ospite",
+        "2": "2 Ospiti",
+        "3": "3 Ospiti",
+        "4": "4 Ospiti",
+        "5": "5 Ospiti",
+        "6plus": "6+ Ospiti"
+      }
     }
   },
   "footer": {

@@ -67,9 +67,8 @@ const About = () => {
               <div className="about-badge">
                 <div className="badge-content">
                   <i className="fas fa-mountain"></i>
-                  <span className="badge-number">2</span>
-                  <span className="badge-text">km</span>
-                  <span className="badge-desc">Nemrut'a Mesafe</span>
+                  <span className="badge-number">{t('about.badgeDistance')}</span>
+                  <span className="badge-text">{t('about.badgeText')}</span>
                 </div>
               </div>
             </div>

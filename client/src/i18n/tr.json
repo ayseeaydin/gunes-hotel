@@ -32,9 +32,73 @@
       "warmAtmosphere": "Samimi Ortam",
       "warmAtmosphereDesc": "Sıcak misafirperverlik",
       "uniqueLocation": "Eşsiz Konum",
-      "uniqueLocationDesc": "Nemrut'a en yakın"
+      "uniqueLocationDesc": "Nemrut'a en yakın",
+      "distance": "2 km Mesafe",
+      "distanceDesc": "Nemrut Dağı'na en yakın otel",
+      "familyBiz": "Aile İşletmesi",
+      "familyBizDesc": "1980'lerden beri hizmetinizdeyiz",
+      "cozyAtmosphere": "Samimi Ortam",
+      "cozyAtmosphereDesc": "Kendinizi evinizde hissedin",
+      "historicalPlaces": "Tarihi Mekanlar",
+      "historicalPlacesDesc": "Kommagene mirasını keşfedin"
     },
-    "learnMore": "Daha Fazla Bilgi"
+    "learnMore": "Daha Fazla Bilgi",
+    "nearbyPlaces": "Çevredeki Tarihi Yerler",
+    "nearbyPlacesDesc": "Otelimizden kolayca ulaşabileceğiniz tarihi mekanlar",
+    "places": {
+      "nemrut": {
+        "name": "Nemrut Dağı",
+        "desc": "UNESCO Dünya Mirası listesindeki muhteşem tümülüs ve dev heykeller.",
+        "distance": "2 km"
+      },
+      "karakus": {
+        "name": "Karakuş Tümülüsü",
+        "desc": "Kommagene Krallığı'ndan kalma tarihi mezar anıtı.",
+        "distance": "15 km"
+      },
+      "cendere": {
+        "name": "Cendere Köprüsü",
+        "desc": "Roma döneminden kalma hala kullanılan antik köprü.",
+        "distance": "20 km"
+      },
+      "arsemia": {
+        "name": "Arsemia Ören Yeri",
+        "desc": "Kommagene Krallığı'nın yaz başkenti kalıntıları.",
+        "distance": "25 km"
+      },
+      "kahta": {
+        "name": "Kahta Kalesi",
+        "desc": "Memlük döneminden kalma tarihi kale.",
+        "distance": "30 km"
+      },
+      "perre": {
+        "name": "Perre Antik Kenti",
+        "desc": "Kaya mezarları ve tarihi kalıntılarıyla ünlü antik kent.",
+        "distance": "50 km"
+      },
+      "somuncuBaba": {
+        "name": "Somuncu Baba Külliyesi (Darende)",
+        "desc": "Somuncu Baba'ya ait külliye; camisi, türbesi ve huzurlu çevresiyle manevi bir ziyaret noktasıdır.",
+        "distance": "80 km"
+      },
+      "gunpinar": {
+        "name": "Günpınar (Gürpınar) Şelalesi",
+        "desc": "Turkuaz rengi suları ve doğal yapısıyla fotoğraf ve doğa yürüyüşleri için ideal şelale.",
+        "distance": "85 km"
+      },
+      "tohma": {
+        "name": "Tohma Kanyonu",
+        "desc": "Dik kayalıkları ve yürüyüş rotalarıyla doğaseverlerin ilgisini çeken kanyon.",
+        "distance": "85 km"
+      },
+      "levent": {
+        "name": "Levent Vadisi",
+        "desc": "Kanyon manzaraları, yürüyüş rotaları ve gün batımı seyir teraslarıyla ünlü doğal alan.",
+        "distance": "95 km"
+      }
+    },
+    "badgeDistance": "2 km",
+    "badgeText": "Nemrut'a Mesafe"
   },
   "rooms": {
     "title": "Odalarımız",
@@ -58,12 +122,29 @@
       "bed": "Çift Yatak",
       "hotWater": "24s Sıcak Su",
       "mountainView": "Dağ Manzarası",
-      "teaCoffee": "Çay/Kahve"
+      "teaCoffee": "Çay/Kahve",
+      "spacious": "Geniş Alan"
+    },
+    "featuresLabel": "Özellikler:",
+    "cta": {
+      "title": "Rezervasyon Yapmak İster misiniz?",
+      "description": "Nemrut Dağı'nın büyüleyici atmosferinde unutulmaz bir konaklama deneyimi için bize ulaşın.",
+      "button": "İletişime Geçin"
     }
   },
   "gallery": {
     "title": "Galeri",
-    "subtitle": "Otelimizden ve çevresinden kareler"
+    "subtitle": "Otelimizden ve çevresinden kareler",
+    "viewAll": "Tüm Galeriyi Görüntüle",
+    "filter": {
+      "all": "Tümü",
+      "hotel": "Otel",
+      "rooms": "Odalar",
+      "view": "Manzara"
+    },
+    "close": "Kapat",
+    "previous": "Önceki",
+    "next": "Sonraki"
   },
   "contact": {
     "title": "İletişim & Rezervasyon",
@@ -74,6 +155,19 @@
     "email": "E-posta",
     "workingHours": "Çalışma Saatleri",
     "open247": "7/24 Açık",
+    "quickContact": {
+      "title": "Hızlı İletişim",
+      "description": "Sorularınız için bize mesaj gönderin veya detaylı rezervasyon için sayfamızı ziyaret edin.",
+      "fullNamePlaceholder": "Ad Soyad *",
+      "emailPlaceholder": "E-posta *",
+      "phonePlaceholder": "Telefon *",
+      "messagePlaceholder": "Mesajınız *",
+      "sending": "Gönderiliyor...",
+      "send": "Mesaj Gönder",
+      "makeReservation": "Rezervasyon Yap",
+      "success": "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapılacaktır.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
     "form": {
       "title": "Rezervasyon Formu",
       "checkIn": "Giriş Tarihi",
@@ -83,11 +177,22 @@
       "guests": "Kişi Sayısı",
       "selectGuests": "Kişi Sayısı Seçiniz",
       "fullName": "Ad Soyad",
+      "fullNamePlaceholder": "Ad Soyad",
+      "emailPlaceholder": "ornek@email.com",
+      "phonePlaceholder": "+90 555 123 4567",
       "specialRequests": "Özel İstekler (Opsiyonel)",
       "submit": "Rezervasyon Talebi Gönder",
       "sending": "Gönderiliyor...",
       "success": "Rezervasyon talebiniz başarıyla gönderildi! En kısa sürede size dönüş yapılacaktır.",
-      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+      "guestOptions": {
+        "1": "1 Kişi",
+        "2": "2 Kişi",
+        "3": "3 Kişi",
+        "4": "4 Kişi",
+        "5": "5 Kişi",
+        "6plus": "6+ Kişi"
+      }
     }
   },
   "footer": {

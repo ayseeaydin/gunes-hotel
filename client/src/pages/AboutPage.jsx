@@ -64,8 +64,8 @@ const AboutPage = () => {
                   <div className="feature-icon">
                     <i className="fas fa-mountain"></i>
                   </div>
-                  <h4>2 km Mesafe</h4>
-                  <p>Nemrut Dağı'na en yakın otel</p>
+                  <h4>{t('about.features.distance')}</h4>
+                  <p>{t('about.features.distanceDesc')}</p>
                 </div>
               </Col>
               <Col md={6} lg={3} className="mb-4" data-aos-delay="200">
@@ -73,8 +73,8 @@ const AboutPage = () => {
                   <div className="feature-icon">
                     <i className="fas fa-home"></i>
                   </div>
-                  <h4>Aile İşletmesi</h4>
-                  <p>1980'lerden beri hizmetinizdeyiz</p>
+                  <h4>{t('about.features.familyBiz')}</h4>
+                  <p>{t('about.features.familyBizDesc')}</p>
                 </div>
               </Col>
               <Col md={6} lg={3} className="mb-4" data-aos-delay="300">
@@ -82,8 +82,8 @@ const AboutPage = () => {
                   <div className="feature-icon">
                     <i className="fas fa-heart"></i>
                   </div>
-                  <h4>Samimi Ortam</h4>
-                  <p>Kendinizi evinizde hissedin</p>
+                  <h4>{t('about.features.cozyAtmosphere')}</h4>
+                  <p>{t('about.features.cozyAtmosphereDesc')}</p>
                 </div>
               </Col>
               <Col md={6} lg={3} className="mb-4" data-aos-delay="400">
@@ -91,8 +91,8 @@ const AboutPage = () => {
                   <div className="feature-icon">
                     <i className="fas fa-landmark"></i>
                   </div>
-                  <h4>Tarihi Mekanlar</h4>
-                  <p>Kommagene mirasını keşfedin</p>
+                  <h4>{t('about.features.historicalPlaces')}</h4>
+                  <p>{t('about.features.historicalPlacesDesc')}</p>
                 </div>
               </Col>
             </Row>
@@ -101,8 +101,8 @@ const AboutPage = () => {
             <Row className="mt-5">
               <Col lg={12}>
                 <div className="section-title text-center mb-5">
-                  <h2>Çevredeki Tarihi Yerler</h2>
-                  <p>Otelimizden kolayca ulaşabileceğiniz tarihi mekanlar</p>
+                  <h2>{t('about.nearbyPlaces')}</h2>
+                  <p>{t('about.nearbyPlacesDesc')}</p>
                 </div>
               </Col>
             </Row>
@@ -111,13 +111,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-10.webp" alt="Nemrut Dağı" className="img-fluid" />
+                    <img src="/img/gallery-10.webp" alt={t('about.places.nemrut.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Nemrut Dağı</h4>
-                    <p>UNESCO Dünya Mirası listesindeki muhteşem tümülüs ve dev heykeller.</p>
+                    <h4>{t('about.places.nemrut.name')}</h4>
+                    <p>{t('about.places.nemrut.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 2 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.nemrut.distance')}
                     </span>
                   </div>
                 </div>
@@ -126,13 +126,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos-delay="100">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-4.webp" alt="Karakuş Tümülüsü" className="img-fluid" />
+                    <img src="/img/gallery-4.webp" alt={t('about.places.karakus.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Karakuş Tümülüsü</h4>
-                    <p>Kommagene Krallığı'ndan kalma tarihi mezar anıtı.</p>
+                    <h4>{t('about.places.karakus.name')}</h4>
+                    <p>{t('about.places.karakus.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 15 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.karakus.distance')}
                     </span>
                   </div>
                 </div>
@@ -141,13 +141,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos-delay="200">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-5.webp" alt="Cendere Köprüsü" className="img-fluid" />
+                    <img src="/img/gallery-5.webp" alt={t('about.places.cendere.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Cendere Köprüsü</h4>
-                    <p>Roma döneminden kalma hala kullanılan antik köprü.</p>
+                    <h4>{t('about.places.cendere.name')}</h4>
+                    <p>{t('about.places.cendere.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 20 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.cendere.distance')}
                     </span>
                   </div>
                 </div>
@@ -156,13 +156,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos-delay="300">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-24.webp" alt="Arsemia" className="img-fluid" />
+                    <img src="/img/gallery-24.webp" alt={t('about.places.arsemia.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Arsemia Ören Yeri</h4>
-                    <p>Kommagene Krallığı'nın yaz başkenti kalıntıları.</p>
+                    <h4>{t('about.places.arsemia.name')}</h4>
+                    <p>{t('about.places.arsemia.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 25 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.arsemia.distance')}
                     </span>
                   </div>
                 </div>
@@ -171,13 +171,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos-delay="400">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-25.webp" alt="Kahta Kalesi" className="img-fluid" />
+                    <img src="/img/gallery-25.webp" alt={t('about.places.kahta.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Kahta Kalesi</h4>
-                    <p>Memlük döneminden kalma tarihi kale.</p>
+                    <h4>{t('about.places.kahta.name')}</h4>
+                    <p>{t('about.places.kahta.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 30 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.kahta.distance')}
                     </span>
                   </div>
                 </div>
@@ -186,13 +186,13 @@ const AboutPage = () => {
               <Col md={6} lg={4} className="mb-4" data-aos-delay="500">
                 <div className="place-card">
                   <div className="place-image">
-                    <img src="/img/gallery-26.webp" alt="Perre" className="img-fluid" />
+                    <img src="/img/gallery-26.webp" alt={t('about.places.perre.name')} className="img-fluid" />
                   </div>
                   <div className="place-content">
-                    <h4>Perre Antik Kenti</h4>
-                    <p>Kaya mezarları ve tarihi kalıntılarıyla ünlü antik kent.</p>
+                    <h4>{t('about.places.perre.name')}</h4>
+                    <p>{t('about.places.perre.desc')}</p>
                     <span className="distance">
-                      <i className="fas fa-map-marker-alt"></i> 50 km
+                      <i className="fas fa-map-marker-alt"></i> {t('about.places.perre.distance')}
                     </span>
                   </div>
                 </div>
@@ -201,13 +201,13 @@ const AboutPage = () => {
                 <Col md={6} lg={4} className="mb-4" data-aos-delay="600">
                   <div className="place-card">
                     <div className="place-image">
-                      <img src="/img/gallery-27.webp" alt="Somuncu Baba Külliyesi" className="img-fluid" />
+                      <img src="/img/gallery-27.webp" alt={t('about.places.somuncuBaba.name')} className="img-fluid" />
                     </div>
                     <div className="place-content">
-                      <h4>Somuncu Baba Külliyesi (Darende)</h4>
-                      <p>Somuncu Baba'ya ait külliye; camisi, türbesi ve huzurlu çevresiyle manevi bir ziyaret noktasıdır.</p>
+                      <h4>{t('about.places.somuncuBaba.name')}</h4>
+                      <p>{t('about.places.somuncuBaba.desc')}</p>
                       <span className="distance">
-                        <i className="fas fa-map-marker-alt"></i> 80 km
+                        <i className="fas fa-map-marker-alt"></i> {t('about.places.somuncuBaba.distance')}
                       </span>
                     </div>
                   </div>
@@ -216,13 +216,13 @@ const AboutPage = () => {
                 <Col md={6} lg={4} className="mb-4" data-aos-delay="700">
                   <div className="place-card">
                     <div className="place-image">
-                      <img src="/img/gallery-28.webp" alt="Günpınar Şelalesi" className="img-fluid" />
+                      <img src="/img/gallery-28.webp" alt={t('about.places.gunpinar.name')} className="img-fluid" />
                     </div>
                     <div className="place-content">
-                      <h4>Günpınar (Gürpınar) Şelalesi</h4>
-                      <p>Turkuaz rengi suları ve doğal yapısıyla fotoğraf ve doğa yürüyüşleri için ideal şelale.</p>
+                      <h4>{t('about.places.gunpinar.name')}</h4>
+                      <p>{t('about.places.gunpinar.desc')}</p>
                       <span className="distance">
-                        <i className="fas fa-map-marker-alt"></i> 85 km
+                        <i className="fas fa-map-marker-alt"></i> {t('about.places.gunpinar.distance')}
                       </span>
                     </div>
                   </div>
@@ -231,13 +231,13 @@ const AboutPage = () => {
                 <Col md={6} lg={4} className="mb-4" data-aos-delay="800">
                   <div className="place-card">
                     <div className="place-image">
-                      <img src="/img/gallery-29.webp" alt="Tohma Kanyonu" className="img-fluid" />
+                      <img src="/img/gallery-29.webp" alt={t('about.places.tohma.name')} className="img-fluid" />
                     </div>
                     <div className="place-content">
-                      <h4>Tohma Kanyonu</h4>
-                      <p>Dik kayalıkları ve yürüyüş rotalarıyla doğaseverlerin ilgisini çeken kanyon.</p>
+                      <h4>{t('about.places.tohma.name')}</h4>
+                      <p>{t('about.places.tohma.desc')}</p>
                       <span className="distance">
-                        <i className="fas fa-map-marker-alt"></i> 85 km
+                        <i className="fas fa-map-marker-alt"></i> {t('about.places.tohma.distance')}
                       </span>
                     </div>
                   </div>
@@ -246,13 +246,13 @@ const AboutPage = () => {
                 <Col md={6} lg={4} className="mb-4" data-aos-delay="900">
                   <div className="place-card">
                     <div className="place-image">
-                      <img src="/img/gallery-30.webp" alt="Levent Vadisi" className="img-fluid" />
+                      <img src="/img/gallery-30.webp" alt={t('about.places.levent.name')} className="img-fluid" />
                     </div>
                     <div className="place-content">
-                      <h4>Levent Vadisi</h4>
-                      <p>Kanyon manzaraları, yürüyüş rotaları ve gün batımı seyir teraslarıyla ünlü doğal alan.</p>
+                      <h4>{t('about.places.levent.name')}</h4>
+                      <p>{t('about.places.levent.desc')}</p>
                       <span className="distance">
-                        <i className="fas fa-map-marker-alt"></i> 95 km
+                        <i className="fas fa-map-marker-alt"></i> {t('about.places.levent.distance')}
                       </span>
                     </div>
                   </div>
