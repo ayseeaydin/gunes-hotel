@@ -44,10 +44,14 @@
   <link rel="alternate" hreflang="x-default" href="https://www.nemrutgunesmotel.com/" />
   
   <!-- Favicon -->
-  <meta name="theme-color" content="#c18c30" />
-  <link rel="icon" href="/img/logo.png" />
+  <meta name="theme-color" content="#c18c30" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#33261b" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="/img/logo.png" type="image/png" sizes="any" />
+  <link rel="apple-touch-icon" href="/img/logo.png" />
   <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Güneş Hotel" />
   
   <!-- Performance Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -141,10 +145,13 @@
     <div style="padding: 20px; text-align: center; background: #fff3cd; color: #856404; font-family: Arial, sans-serif;">
       <strong>JavaScript Gereklidir</strong><br />
       Bu web sitesinin tüm özelliklerinden faydalanmak için JavaScript'i etkinleştirmeniz gerekmektedir.
+      <br /><br />
+      <strong>JavaScript Required</strong><br />
+      You need to enable JavaScript to use all features of this website.
     </div>
   </noscript>
   
-  <div id="root" role="main" aria-label="Ana İçerik"></div>
+  <div id="root"></div>
   <script type="module" src="/src/index.jsx" defer></script>
 </body>
 </html>

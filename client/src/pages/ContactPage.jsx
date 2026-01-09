@@ -128,32 +128,41 @@ const ContactPage = () => {
                 <div className="reservation-form">
                   <h3 className="form-title">{t('contact.form.title')}</h3>
 
-                  <Form onSubmit={handleSubmit(onSubmit)}>
+                  <Form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.form.fullName')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-fullName">{t('contact.form.fullName')} *</Form.Label>
                           <Form.Control
+                            id="reservation-fullName"
                             type="text"
                             {...register('fullName', validationRules.fullName)}
                             placeholder={t('contact.form.fullNamePlaceholder')}
                             isInvalid={!!errors.fullName}
+                            aria-invalid={!!errors.fullName}
+                            aria-describedby={errors.fullName ? 'reservation-fullName-error' : undefined}
+                            aria-required="true"
                           />
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-fullName-error">
                             {errors.fullName?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.email')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-email">{t('contact.email')} *</Form.Label>
                           <Form.Control
+                            id="reservation-email"
                             type="email"
                             {...register('email', validationRules.email)}
                             placeholder={t('contact.form.emailPlaceholder')}
                             isInvalid={!!errors.email}
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? 'reservation-email-error' : undefined}
+                            aria-required="true"
+                            autoComplete="email"
                           />
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-email-error">
                             {errors.email?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
@@ -163,24 +172,33 @@ const ContactPage = () => {
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.phone')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-phone">{t('contact.phone')} *</Form.Label>
                           <Form.Control
+                            id="reservation-phone"
                             type="tel"
                             {...register('phone', validationRules.phone)}
                             placeholder={t('contact.form.phonePlaceholder')}
                             isInvalid={!!errors.phone}
+                            aria-invalid={!!errors.phone}
+                            aria-describedby={errors.phone ? 'reservation-phone-error' : undefined}
+                            aria-required="true"
+                            autoComplete="tel"
                           />
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-phone-error">
                             {errors.phone?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.form.guests')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-guests">{t('contact.form.guests')} *</Form.Label>
                           <Form.Select
+                            id="reservation-guests"
                             {...register('guests', validationRules.guests)}
                             isInvalid={!!errors.guests}
+                            aria-invalid={!!errors.guests}
+                            aria-describedby={errors.guests ? 'reservation-guests-error' : undefined}
+                            aria-required="true"
                           >
                             <option value="">{t('contact.form.selectGuests')}</option>
                             <option value="1">{t('contact.form.guestOptions.1')}</option>
@@ -190,7 +208,7 @@ const ContactPage = () => {
                             <option value="5">{t('contact.form.guestOptions.5')}</option>
                             <option value="6+">{t('contact.form.guestOptions.6plus')}</option>
                           </Form.Select>
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-guests-error">
                             {errors.guests?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
@@ -200,28 +218,36 @@ const ContactPage = () => {
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.form.checkIn')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-checkIn">{t('contact.form.checkIn')} *</Form.Label>
                           <Form.Control
+                            id="reservation-checkIn"
                             type="date"
                             {...register('checkIn', validationRules.checkInDate)}
                             min={new Date().toISOString().split('T')[0]}
                             isInvalid={!!errors.checkIn}
+                            aria-invalid={!!errors.checkIn}
+                            aria-describedby={errors.checkIn ? 'reservation-checkIn-error' : undefined}
+                            aria-required="true"
                           />
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-checkIn-error">
                             {errors.checkIn?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-3">
-                          <Form.Label>{t('contact.form.checkOut')} *</Form.Label>
+                          <Form.Label htmlFor="reservation-checkOut">{t('contact.form.checkOut')} *</Form.Label>
                           <Form.Control
+                            id="reservation-checkOut"
                             type="date"
                             {...register('checkOut', validationRules.checkOutDate)}
                             min={checkInDate || new Date().toISOString().split('T')[0]}
                             isInvalid={!!errors.checkOut}
+                            aria-invalid={!!errors.checkOut}
+                            aria-describedby={errors.checkOut ? 'reservation-checkOut-error' : undefined}
+                            aria-required="true"
                           />
-                          <Form.Control.Feedback type="invalid">
+                          <Form.Control.Feedback type="invalid" id="reservation-checkOut-error">
                             {errors.checkOut?.message}
                           </Form.Control.Feedback>
                         </Form.Group>
@@ -229,10 +255,14 @@ const ContactPage = () => {
                     </Row>
 
                     <Form.Group className="mb-3">
-                      <Form.Label>{t('contact.form.roomType')} *</Form.Label>
+                      <Form.Label htmlFor="reservation-roomType">{t('contact.form.roomType')} *</Form.Label>
                       <Form.Select
+                        id="reservation-roomType"
                         {...register('roomType', { required: 'Oda tipi seçilmelidir' })}
                         isInvalid={!!errors.roomType}
+                        aria-invalid={!!errors.roomType}
+                        aria-describedby={errors.roomType ? 'reservation-roomType-error' : undefined}
+                        aria-required="true"
                       >
                         <option value="">{t('contact.form.selectRoom')}</option>
                         <option value="single">Standart Tek Kişilik Oda</option>
@@ -241,14 +271,15 @@ const ContactPage = () => {
                         <option value="triple">3 Kişilik Oda</option>
                         <option value="family">5 Kişilik Aile Odası</option>
                       </Form.Select>
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type="invalid" id="reservation-roomType-error">
                         {errors.roomType?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                      <Form.Label>{t('contact.form.specialRequests')}</Form.Label>
+                      <Form.Label htmlFor="reservation-specialRequests">{t('contact.form.specialRequests')}</Form.Label>
                       <Form.Control
+                        id="reservation-specialRequests"
                         as="textarea"
                         rows={4}
                         {...register('specialRequests', {

@@ -67,7 +67,12 @@ const Gallery = () => {
                 onClick={() => openModal(index)}
                 role="button"
                 tabIndex={0}
-                onKeyPress={(e) => e.key === 'Enter' && openModal(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    openModal(index)
+                  }
+                }}
                 aria-label={`${image.alt} görselini büyüt`}
               >
                 <img 

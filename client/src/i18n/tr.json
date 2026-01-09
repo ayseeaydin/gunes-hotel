@@ -18,7 +18,9 @@
     "viewRooms": "Odalarımızı İnceleyin",
     "reservation": "Rezervasyon",
     "viewGallery": "Galeriyi Görün",
-    "scrollDown": "Aşağı Kaydır"
+    "scrollDown": "Aşağı Kaydır",
+    "previousSlide": "Önceki slayt",
+    "nextSlide": "Sonraki slayt"
   },
   "about": {
     "title": "Hakkımızda",

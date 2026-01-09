@@ -18,7 +18,9 @@
     "viewRooms": "Guarda le nostre camere",
     "reservation": "Prenotazione",
     "viewGallery": "Vedi galleria",
-    "scrollDown": "Scorri Verso il Basso"
+    "scrollDown": "Scorri Verso il Basso",
+    "previousSlide": "Diapositiva precedente",
+    "nextSlide": "Prossima diapositiva"
   },
   "about": {
     "title": "Chi Siamo",

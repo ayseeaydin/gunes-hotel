@@ -93,30 +93,43 @@ const Contact = () => {
                 {t('contact.quickContact.description')}
               </p>
 
-              <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
+                      <Form.Label htmlFor="contact-fullName" className="visually-hidden">
+                        {t('contact.quickContact.fullNamePlaceholder')}
+                      </Form.Label>
                       <Form.Control
+                        id="contact-fullName"
                         type="text"
                         {...register('fullName', validationRules.fullName)}
                         placeholder={t('contact.quickContact.fullNamePlaceholder')}
                         isInvalid={!!errors.fullName}
+                        aria-invalid={!!errors.fullName}
+                        aria-describedby={errors.fullName ? 'fullName-error' : undefined}
                       />
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type="invalid" id="fullName-error">
                         {errors.fullName?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-3">
+                      <Form.Label htmlFor="contact-email" className="visually-hidden">
+                        {t('contact.quickContact.emailPlaceholder')}
+                      </Form.Label>
                       <Form.Control
+                        id="contact-email"
                         type="email"
                         {...register('email', validationRules.email)}
                         placeholder={t('contact.quickContact.emailPlaceholder')}
                         isInvalid={!!errors.email}
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        autoComplete="email"
                       />
-                      <Form.Control.Feedback type="invalid">
+                      <Form.Control.Feedback type="invalid" id="email-error">
                         {errors.email?.message}
                       </Form.Control.Feedback>
                     </Form.Group>
@@ -124,26 +137,39 @@ const Contact = () => {
                 </Row>
 
                 <Form.Group className="mb-3">
+                  <Form.Label htmlFor="contact-phone" className="visually-hidden">
+                    {t('contact.quickContact.phonePlaceholder')}
+                  </Form.Label>
                   <Form.Control
+                    id="contact-phone"
                     type="tel"
                     {...register('phone', validationRules.phone)}
                     placeholder={t('contact.quickContact.phonePlaceholder')}
                     isInvalid={!!errors.phone}
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
+                    autoComplete="tel"
                   />
-                  <Form.Control.Feedback type="invalid">
+                  <Form.Control.Feedback type="invalid" id="phone-error">
                     {errors.phone?.message}
                   </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
+                  <Form.Label htmlFor="contact-message" className="visually-hidden">
+                    {t('contact.quickContact.messagePlaceholder')}
+                  </Form.Label>
                   <Form.Control
+                    id="contact-message"
                     as="textarea"
                     rows={4}
                     {...register('message', validationRules.message)}
                     placeholder={t('contact.quickContact.messagePlaceholder')}
                     isInvalid={!!errors.message}
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
                   />
-                  <Form.Control.Feedback type="invalid">
+                  <Form.Control.Feedback type="invalid" id="message-error">
                     {errors.message?.message}
                   </Form.Control.Feedback>
                 </Form.Group>

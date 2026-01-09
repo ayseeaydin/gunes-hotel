@@ -18,7 +18,9 @@
     "viewRooms": "View Our Rooms",
     "reservation": "Reservation",
     "viewGallery": "View Gallery",
-    "scrollDown": "Scroll Down"
+    "scrollDown": "Scroll Down",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide"
   },
   "about": {
     "title": "About Us",

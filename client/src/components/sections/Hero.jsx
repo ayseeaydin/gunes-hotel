@@ -83,8 +83,8 @@ const Hero = () => {
   }, [slides.length])
 
   return (
-    <section id="home" className="hero" role="banner">
-      <div className="hero-slider-custom">
+    <section id="home" className="hero" role="region" aria-label="Ana banner">
+      <div className="hero-slider-custom" role="group" aria-roledescription="Slayt gösterisi" aria-label="Otel görselleri">
         {slides.map((slide, index) => {
           const isActive = index === activeSlide
           
@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <img 
                 src={slide.image}
-                alt={t(slide.titleKey)}
+                alt={`${t(slide.titleKey)} - ${t(slide.subtitleKey)}`}
                 className="slide-bg-img"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 fetchpriority={index === 0 ? 'high' : 'low'}
@@ -134,29 +134,30 @@ const Hero = () => {
         <button 
           className="nav-arrow nav-prev"
           onClick={prevSlide}
-          aria-label="Previous slide"
+          aria-label={t('hero.previousSlide') || 'Önceki slayt'}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
         </button>
         <button 
           className="nav-arrow nav-next"
           onClick={nextSlide}
-          aria-label="Next slide"
+          aria-label={t('hero.nextSlide') || 'Sonraki slayt'}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
 
-        <div className="slider-dots">
+        <div className="slider-dots" role="group" aria-label="Slayt navigasyonu">
           {slides.map((_, index) => (
             <button
               key={index}
               className={`dot ${index === activeSlide ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${index + 1}. slayta git`}
+              aria-current={index === activeSlide ? 'true' : 'false'}
             />
           ))}
         </div>
