@@ -1,66 +1,48 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useForm } from 'react-hook-form'
 import { reservationAPI } from '@services/api'
+import { useErrorHandler } from '@hooks'
+import { validationRules } from '@utils/formValidation'
 import StructuredData from '@components/common/StructuredData'
 import './ContactPage.scss'
 
 const ContactPage = () => {
   const { t } = useTranslation()
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    checkIn: '',
-    checkOut: '',
-    roomType: '',
-    guests: '',
-    specialRequests: ''
+  const { handleSuccess, withErrorHandling } = useErrorHandler()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    watch
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      checkIn: '',
+      checkOut: '',
+      roomType: '',
+      guests: '',
+      specialRequests: ''
+    }
   })
-  const [loading, setLoading] = useState(false)
-  const [alert, setAlert] = useState({ show: false, type: '', message: '' })
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  const checkInDate = watch('checkIn')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setAlert({ show: false, type: '', message: '' })
+  const onSubmit = async (data) => {
+    const { success } = await withErrorHandling(
+      () => reservationAPI.create(data),
+      t('contact.form.error')
+    )
 
-    try {
-        await reservationAPI.create(formData)
-      
-      setAlert({
-        show: true,
-        type: 'success',
-        message: t('contact.form.success')
-      })
-
-      // Reset form
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        checkIn: '',
-        checkOut: '',
-        roomType: '',
-        guests: '',
-        specialRequests: ''
-      })
-    } catch (error) {
-      setAlert({
-        show: true,
-        type: 'danger',
-        message: t('contact.form.error')
-      })
-    } finally {
-      setLoading(false)
+    if (success) {
+      handleSuccess(t('contact.form.success'))
+      reset()
     }
   }
 
@@ -146,25 +128,20 @@ const ContactPage = () => {
                 <div className="reservation-form">
                   <h3 className="form-title">{t('contact.form.title')}</h3>
 
-                  {alert.show && (
-                    <Alert variant={alert.type} onClose={() => setAlert({ ...alert, show: false })} dismissible>
-                      {alert.message}
-                    </Alert>
-                  )}
-
-                  <Form onSubmit={handleSubmit}>
+                  <Form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
                           <Form.Label>{t('contact.form.fullName')} *</Form.Label>
                           <Form.Control
                             type="text"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            required
+                            {...register('fullName', validationRules.fullName)}
                             placeholder={t('contact.form.fullNamePlaceholder')}
+                            isInvalid={!!errors.fullName}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.fullName?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
@@ -172,12 +149,13 @@ const ContactPage = () => {
                           <Form.Label>{t('contact.email')} *</Form.Label>
                           <Form.Control
                             type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
+                            {...register('email', validationRules.email)}
                             placeholder={t('contact.form.emailPlaceholder')}
+                            isInvalid={!!errors.email}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.email?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                     </Row>
@@ -188,22 +166,21 @@ const ContactPage = () => {
                           <Form.Label>{t('contact.phone')} *</Form.Label>
                           <Form.Control
                             type="tel"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            required
+                            {...register('phone', validationRules.phone)}
                             placeholder={t('contact.form.phonePlaceholder')}
+                            isInvalid={!!errors.phone}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.phone?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-3">
                           <Form.Label>{t('contact.form.guests')} *</Form.Label>
                           <Form.Select
-                            name="guests"
-                            value={formData.guests}
-                            onChange={handleChange}
-                            required
+                            {...register('guests', validationRules.guests)}
+                            isInvalid={!!errors.guests}
                           >
                             <option value="">{t('contact.form.selectGuests')}</option>
                             <option value="1">{t('contact.form.guestOptions.1')}</option>
@@ -213,6 +190,9 @@ const ContactPage = () => {
                             <option value="5">{t('contact.form.guestOptions.5')}</option>
                             <option value="6+">{t('contact.form.guestOptions.6plus')}</option>
                           </Form.Select>
+                          <Form.Control.Feedback type="invalid">
+                            {errors.guests?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                     </Row>
@@ -223,12 +203,13 @@ const ContactPage = () => {
                           <Form.Label>{t('contact.form.checkIn')} *</Form.Label>
                           <Form.Control
                             type="date"
-                            name="checkIn"
-                            value={formData.checkIn}
-                            onChange={handleChange}
-                            required
+                            {...register('checkIn', validationRules.checkInDate)}
                             min={new Date().toISOString().split('T')[0]}
+                            isInvalid={!!errors.checkIn}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.checkIn?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
@@ -236,12 +217,13 @@ const ContactPage = () => {
                           <Form.Label>{t('contact.form.checkOut')} *</Form.Label>
                           <Form.Control
                             type="date"
-                            name="checkOut"
-                            value={formData.checkOut}
-                            onChange={handleChange}
-                            required
-                            min={formData.checkIn || new Date().toISOString().split('T')[0]}
+                            {...register('checkOut', validationRules.checkOutDate)}
+                            min={checkInDate || new Date().toISOString().split('T')[0]}
+                            isInvalid={!!errors.checkOut}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.checkOut?.message}
+                          </Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                     </Row>
@@ -249,17 +231,19 @@ const ContactPage = () => {
                     <Form.Group className="mb-3">
                       <Form.Label>{t('contact.form.roomType')} *</Form.Label>
                       <Form.Select
-                        name="roomType"
-                        value={formData.roomType}
-                        onChange={handleChange}
-                        required
+                        {...register('roomType', { required: 'Oda tipi seçilmelidir' })}
+                        isInvalid={!!errors.roomType}
                       >
                         <option value="">{t('contact.form.selectRoom')}</option>
+                        <option value="single">Standart Tek Kişilik Oda</option>
                         <option value="double">Standart 2 Kişilik Oda</option>
                         <option value="twin">Çift Kişilik Oda</option>
                         <option value="triple">3 Kişilik Oda</option>
                         <option value="family">5 Kişilik Aile Odası</option>
                       </Form.Select>
+                      <Form.Control.Feedback type="invalid">
+                        {errors.roomType?.message}
+                      </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-4">
@@ -267,19 +251,23 @@ const ContactPage = () => {
                       <Form.Control
                         as="textarea"
                         rows={4}
-                        name="specialRequests"
-                        value={formData.specialRequests}
-                        onChange={handleChange}
+                        {...register('specialRequests', {
+                          maxLength: { value: 500, message: 'Özel istekler en fazla 500 karakter olabilir' }
+                        })}
                         placeholder="Özel isteklerinizi buraya yazabilirsiniz..."
+                        isInvalid={!!errors.specialRequests}
                       />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.specialRequests?.message}
+                      </Form.Control.Feedback>
                     </Form.Group>
 
                     <Button 
                       type="submit" 
                       className="btn-submit"
-                      disabled={loading}
+                      disabled={isSubmitting}
                     >
-                      {loading ? (
+                      {isSubmitting ? (
                         <>
                           <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                           {t('contact.form.sending')}

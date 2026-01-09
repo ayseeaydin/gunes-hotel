@@ -140,9 +140,4 @@ StructuredData.propTypes = {
   page: PropTypes.oneOf(['home', 'about', 'rooms', 'gallery', 'contact'])
 }
 
-StructuredData.defaultProps = {
-  type: 'hotel',
-  page: 'home'
-}
-
 export default StructuredData

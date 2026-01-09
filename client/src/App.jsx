@@ -51,94 +51,6 @@ const PageLoader = memo(() => (
 
 PageLoader.displayName = 'PageLoader'
 
-// Error Boundary Component - Hata durumunda gösterilecek
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { hasError: false, error: null, errorInfo: null }
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error }
-  }
-
-  componentDidCatch(error, errorInfo) {
-    // Log error to console in development
-    if (import.meta.env.DEV) {
-      console.error('Error caught by boundary:', error, errorInfo)
-    }
-    
-    this.setState({ errorInfo })
-  }
-
-  handleReload = () => {
-    window.location.reload()
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '60vh',
-          flexDirection: 'column',
-          gap: '1rem',
-          padding: '2rem',
-          textAlign: 'center'
-        }}
-        role="alert"
-        aria-live="assertive"
-        >
-          <h2 style={{ color: '#c18c30' }}>Bir şeyler ters gitti 😔</h2>
-          <p style={{ color: '#666' }}>Sayfa yüklenirken bir hata oluştu.</p>
-          {import.meta.env.DEV && this.state.error && (
-            <details style={{ 
-              marginTop: '1rem', 
-              textAlign: 'left',
-              maxWidth: '600px',
-              width: '100%'
-            }}>
-              <summary style={{ cursor: 'pointer', marginBottom: '0.5rem' }}>
-                Hata Detayları
-              </summary>
-              <pre style={{ 
-                background: '#f5f5f5', 
-                padding: '1rem',
-                borderRadius: '4px',
-                overflow: 'auto',
-                fontSize: '12px'
-              }}>
-                {this.state.error.toString()}
-                {this.state.errorInfo && this.state.errorInfo.componentStack}
-              </pre>
-            </details>
-          )}
-          <button
-            onClick={this.handleReload}
-            style={{
-              padding: '10px 20px',
-              backgroundColor: '#c18c30',
-              color: 'white',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: '600'
-            }}
-            aria-label="Sayfayı yeniden yükle"
-          >
-            Sayfayı Yenile
-          </button>
-        </div>
-      )
-    }
-
-    return this.props.children
-  }
-}
-
 function App() {
   const location = useLocation()
 
@@ -188,6 +100,21 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        gutter={8}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+            padding: '16px',
+            borderRadius: '8px',
+            fontSize: '14px'
+          }
+        }}
+      />
       <Layout>
         <Suspense fallback={<PageLoader />}>
           <Routes>

@@ -1,49 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useForm } from 'react-hook-form'
 import { useErrorHandler } from '@hooks'
 import { contactAPI } from '@services/api'
+import { validationRules } from '@utils/formValidation'
 import './Contact.scss'
 
 const Contact = () => {
   const { t } = useTranslation()
-  const { handleError, handleSuccess, withErrorHandling } = useErrorHandler()
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    message: ''
+  const { handleSuccess, withErrorHandling } = useErrorHandler()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      message: ''
+    }
   })
-  const [loading, setLoading] = useState(false)
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-
+  const onSubmit = async (data) => {
     const { success } = await withErrorHandling(
-      () => contactAPI.send(formData),
+      () => contactAPI.send(data),
       t('contact.quickContact.error')
     )
 
     if (success) {
       handleSuccess(t('contact.quickContact.success'))
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        message: ''
-      })
+      reset()
     }
-
-    setLoading(false)
   }
 
   return (
@@ -101,30 +93,32 @@ const Contact = () => {
                 {t('contact.quickContact.description')}
               </p>
 
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
                       <Form.Control
                         type="text"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
+                        {...register('fullName', validationRules.fullName)}
                         placeholder={t('contact.quickContact.fullNamePlaceholder')}
-                        required
+                        isInvalid={!!errors.fullName}
                       />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.fullName?.message}
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-3">
                       <Form.Control
                         type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
+                        {...register('email', validationRules.email)}
                         placeholder={t('contact.quickContact.emailPlaceholder')}
-                        required
+                        isInvalid={!!errors.email}
                       />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.email?.message}
+                      </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -132,33 +126,35 @@ const Contact = () => {
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
+                    {...register('phone', validationRules.phone)}
                     placeholder={t('contact.quickContact.phonePlaceholder')}
-                    required
+                    isInvalid={!!errors.phone}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.phone?.message}
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
                   <Form.Control
                     as="textarea"
                     rows={4}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    {...register('message', validationRules.message)}
                     placeholder={t('contact.quickContact.messagePlaceholder')}
-                    required
+                    isInvalid={!!errors.message}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.message?.message}
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <div className="form-actions">
                   <Button 
                     type="submit" 
                     className="btn-submit"
-                    disabled={loading}
+                    disabled={isSubmitting}
                   >
-                    {loading ? (
+                    {isSubmitting ? (
                       <>
                         <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                         {t('contact.quickContact.sending')}
