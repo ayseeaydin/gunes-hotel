@@ -1,65 +1,25 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { getRoomsData } from '@data/rooms'
 import StructuredData from '@components/common/StructuredData'
 import './RoomsPage.scss'
 
 const RoomsPage = () => {
   const { t } = useTranslation()
 
-  const rooms = [
-    {
-      id: 1,
-      name: t('rooms.double'),
-      description: t('rooms.doubleDesc'),
-      image: '/img/double-room-1.webp',
-      images: ['/img/double-room-1.webp', '/img/double-room-2.webp', '/img/double-room-3.webp'],
-      guests: 2,
-      beds: '1 Çift Kişilik Yatak',
-      price: '1.500',
-      features: ['24s Sıcak Su', 'Dağ Manzarası', 'Çay/Kahve', 'WiFi'],
-      popular: false
-    },
-    {
-      id: 2,
-      name: t('rooms.twin'),
-      description: t('rooms.twinDesc'),
-      image: '/img/twin-room-1.webp',
-      images: ['/img/twin-room-1.webp', '/img/twin-room-2.webp', '/img/twin-room-3.webp'],
-      guests: 2,
-      beds: '2 Tek Kişilik Yatak',
-      price: '1.500',
-      features: ['24s Sıcak Su', 'Dağ Manzarası', 'Çay/Kahve', 'WiFi'],
-      popular: true
-    },
-    {
-      id: 3,
-      name: t('rooms.triple'),
-      description: t('rooms.tripleDesc'),
-      image: '/img/triple-room.webp',
-      images: ['/img/triple-room.webp', '/img/triple-room-1.webp', '/img/triple-room-2.webp'],
-      guests: 3,
-      beds: '3 Tek Kişilik Yatak',
-      price: '2.000',
-      features: ['24s Sıcak Su', 'Dağ Manzarası', 'Çay/Kahve', 'WiFi'],
-      popular: false
-    },
-    {
-      id: 4,
-      name: t('rooms.family'),
-      description: t('rooms.familyDesc'),
-      image: '/img/gallery-27.webp',
-      images: ['/img/gallery-27.webp', '/img/gallery-28.webp', '/img/gallery-29.webp'],
-      guests: 5,
-      beds: '1 Çift + 3 Tek Kişilik Yatak',
-      price: '3.000',
-      features: ['24s Sıcak Su', 'Dağ Manzarası', 'Çay/Kahve', 'WiFi', 'Geniş Alan'],
-      popular: false,
-      familyFriendly: true
-    }
-  ]
+  const rooms = useMemo(() => {
+    return getRoomsData(t).map(room => ({
+      ...room,
+      name: t(room.nameKey),
+      description: t(room.descKey),
+      features: room.features.map(feature => 
+        feature.text || t(feature.textKey)
+      )
+    }))
+  }, [t])
 
   return (
     <>

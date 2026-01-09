@@ -1,76 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { getRoomsData } from '@data/rooms'
 import './Rooms.scss'
 
 const Rooms = () => {
   const { t } = useTranslation()
   const [imageErrors, setImageErrors] = useState({})
 
-  const rooms = [
-    {
-      id: 1,
-      name: t('rooms.double'),
-      description: t('rooms.doubleDesc'),
-      image: '/img/double-room-1.webp',
-      guests: 2,
-      price: '1.500',
-      features: [
-        { icon: 'fa-users', text: `2 ${t('rooms.features.guests')}` },
-        { icon: 'fa-tint', text: t('rooms.features.hotWater') },
-        { icon: 'fa-mountain', text: t('rooms.features.mountainView') },
-        { icon: 'fa-coffee', text: t('rooms.features.teaCoffee') }
-      ],
-      popular: false
-    },
-    {
-      id: 2,
-      name: t('rooms.twin'),
-      description: t('rooms.twinDesc'),
-      image: '/img/twin-room-1.webp',
-      guests: 2,
-      price: '1.500',
-      features: [
-        { icon: 'fa-users', text: `2 ${t('rooms.features.guests')}` },
-        { icon: 'fa-tint', text: t('rooms.features.hotWater') },
-        { icon: 'fa-mountain', text: t('rooms.features.mountainView') },
-        { icon: 'fa-coffee', text: t('rooms.features.teaCoffee') }
-      ],
-      popular: true
-    },
-    {
-      id: 3,
-      name: t('rooms.triple'),
-      description: t('rooms.tripleDesc'),
-      image: '/img/triple-room.webp',
-      guests: 3,
-      price: '2.000',
-      features: [
-        { icon: 'fa-users', text: `3 ${t('rooms.features.guests')}` },
-        { icon: 'fa-tint', text: t('rooms.features.hotWater') },
-        { icon: 'fa-mountain', text: t('rooms.features.mountainView') },
-        { icon: 'fa-coffee', text: t('rooms.features.teaCoffee') }
-      ],
-      popular: false
-    },
-    {
-      id: 4,
-      name: t('rooms.family'),
-      description: t('rooms.familyDesc'),
-      image: '/img/family-room.webp',
-      guests: 5,
-      price: '3.000',
-      features: [
-        { icon: 'fa-users', text: `5 ${t('rooms.features.guests')}` },
-        { icon: 'fa-tint', text: t('rooms.features.hotWater') },
-        { icon: 'fa-mountain', text: t('rooms.features.mountainView') },
-        { icon: 'fa-coffee', text: t('rooms.features.teaCoffee') }
-      ],
-      popular: false,
-      familyFriendly: true
-    }
-  ]
+  const rooms = useMemo(() => {
+    return getRoomsData(t).map(room => ({
+      ...room,
+      name: t(room.nameKey),
+      description: t(room.descKey),
+      features: room.features.map(feature => ({
+        icon: feature.icon,
+        text: feature.count 
+          ? `${feature.count} ${t(feature.textKey)}`
+          : feature.text || t(feature.textKey)
+      }))
+    }))
+  }, [t])
 
   const handleImageError = (roomId, e) => {
     setImageErrors(prev => ({ ...prev, [roomId]: true }))

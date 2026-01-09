@@ -133,7 +133,8 @@ export default defineConfig({
       '@services': path.resolve(__dirname, './src/services'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@styles': path.resolve(__dirname, './src/styles'),
-      '@i18n': path.resolve(__dirname, './src/i18n')
+      '@i18n': path.resolve(__dirname, './src/i18n'),
+      '@data': path.resolve(__dirname, './src/data')
     },
     // React'in tek instance olarak kullanılmasını garanti et
     dedupe: ['react', 'react-dom', 'react-router-dom', 'react-bootstrap']
