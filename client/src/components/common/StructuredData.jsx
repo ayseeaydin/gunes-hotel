@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet-async'
 
 const StructuredData = ({ type = 'hotel', page = 'home' }) => {
@@ -132,6 +133,16 @@ const StructuredData = ({ type = 'hotel', page = 'home' }) => {
       </script>
     </Helmet>
   )
+}
+
+StructuredData.propTypes = {
+  type: PropTypes.oneOf(['hotel', 'organization', 'website']),
+  page: PropTypes.oneOf(['home', 'about', 'rooms', 'gallery', 'contact'])
+}
+
+StructuredData.defaultProps = {
+  type: 'hotel',
+  page: 'home'
 }
 
 export default StructuredData

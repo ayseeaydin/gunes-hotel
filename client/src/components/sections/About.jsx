@@ -11,18 +11,18 @@ const About = () => {
   const features = [
     {
       icon: 'fa-home',
-      title: 'Aile İşletmesi',
-      description: '1980\'lerden beri'
+      title: t('about.features.familyBusiness'),
+      description: t('about.features.familyBusinessDesc')
     },
     {
       icon: 'fa-heart',
-      title: 'Samimi Ortam',
-      description: 'Sıcak misafirperverlik'
+      title: t('about.features.warmAtmosphere'),
+      description: t('about.features.warmAtmosphereDesc')
     },
     {
       icon: 'fa-star',
-      title: 'Eşsiz Konum',
-      description: 'Nemrut\'a en yakın'
+      title: t('about.features.uniqueLocation'),
+      description: t('about.features.uniqueLocationDesc')
     }
   ]
 
@@ -99,7 +99,7 @@ const About = () => {
               </div>
 
               <Link to="/about" className="btn btn-primary">
-                Daha Fazla Bilgi
+                {t('about.learnMore')}
               </Link>
             </div>
           </Col>
