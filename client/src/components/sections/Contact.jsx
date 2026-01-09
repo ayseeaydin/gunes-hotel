@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import axios from 'axios'
+import { useErrorHandler } from '@hooks'
+import { contactAPI } from '@services/api'
 import './Contact.scss'
 
 const Contact = () => {
   const { t } = useTranslation()
+  const { handleError, handleSuccess, withErrorHandling } = useErrorHandler()
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -14,7 +16,6 @@ const Contact = () => {
     message: ''
   })
   const [loading, setLoading] = useState(false)
-  const [alert, setAlert] = useState({ show: false, type: '', message: '' })
 
   const handleChange = (e) => {
     setFormData({
@@ -26,32 +27,23 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    setAlert({ show: false, type: '', message: '' })
 
-    try {
-      await axios.post('/api/contact', formData)
-      
-      setAlert({
-        show: true,
-        type: 'success',
-        message: t('contact.quickContact.success')
-      })
+    const { success } = await withErrorHandling(
+      () => contactAPI.send(formData),
+      t('contact.quickContact.error')
+    )
 
+    if (success) {
+      handleSuccess(t('contact.quickContact.success'))
       setFormData({
         fullName: '',
         email: '',
         phone: '',
         message: ''
       })
-    } catch (error) {
-      setAlert({
-        show: true,
-        type: 'danger',
-        message: t('contact.quickContact.error')
-      })
-    } finally {
-      setLoading(false)
     }
+
+    setLoading(false)
   }
 
   return (
@@ -108,12 +100,6 @@ const Contact = () => {
               <p className="text-muted mb-4">
                 {t('contact.quickContact.description')}
               </p>
-
-              {alert.show && (
-                <Alert variant={alert.type} onClose={() => setAlert({ ...alert, show: false })} dismissible>
-                  {alert.message}
-                </Alert>
-              )}
 
               <Form onSubmit={handleSubmit}>
                 <Row>

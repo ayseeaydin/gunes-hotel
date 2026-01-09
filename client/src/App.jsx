@@ -1,7 +1,9 @@
 import React, { useEffect, lazy, Suspense, memo } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import AOS from 'aos'
+import { Toaster } from 'react-hot-toast'
 import Layout from '@components/layout/Layout'
+import ErrorBoundary from '@components/common/ErrorBoundary'
 
 // Lazy Loading - Sayfalar sadece gerektiğinde yüklenecek
 const Home = lazy(() => import(/* webpackChunkName: "home" */ '@pages/Home'))
